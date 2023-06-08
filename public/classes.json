@@ -6,7 +6,7 @@
     "instructorEmail": "rahman@example.com",
     "availableSeats": 10,
     "price": 50,
-    "status": "pending"
+    "status": "approved"
   },
   {
     "classImage": "https://i.ibb.co/vYkqZNj/download.jpg",
@@ -15,7 +15,7 @@
     "instructorEmail": "farid@example.com",
     "availableSeats": 8,
     "price": 40,
-    "status": "pending"
+    "status": "approved"
   },
   {
     "classImage": "https://i.ibb.co/vYkqZNj/download.jpg",
@@ -24,7 +24,7 @@
     "instructorEmail": "farid@example.com",
     "availableSeats": 8,
     "price": 45,
-    "status": "pending"
+    "status": "approved"
   },
   {
     "classImage": "https://i.ibb.co/pJQYhV5/download.jpg",
@@ -33,7 +33,7 @@
     "instructorEmail": "hannan@example.com",
     "availableSeats": 12,
     "price": 60,
-    "status": "pending"
+    "status": "approved"
   },
   {
     "classImage": "https://i.ibb.co/pJQYhV5/download.jpg",
@@ -42,7 +42,7 @@
     "instructorEmail": "golam@example.com",
     "availableSeats": 6,
     "price": 30,
-    "status": "pending"
+    "status": "approved"
   },
   {
     "classImage": "https://i.ibb.co/sHW0jYV/images.jpg",
@@ -51,7 +51,7 @@
     "instructorEmail": "shahriar@example.com",
     "availableSeats": 15,
     "price": 70,
-    "status": "pending"
+    "status": "approved"
   },
   {
     "classImage": "https://i.ibb.co/sHW0jYV/images.jpg",
@@ -60,7 +60,7 @@
     "instructorEmail": "shahriar@example.com",
     "availableSeats": 15,
     "price": 65,
-    "status": "pending"
+    "status": "approved"
   },
   {
     "classImage": "https://i.ibb.co/pJQYhV5/download.jpg",
@@ -69,7 +69,7 @@
     "instructorEmail": "kobir@example.com",
     "availableSeats": 10,
     "price": 50,
-    "status": "pending"
+    "status": "approved"
   },
   {
     "classImage": "https://i.ibb.co/C9pdfqk/download.jpg",
@@ -78,7 +78,7 @@
     "instructorEmail": "kobir@example.com",
     "availableSeats": 10,
     "price": 55,
-    "status": "pending"
+    "status": "approved"
   },
   {
     "classImage": "https://i.ibb.co/fHSG6v7/download.jpg",
@@ -87,7 +87,7 @@
     "instructorEmail": "krishna@example.com",
     "availableSeats": 10,
     "price": 50,
-    "status": "pending"
+    "status": "approved"
   },
   {
     "classImage": "https://i.ibb.co/C9pdfqk/download.jpg",
@@ -96,7 +96,7 @@
     "instructorEmail": "krishna@example.com",
     "availableSeats": 10,
     "price": 70,
-    "status": "pending"
+    "status": "approved"
   },
   {
     "classImage": "https://i.ibb.co/mH0mcfC/images.jpg",
@@ -105,7 +105,7 @@
     "instructorEmail": "rahman@example.com",
     "availableSeats": 12,
     "price": 60,
-    "status": "pending"
+    "status": "approved"
   },
   {
     "classImage": "https://i.ibb.co/W0B58Dj/download.jpg",
@@ -114,7 +114,7 @@
     "instructorEmail": "farid@example.com",
     "availableSeats": 6,
     "price": 30,
-    "status": "pending"
+    "status": "approved"
   },
   {
     "classImage": "https://i.ibb.co/vYkqZNj/download.jpg",
@@ -123,7 +123,7 @@
     "instructorEmail": "poresh@example.com",
     "availableSeats": 8,
     "price": 40,
-    "status": "pending"
+    "status": "approved"
   },
   {
     "classImage": "https://i.ibb.co/vYkqZNj/download.jpg",

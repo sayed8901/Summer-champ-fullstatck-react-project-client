@@ -18,9 +18,8 @@ const PopularInstructors = () => {
           Popular <span className="text-gradient">Instructors</span>
         </h2>
         <p className="py-12 text-center">
-          Hi Champs. How is going.. Welcome you to this summer camping.
-          <br /> <br /> If you are interested, you can find our top popular
-          sports classes here & enroll to your favorite one today...
+          Meet our top instructors who are always ready to excite your
+          sports experience.
         </p>
       </div>
 
@@ -38,8 +37,17 @@ const PopularInstructors = () => {
             </figure>
             <div className="card-body">
               <h2 className="card-title">{instructor.name}</h2>
-              <p><small><b>{instructor.email}</b></small></p>
-              <small>classes: {instructor.classes.map(classNames => <b key={classNames}>{classNames}, </b>)}</small>
+              <p>
+                <small>
+                  <b>{instructor.email}</b>
+                </small>
+              </p>
+              <small>
+                classes:{" "}
+                {instructor.classes.map((classNames) => (
+                  <b key={classNames}>{classNames}, </b>
+                ))}
+              </small>
             </div>
           </div>
         ))}
