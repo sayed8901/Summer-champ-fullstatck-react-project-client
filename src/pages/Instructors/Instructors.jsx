@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getAllInstructors } from "../api/instructors";
-import useTitle from "../hooks/useTitle";
+import { getAllInstructors } from "../../api/instructors";
+import useTitle from "../../hooks/useTitle";
 import LazyLoad from "react-lazy-load";
 
 const Instructors = () => {

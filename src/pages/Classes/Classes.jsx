@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import useTitle from "../hooks/useTitle";
-import { getAllApprovedClasses } from "../api/classes";
+import useTitle from "../../hooks/useTitle";
+import { getAllApprovedClasses } from "../../api/classes";
 import LazyLoad from "react-lazy-load";
-import { AuthContext } from "../authProviders/AuthProvider";
+import { AuthContext } from "../../authProviders/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -32,6 +32,16 @@ const Classes = () => {
         timer: 1500,
       });
       navigate('/login', {state:{ from: location }, replace:true});
+    }
+    else{
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "You have successfully booked this class.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate('/');
     }
   };
 
