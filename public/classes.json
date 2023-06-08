@@ -2,7 +2,7 @@
   {
     "classImage": "https://i.ibb.co/fHSG6v7/download.jpg",
     "className": "Football",
-    "instructorName": "Mohammad Rahman",
+    "instructorName": "Md. Rahman",
     "instructorEmail": "rahman@example.com",
     "availableSeats": 10,
     "price": 50,
@@ -101,7 +101,7 @@
   {
     "classImage": "https://i.ibb.co/mH0mcfC/images.jpg",
     "className": "Cricket",
-    "instructorName": "Mohammad Rahman",
+    "instructorName": "Md. Rahman",
     "instructorEmail": "rahman@example.com",
     "availableSeats": 12,
     "price": 60,

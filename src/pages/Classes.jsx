@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import useTitle from "../hooks/useTitle";
 import { getAllApprovedClasses } from "../api/classes";
+import LazyLoad from "react-lazy-load";
+import AnimatedSection from "../components/AOS-Animate/AnimatedSection";
 
 const Classes = () => {
   useTitle("Classes");
@@ -8,10 +10,10 @@ const Classes = () => {
   const [classes, setClasses] = useState([]);
   useEffect(() => {
     getAllApprovedClasses().then((data) => {
-        setClasses(data);
+      setClasses(data);
     });
   }, []);
-//   console.log(classes);
+  //   console.log(classes);
 
   return (
     <div>
@@ -25,7 +27,37 @@ const Classes = () => {
         </p>
       </div>
 
-      
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        {classes.map((singleClass) => (
+          <LazyLoad key={singleClass._id}>
+            <AnimatedSection>
+            <div className="card sm:card-side bg-base-100 shadow-xl">
+              <figure className="sm:w-5/12 sm:ms-4">
+                <img className="rounded-xl" src={singleClass?.classImage} />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title text-gradient">
+                  {singleClass.className}
+                </h2>
+                <div>
+                  <p>
+                    Instructor: <b>{singleClass.instructorName}</b>
+                  </p>
+                  <p>Available Seats: {singleClass.availableSeats}</p>
+                  <p>
+                    Price:{" "}
+                    <b className="text-gradient">BDTK {singleClass.price}</b>
+                  </p>
+                </div>
+                <div className="card-actions justify-end">
+                  <button className="btn btn-primary">Enroll</button>
+                </div>
+              </div>
+            </div>
+            </AnimatedSection>
+          </LazyLoad>
+        ))}
+      </div>
     </div>
   );
 };
