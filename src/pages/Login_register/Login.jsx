@@ -163,7 +163,8 @@ const Login = () => {
         </Link>
       </small>
 
-      <div className="mt-5">
+      <div className="divider w-3/4 mx-auto"></div>
+      <div>
         <h4 className="mb-5 text-center">More Login options</h4>
 
         <div className="flex flex-col w-full lg:flex-row">

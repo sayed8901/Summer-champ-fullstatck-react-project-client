@@ -19,7 +19,7 @@ const PopularClasses = () => {
           Popular <span className="text-gradient">Classes</span>
         </h2>
         <p className="py-12 text-center">
-          Hi Champs. How is going.. Welcome you to this summer camping.
+          This summer, we are providing some exciting sports camping.
           <br /> <br /> If you are interested, you can find our top popular
           sports classes here & enroll to your favorite one today...
         </p>
