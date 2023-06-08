@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllInstructors } from "../api/instructors";
 import useTitle from "../hooks/useTitle";
+import LazyLoad from "react-lazy-load";
 
 const Instructors = () => {
     useTitle("Instructors");
@@ -24,16 +25,16 @@ const Instructors = () => {
         </p>
       </div>
 
-      <div className="overflow-x-auto my-12">
+      <LazyLoad className="overflow-x-auto my-12">
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
-              <th className="text-center">#</th>
-              <th className="text-center">Image</th>
-              <th className="text-center">Name</th>
-              <th className="text-center">Email</th>
-              <th className="text-center">Classes</th>
+            <tr className="text-center font-bold text-base bg-base-200">
+              <th>#</th>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Classes</th>
             </tr>
           </thead>
           <tbody>
@@ -53,7 +54,7 @@ const Instructors = () => {
             ))}
           </tbody>
         </table>
-      </div>
+      </LazyLoad>
     </div>
   );
 };

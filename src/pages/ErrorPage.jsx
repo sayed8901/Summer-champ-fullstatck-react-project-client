@@ -12,8 +12,8 @@ const ErrorPage = () => {
         <figure>
           <Lottie animationData={ErrorAnimation} loop={true} />
         </figure>
-        <div className="card-body text-center flex flex-col justify-evenly sm:mr-4 lg:mr-12">
-          <h1 className="text-3xl sm:text-xl md:text-3xl lg:text-5xl text-error font-bold mb-8">
+        <div className="card-body text-center flex flex-col justify-evenly sm:mr-4 lg:mr-12 sm:w-7/12">
+          <h1 className="text-3xl sm:text-xl md:text-2xl lg:text-4xl text-error font-bold mb-8 sm:mb-0 text-gradient">
             Oops!! <br /> <br /> Page not found!
           </h1>
           <Link>

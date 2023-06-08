@@ -30,7 +30,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const fromLocation = location.state?.from?.pathname || "/";
-  // console.log(fromLocation);
+  console.log(fromLocation);
 
   const onSubmit = (data) => {
     console.log(data);

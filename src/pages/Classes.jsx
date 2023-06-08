@@ -1,11 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useTitle from "../hooks/useTitle";
 import { getAllApprovedClasses } from "../api/classes";
 import LazyLoad from "react-lazy-load";
-import AnimatedSection from "../components/AOS-Animate/AnimatedSection";
+import { AuthContext } from "../authProviders/AuthProvider";
+import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Classes = () => {
   useTitle("Classes");
+
+  const { user } = useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const [classes, setClasses] = useState([]);
   useEffect(() => {
@@ -13,7 +20,20 @@ const Classes = () => {
       setClasses(data);
     });
   }, []);
-  //   console.log(classes);
+  // console.log(classes);
+
+  const handleSelect = () => {
+    if (!user) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: "You need log in first to continue!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      navigate('/login', {state:{ from: location }, replace:true});
+    }
+  };
 
   return (
     <div>
@@ -30,8 +50,7 @@ const Classes = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
         {classes.map((singleClass) => (
           <LazyLoad key={singleClass._id}>
-            <AnimatedSection>
-            <div className="card sm:card-side bg-base-100 shadow-xl">
+            <div className={`card sm:card-side shadow-xl ${singleClass.availableSeats === 0 ? 'bg-red-400' : 'bg-base-100' }`}>
               <figure className="sm:w-5/12 sm:ms-4">
                 <img className="rounded-xl" src={singleClass?.classImage} />
               </figure>
@@ -50,11 +69,10 @@ const Classes = () => {
                   </p>
                 </div>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Enroll</button>
+                  <button disabled={singleClass.availableSeats === 0} onClick={handleSelect} className="btn btn-primary">Select</button>
                 </div>
               </div>
             </div>
-            </AnimatedSection>
           </LazyLoad>
         ))}
       </div>

@@ -13,7 +13,7 @@ const PrivateRoute = ({ children }) => {
     return (
       <div
         className="hero min-h-screen"
-        style={{ minHeight: `calc(100vh - 14em)` }}
+        style={{ minHeight: `calc(100vh - 10em)` }}
       >
         <FidgetSpinner
           visible={true}
