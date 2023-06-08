@@ -14,7 +14,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className={`my-5 lg:my-0 mx-2 font-bold ${({ isActive }) =>
+          className={`my-5 lg:my-0 mx-2 font-bold text-blue-600 ${({ isActive }) =>
             isActive ? "active" : ""}`}
         >
           Home
@@ -23,7 +23,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/instructors"
-          className={`mb-5 lg:mb-0 mx-2 font-bold ${({ isActive }) =>
+          className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({ isActive }) =>
             isActive ? "active" : ""}`}
         >
           Instructors
@@ -32,7 +32,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/classes"
-          className={`mb-5 lg:mb-0 mx-2 font-bold ${({ isActive }) =>
+          className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({ isActive }) =>
             isActive ? "active" : ""}`}
         >
           Classes
@@ -41,7 +41,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/dashboard"
-          className={`mb-5 lg:mb-0 mx-2 font-bold ${({ isActive }) =>
+          className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({ isActive }) =>
             isActive ? "active" : ""}`}
         >
           Dashboard
@@ -51,7 +51,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 bg-opacity-30 h-24 sticky top-0 z-10 rounded">
+    <div className="navbar bg-base-300 bg-opacity-70 h-24 sticky top-0 z-10 rounded">
       <div className="navbar-start">
         {/* dropdown navbar for small display */}
         <div className="dropdown">

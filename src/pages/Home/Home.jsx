@@ -11,8 +11,8 @@ const Home = () => {
     return (
         <div>
             <AnimatedSection><BannerSlider></BannerSlider></AnimatedSection>
-            <AnimatedSection><PopularInstructors></PopularInstructors></AnimatedSection>
             <AnimatedSection><PopularClasses></PopularClasses></AnimatedSection>
+            <AnimatedSection><PopularInstructors></PopularInstructors></AnimatedSection>
         </div>
     );
 };

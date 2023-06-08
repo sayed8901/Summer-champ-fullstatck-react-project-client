@@ -1,0 +1,137 @@
+[
+  {
+    "classImage": "https://i.ibb.co/fHSG6v7/download.jpg",
+    "className": "Football",
+    "instructorName": "Mohammad Rahman",
+    "instructorEmail": "rahman@example.com",
+    "availableSeats": 10,
+    "price": 50,
+    "status": "pending"
+  },
+  {
+    "classImage": "https://i.ibb.co/vYkqZNj/download.jpg",
+    "className": "Tennis",
+    "instructorName": "Farid Zaman",
+    "instructorEmail": "farid@example.com",
+    "availableSeats": 8,
+    "price": 40,
+    "status": "pending"
+  },
+  {
+    "classImage": "https://i.ibb.co/vYkqZNj/download.jpg",
+    "className": "Table Tennis",
+    "instructorName": "Farid Zaman",
+    "instructorEmail": "farid@example.com",
+    "availableSeats": 8,
+    "price": 45,
+    "status": "pending"
+  },
+  {
+    "classImage": "https://i.ibb.co/pJQYhV5/download.jpg",
+    "className": "Hockey",
+    "instructorName": "Abdul Hannan",
+    "instructorEmail": "hannan@example.com",
+    "availableSeats": 12,
+    "price": 60,
+    "status": "pending"
+  },
+  {
+    "classImage": "https://i.ibb.co/pJQYhV5/download.jpg",
+    "className": "Golf",
+    "instructorName": "Golam Sarwar",
+    "instructorEmail": "golam@example.com",
+    "availableSeats": 6,
+    "price": 30,
+    "status": "pending"
+  },
+  {
+    "classImage": "https://i.ibb.co/sHW0jYV/images.jpg",
+    "className": "Swimming",
+    "instructorName": "Sahriar Ahmed",
+    "instructorEmail": "shahriar@example.com",
+    "availableSeats": 15,
+    "price": 70,
+    "status": "pending"
+  },
+  {
+    "classImage": "https://i.ibb.co/sHW0jYV/images.jpg",
+    "className": "Diving",
+    "instructorName": "Sahriar Ahmed",
+    "instructorEmail": "shahriar@example.com",
+    "availableSeats": 15,
+    "price": 65,
+    "status": "pending"
+  },
+  {
+    "classImage": "https://i.ibb.co/pJQYhV5/download.jpg",
+    "className": "Basketball",
+    "instructorName": "Jhon Kobir",
+    "instructorEmail": "kobir@example.com",
+    "availableSeats": 10,
+    "price": 50,
+    "status": "pending"
+  },
+  {
+    "classImage": "https://i.ibb.co/C9pdfqk/download.jpg",
+    "className": "Volleyball",
+    "instructorName": "Jhon Kobir",
+    "instructorEmail": "kobir@example.com",
+    "availableSeats": 10,
+    "price": 55,
+    "status": "pending"
+  },
+  {
+    "classImage": "https://i.ibb.co/fHSG6v7/download.jpg",
+    "className": "Handball",
+    "instructorName": "Krishna Majhi",
+    "instructorEmail": "krishna@example.com",
+    "availableSeats": 10,
+    "price": 50,
+    "status": "pending"
+  },
+  {
+    "classImage": "https://i.ibb.co/C9pdfqk/download.jpg",
+    "className": "baseball",
+    "instructorName": "Krishna Majhi",
+    "instructorEmail": "krishna@example.com",
+    "availableSeats": 10,
+    "price": 70,
+    "status": "pending"
+  },
+  {
+    "classImage": "https://i.ibb.co/mH0mcfC/images.jpg",
+    "className": "Cricket",
+    "instructorName": "Mohammad Rahman",
+    "instructorEmail": "rahman@example.com",
+    "availableSeats": 12,
+    "price": 60,
+    "status": "pending"
+  },
+  {
+    "classImage": "https://i.ibb.co/W0B58Dj/download.jpg",
+    "className": "Badminton",
+    "instructorName": "Farid Zaman",
+    "instructorEmail": "farid@example.com",
+    "availableSeats": 6,
+    "price": 30,
+    "status": "pending"
+  },
+  {
+    "classImage": "https://i.ibb.co/vYkqZNj/download.jpg",
+    "className": "Gymnastics",
+    "instructorName": "Poresh Debdash",
+    "instructorEmail": "poresh@example.com",
+    "availableSeats": 8,
+    "price": 40,
+    "status": "pending"
+  },
+  {
+    "classImage": "https://i.ibb.co/vYkqZNj/download.jpg",
+    "className": "Athletics",
+    "instructorName": "Poresh Debdash",
+    "instructorEmail": "poresh@example.com",
+    "availableSeats": 15,
+    "price": 70,
+    "status": "pending"
+  }
+]
