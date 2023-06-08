@@ -22,14 +22,21 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
     reset,
+    watch,
   } = useForm();
 
-  const { createNewUser, updateUserData, setLoading, googleSignIn, gitHubSignIn } = useContext(AuthContext);
+  const {
+    createNewUser,
+    updateUserData,
+    setLoading,
+    googleSignIn,
+    gitHubSignIn,
+  } = useContext(AuthContext);
   //   console.log(createNewUser);
   const navigate = useNavigate();
   const location = useLocation();
   const fromLocation = location.state?.from?.pathname || "/";
-  console.log(fromLocation);
+  // console.log(fromLocation);
 
   const onSubmit = (data) => {
     // console.log(data);
@@ -68,39 +75,41 @@ const Register = () => {
       });
   };
 
+  // cross-check "password" value with the "confirm password" value.
+  const password = watch("password");
 
-    // handle Google Sign In
-    const handleGoogleLogIn = () => {
-      googleSignIn()
-        .then((result) => {
-          console.log(result.user);
-          // save user to BD
-          saveUser(result.user);
-          navigate(fromLocation, { replace: true });
-        })
-        .catch((error) => {
-          setLoading(false);
-          console.log(error.message);
-          toast.error(error.message);
-        });
-    };
 
-        // handle Google Sign In
-        const handleGitHubLogIn = () => {
-          gitHubSignIn()
-            .then((result) => {
-              console.log(result.user);
-              // save user to BD
-              saveUser(result.user);
-              navigate(fromLocation, { replace: true });
-            })
-            .catch((error) => {
-              setLoading(false);
-              console.log(error.message);
-              toast.error(error.message);
-            });
-        };
+  // handle Google Sign In
+  const handleGoogleLogIn = () => {
+    googleSignIn()
+      .then((result) => {
+        console.log(result.user);
+        // save user to BD
+        saveUser(result.user);
+        navigate(fromLocation, { replace: true });
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error.message);
+        toast.error(error.message);
+      });
+  };
 
+  // handle Google Sign In
+  const handleGitHubLogIn = () => {
+    gitHubSignIn()
+      .then((result) => {
+        console.log(result.user);
+        // save user to BD
+        saveUser(result.user);
+        navigate(fromLocation, { replace: true });
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error.message);
+        toast.error(error.message);
+      });
+  };
 
   return (
     <div className="w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[50%] mx-auto my-16 py-8 bg-base-200 rounded-xl">
@@ -213,6 +222,9 @@ const Register = () => {
                 minLength: 6,
                 maxLength: 12,
                 pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
+                
+                // to cross-check "password" value with the "confirm password" value.
+                validate: (value) => value === password,
               })}
             />
 
@@ -251,6 +263,8 @@ const Register = () => {
               Password must have 1 uppercase, 1 number & 1 special character
             </p>
           )}
+          {/* to display error msg when "password" does not match with the "confirm password" */}
+          {errors.confirmPassword && <p className="text-red-600">Passwords do not match</p>}
         </div>
 
         <div className="form-control">
@@ -282,16 +296,13 @@ const Register = () => {
           </Link>
         </small>
       </p>
-      
 
       <div className="divider w-3/4 mx-auto"></div>
       <div>
         <h4 className="mb-5 text-center">More Login options</h4>
 
         <div className="flex flex-col w-full lg:flex-row">
-          <div
-            className="grid flex-grow card rounded-box place-items-center"
-          >
+          <div className="grid flex-grow card rounded-box place-items-center">
             {/* Google log in btn */}
             <div onClick={handleGoogleLogIn} className="gap-4 btn btn-active">
               <span>
@@ -305,9 +316,7 @@ const Register = () => {
             </div>
           </div>
           <div className="divider lg:divider-horizontal">OR</div>
-          <div
-            className="grid flex-grow card rounded-box place-items-center"
-          >
+          <div className="grid flex-grow card rounded-box place-items-center">
             {/* GitHub log in btn */}
             <div onClick={handleGitHubLogIn} className="gap-4 btn btn-active">
               <span>
@@ -321,8 +330,8 @@ const Register = () => {
             </div>
           </div>
         </div>
+      </div>
     </div>
-  </div>
   );
 };
 
