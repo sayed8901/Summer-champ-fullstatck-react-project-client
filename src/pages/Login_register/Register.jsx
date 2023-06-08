@@ -7,6 +7,7 @@ import { AuthContext } from "../../authProviders/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { saveUser } from "../../api/userAuth";
 import { toast } from "react-hot-toast";
+import SocialLogin from "./SocialLogin";
 
 const Register = () => {
   useTitle("Registration");
@@ -25,13 +26,7 @@ const Register = () => {
     watch,
   } = useForm();
 
-  const {
-    createNewUser,
-    updateUserData,
-    setLoading,
-    googleSignIn,
-    gitHubSignIn,
-  } = useContext(AuthContext);
+  const { createNewUser, updateUserData, setLoading } = useContext(AuthContext);
   //   console.log(createNewUser);
   const navigate = useNavigate();
   const location = useLocation();
@@ -39,12 +34,12 @@ const Register = () => {
   // console.log(fromLocation);
 
   const onSubmit = (data) => {
-    // console.log(data);
+    console.log(data);
 
     createNewUser(data.email, data.password)
       .then((result) => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
+        const newUser = result.user;
+        console.log(newUser);
 
         updateUserData(data.name, data.photoURL)
           .then(() => {
@@ -59,7 +54,7 @@ const Register = () => {
             });
 
             // saving user info to the mongoDB users collection
-            saveUser(loggedUser);
+            saveUser(newUser);
             navigate(fromLocation, { replace: true });
           })
           .catch((error) => {
@@ -78,41 +73,8 @@ const Register = () => {
   // cross-check "password" value with the "confirm password" value.
   const password = watch("password");
 
-
-  // handle Google Sign In
-  const handleGoogleLogIn = () => {
-    googleSignIn()
-      .then((result) => {
-        console.log(result.user);
-        // save user to BD
-        saveUser(result.user);
-        navigate(fromLocation, { replace: true });
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error.message);
-        toast.error(error.message);
-      });
-  };
-
-  // handle Google Sign In
-  const handleGitHubLogIn = () => {
-    gitHubSignIn()
-      .then((result) => {
-        console.log(result.user);
-        // save user to BD
-        saveUser(result.user);
-        navigate(fromLocation, { replace: true });
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error.message);
-        toast.error(error.message);
-      });
-  };
-
   return (
-    <div className="w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[50%] mx-auto my-16 py-8 bg-base-200 rounded-xl">
+    <div className="w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[50%] mx-auto mt-12 mb-16 py-8 bg-base-200 rounded-xl">
       <h2 className="text-3xl font-bold text-center my-2">
         <span className="text-gradient">Log in</span> Now!
       </h2>
@@ -222,7 +184,7 @@ const Register = () => {
                 minLength: 6,
                 maxLength: 12,
                 pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
-                
+
                 // to cross-check "password" value with the "confirm password" value.
                 validate: (value) => value === password,
               })}
@@ -264,7 +226,9 @@ const Register = () => {
             </p>
           )}
           {/* to display error msg when "password" does not match with the "confirm password" */}
-          {errors.confirmPassword && <p className="text-red-600">Passwords do not match</p>}
+          {errors.confirmPassword && (
+            <p className="text-red-600">Passwords do not match</p>
+          )}
         </div>
 
         <div className="form-control">
@@ -297,40 +261,8 @@ const Register = () => {
         </small>
       </p>
 
-      <div className="divider w-3/4 mx-auto"></div>
-      <div>
-        <h4 className="mb-5 text-center">More Login options</h4>
-
-        <div className="flex flex-col w-full lg:flex-row">
-          <div className="grid flex-grow card rounded-box place-items-center">
-            {/* Google log in btn */}
-            <div onClick={handleGoogleLogIn} className="gap-4 btn btn-active">
-              <span>
-                <img
-                  className="w-6"
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/706px-Google_%22G%22_Logo.svg.png"
-                  alt=""
-                />
-              </span>
-              <span>Login with Google</span>
-            </div>
-          </div>
-          <div className="divider lg:divider-horizontal">OR</div>
-          <div className="grid flex-grow card rounded-box place-items-center">
-            {/* GitHub log in btn */}
-            <div onClick={handleGitHubLogIn} className="gap-4 btn btn-active">
-              <span>
-                <img
-                  className="w-6"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjl1XRlAmb5KiajU1cpS9nQ2cFRBa4t5sukA&usqp=CAU"
-                  alt=""
-                />
-              </span>
-              <span>Login with GitHub</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Social Log in options from "SocialLogin" component */}
+      <SocialLogin></SocialLogin>
     </div>
   );
 };

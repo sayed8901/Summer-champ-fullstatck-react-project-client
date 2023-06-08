@@ -2,218 +2,161 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useTitle from "../../hooks/useTitle";
+import { useForm } from "react-hook-form";
 import { AuthContext } from "../../authProviders/AuthProvider";
-
+import Swal from "sweetalert2";
+import SocialLogin from "./SocialLogin";
 
 const Login = () => {
-  useTitle('Log in')
+  useTitle("Log in");
+
   const [errorMsg, setErrorMsg] = useState("");
-  const [successMsg, setSuccessMsg] = useState("");
 
   const [showPassword, setShowPassword] = useState(false);
-
   // for password view/hide toggling
   const handleToggle = () => {
     setShowPassword(!showPassword);
   };
 
-  // props extracting using AuthContext
-  const { userLogin, googleSignIn, gitHubSignIn } =
-    useContext(AuthContext);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
-  // fromLocation refers to the last path..
+  const { userLogin, setLoading } = useContext(AuthContext);
+
   const navigate = useNavigate();
   const location = useLocation();
-  // console.log(location);
   const fromLocation = location.state?.from?.pathname || "/";
-  console.log(fromLocation);
+  // console.log(fromLocation);
 
-  const handleLogin = (e) => {
-    setErrorMsg("");
-    setSuccessMsg("");
-
-    e.preventDefault();
-
-    const form = e.target;
-    const email = form.email.value;
-    const password = form.password.value;
-    // console.log(email, password);
-
-    // password validation
-    if (!/(?=.*[A-Z])/.test(password)) {
-      setErrorMsg("At least 1 character should be in uppercase!");
-      return;
-    } else if (!/(?=.*[a-z].*[a-z])/.test(password)) {
-      setErrorMsg("At least 2 characters should be in lowercase!");
-      return;
-    } else if (!/(?=.*[0-9])/.test(password)) {
-      setErrorMsg("Password should contain at least 1 numbers!");
-      return;
-    } else if (!/(?=.*[!@#$&*])/.test(password)) {
-      setErrorMsg("There should be at least 1 special character!");
-      return;
-    } else if (!/.{6}/.test(password)) {
-      setErrorMsg("Password should contain at least 6 characters!");
-      return;
-    }
+  const onSubmit = (data) => {
+    console.log(data);
 
     // to log in an user
-    userLogin(email, password)
+    userLogin(data.email, data.password)
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
-        setSuccessMsg("User Successfully Logged in");
-        form.reset();
+        reset();
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "You have successfully logged in!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate(fromLocation, { replace: true });
       })
       .catch((error) => {
-        console.log(error.message);
-        setErrorMsg(error.message);
-      });
-  };
-
-  //   log in with google popup
-  const handleGoogleLogIn = () => {
-    googleSignIn()
-      .then((result) => {
-        const googleUser = result.user;
-        console.log(googleUser);
-        setSuccessMsg("User Successfully Logged in with Google");
-        navigate(fromLocation, { replace: true });
-      })
-      .catch((error) => {
-        console.log(error.message);
-        setErrorMsg(error.message);
-      });
-  };
-
-  //   log in with GitHub popup
-  const handleGitHubLogIn = () => {
-    gitHubSignIn()
-      .then((result) => {
-        const gitHubUser = result.user;
-        console.log(gitHubUser);
-        setSuccessMsg("User Successfully Logged in with Google");
-        navigate(fromLocation, { replace: true });
-      })
-      .catch((error) => {
+        setLoading(false);
         console.log(error.message);
         setErrorMsg(error.message);
       });
   };
 
   return (
-    <form
-      onSubmit={handleLogin}
-      className="card-body w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[50%] mx-auto"
-    >
-      <h2 className="text-3xl font-bold text-center mb-2">
+    <div className="w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[50%] mx-auto mt-12 mb-16 py-8 bg-base-200 rounded-xl">
+      <h2 className="text-3xl font-bold text-center my-2">
         <span className="text-gradient">Log in</span> Now!
       </h2>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text">Email</span>
-        </label>
-        <input
-          type="email"
-          name="email"
-          placeholder="email"
-          className="input input-bordered"
-          required
-        />
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text">Password</span>
-        </label>
-        <div className="flex justify-between items-center gap-4">
-          {/* based on password shoe/hide toggling, dynamically change the type of input field..*/}
+
+      <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Email</span>
+          </label>
           <input
-            type={showPassword ? "text" : "password"}
-            name="password"
-            placeholder="password"
-            className="input input-bordered w-full"
-            required
+            type="email"
+            name="email"
+            {...register("email", { required: true })}
+            placeholder="Email"
+            className="input input-bordered"
           />
-
-          {/* based on handleToggle function, dynamically change the button text.. */}
-          <span className="w-10 text-2xl" onClick={handleToggle}>
-            {showPassword ? (
-              <span className="tooltip tooltip-primary" data-tip="Click to hide password">
-                <FaEyeSlash />
-              </span>
-            ) : (
-              <span className="tooltip tooltip-primary" data-tip="Click to show password">
-                <FaEye />
-              </span>
-            )}
-          </span>
-        </div>
-      </div>
-
-      <div className="form-control mt-3">
-        <button className="btn btn-primary">Login</button>
-      </div>
-
-      {/* link to go to registration form */}
-      <small className="mt-2 text-center">
-        New to this site?{" "}
-        <Link to={"/register"} className="btn btn-sm btn-outline">
-          Resister Now
-        </Link>
-      </small>
-
-      <div className="divider w-3/4 mx-auto"></div>
-      <div>
-        <h4 className="mb-5 text-center">More Login options</h4>
-
-        <div className="flex flex-col w-full lg:flex-row">
-          <div
-            className="grid flex-grow card rounded-box place-items-center"
-          >
-            {/* Google log in btn */}
-            <div onClick={handleGoogleLogIn} className="gap-4 btn btn-active">
-              <span>
-                <img
-                  className="w-6"
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/706px-Google_%22G%22_Logo.svg.png"
-                  alt=""
-                />
-              </span>
-              <span>Login with Google</span>
-            </div>
-          </div>
-          <div className="divider lg:divider-horizontal">OR</div>
-          <div
-            className="grid flex-grow card rounded-box place-items-center"
-          >
-            {/* GitHub log in btn */}
-            <div onClick={handleGitHubLogIn} className="gap-4 btn btn-active">
-              <span>
-                <img
-                  className="w-6"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjl1XRlAmb5KiajU1cpS9nQ2cFRBa4t5sukA&usqp=CAU"
-                  alt=""
-                />
-              </span>
-              <span>Login with GitHub</span>
-            </div>
-          </div>
+          {errors.email && (
+            <span className="text-red-500">Email is required</span>
+          )}
         </div>
 
-      </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Password</span>
+          </label>
+          {/* based on password shoe/hide toggling, dynamically change the type of input field..*/}
+          <div className="flex justify-between items-center gap-4">
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Password"
+              className="input input-bordered w-full"
+              {...register("password", {
+                required: true,
+                minLength: 6,
+                maxLength: 12,
+                pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
+              })}
+            />
 
-      {/* to dynamically show either error msg or success msg & also apply styles dynamically.... */}
-      <p
-        className={`text-center my-1 text-xl ${
-          errorMsg ? "text-primary" : "text-success"
-        }`}
-      >
-        {errorMsg ? errorMsg : successMsg}
+            {/* based on handleToggle function, dynamically change the button text.. */}
+            <span className="w-10 text-2xl" onClick={handleToggle}>
+              {showPassword ? (
+                <span
+                  className="tooltip tooltip-primary"
+                  data-tip="Click to hide password"
+                >
+                  <FaEyeSlash />
+                </span>
+              ) : (
+                <span
+                  className="tooltip tooltip-primary"
+                  data-tip="Click to show password"
+                >
+                  <FaEye />
+                </span>
+              )}
+            </span>
+          </div>
+          {errors.password?.type === "required" && (
+            <p className="text-red-300">Password is required</p>
+          )}
+          {errors.password?.type === "minLength" && (
+            <p className="text-red-400">Password must be 6 characters</p>
+          )}
+          {errors.password?.type === "maxLength" && (
+            <p className="text-red-500">
+              Password must be less than 12 characters
+            </p>
+          )}
+          {errors.password?.type === "pattern" && (
+            <p className="text-red-600">
+              Password must have 1 uppercase, 1 number & 1 special character
+            </p>
+          )}
+        </div>
+
+        <div className="form-control mt-8 w-1/2 mx-auto">
+          <input className="btn btn-primary" type="submit" value="Log in" />
+        </div>
+      </form>
+      <p className="text-center mb-8 text-xl text-error font-bold">
+        {errorMsg}
       </p>
-    </form>
+
+      <p className="text-center">
+        <small>
+          New to this site?{" "}
+          <Link to={"/register"} className="ms-2 btn btn-sm btn-outline">
+            Register Now!
+          </Link>
+        </small>
+      </p>
+
+      {/* Social Log in options from "SocialLogin" component */}
+      <SocialLogin></SocialLogin>
+    </div>
   );
 };
 
 export default Login;
-

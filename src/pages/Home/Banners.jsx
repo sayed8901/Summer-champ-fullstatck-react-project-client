@@ -14,60 +14,60 @@ const BannerSlider = () => {
         </p>
       </div>
 
-      <div className="mt-4 mb-16 rounded-2xl overflow-hidden object-cover">
+      <div className="mt-4 mb-16 rounded-xl overflow-hidden object-cover">
         <Carousel autoPlay>
           <div>
             <img
-              className="rounded-2xl"
+              className="rounded-xl"
               src={"https://i.ibb.co/W0B58Dj/download.jpg"}
             />
             <p className="legend">Summer time, play time</p>
           </div>
           <div>
             <img
-              className="rounded-2xl"
+              className="rounded-xl"
               src={"https://i.ibb.co/mH0mcfC/images.jpg"}
             />
             <p className="legend">Cricket tournament awaits you..</p>
           </div>
           <div>
             <img
-              className="rounded-2xl"
+              className="rounded-xl"
               src={"https://i.ibb.co/vYkqZNj/download.jpg"}
             />
             <p className="legend">Play together to joy more</p>
           </div>
           <div>
             <img
-              className="rounded-2xl"
+              className="rounded-xl"
               src={"https://i.ibb.co/C9pdfqk/download.jpg"}
             />
             <p className="legend">Mini football champions after the ball...</p>
           </div>
           <div>
             <img
-              className="rounded-2xl"
+              className="rounded-xl"
               src={"https://i.ibb.co/pJQYhV5/download.jpg"}
             />
             <p className="legend">Playing volleyball in school premises.</p>
           </div>
           <div>
             <img
-              className="rounded-2xl"
+              className="rounded-xl"
               src={"https://i.ibb.co/sHW0jYV/images.jpg"}
             />
             <p className="legend">Family vacation on river-side.</p>
           </div>
           <div>
             <img
-              className="rounded-2xl"
+              className="rounded-xl"
               src={"https://i.ibb.co/h1wW2Mk/images.jpg"}
             />
             <p className="legend">find more activities on upcoming summer camp</p>
           </div>
           <div>
             <img
-              className="rounded-2xl"
+              className="rounded-xl"
               src={"https://i.ibb.co/fHSG6v7/download.jpg"}
             />
             <p className="legend">Are you ready to take the challenge?</p>
