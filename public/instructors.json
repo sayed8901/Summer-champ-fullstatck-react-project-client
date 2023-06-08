@@ -3,48 +3,56 @@
     "image": "https://i.ibb.co/MpWJpyf/DSC04777-1.jpg",
     "name": "Mohammad Rahman",
     "email": "rahman@example.com",
-    "classes": ["Football", "Cricket"]
+    "classes": ["Football", "Cricket"],
+    "students": 0
   },
   {
     "image": "https://i.ibb.co/hyT6kQC/DSC06449.jpg",
     "name": "Farid Zaman",
     "email": "farid@example.com",
-    "classes": ["Tennis", "Table Tennis", "Badminton"]
+    "classes": ["Tennis", "Table Tennis", "Badminton"],
+    "students": 0
   },
   {
     "image": "https://i.ibb.co/9nkH9Gc/IMG-20170912-Copy.jpg",
     "name": "Abdul Hannan",
     "email": "hannan@example.com",
-    "classes": ["Hockey"]
+    "classes": ["Hockey"],
+    "students": 0
   },
   {
     "image": "https://i.ibb.co/MpWJpyf/DSC04777-1.jpg",
     "name": "Golam Sarwar",
     "email": "golam@example.com",
-    "classes": ["Golf"]
+    "classes": ["Golf"],
+    "students": 0
   },
   {
     "image": "https://i.ibb.co/hyT6kQC/DSC06449.jpg",
     "name": "Sahriar Ahmed",
     "email": "shahriar@example.com",
-    "classes": ["Swimming", "Diving"]
+    "classes": ["Swimming", "Diving"],
+    "students": 0
   },
   {
     "image": "https://i.ibb.co/MpWJpyf/DSC04777-1.jpg",
     "name": "Jhon Kobir",
     "email": "kobir@example.com",
-    "classes": ["Basketball", "Volleyball"]
+    "classes": ["Basketball", "Volleyball"],
+    "students": 0
   },
   {
     "image": "https://i.ibb.co/9nkH9Gc/IMG-20170912-Copy.jpg",
     "name": "Poresh Debdash",
     "email": "poresh@example.com",
-    "classes": ["Gymnastics", "Athletics"]
+    "classes": ["Gymnastics", "Athletics"],
+    "students": 0
   },
   {
     "image": "https://i.ibb.co/MpWJpyf/DSC04777-1.jpg",
     "name": "Krishna Majhi",
     "email": "krishna@example.com",
-    "classes": ["Handball", "Baseball"]
+    "classes": ["Handball", "Baseball"],
+    "students": 0
   }
 ]

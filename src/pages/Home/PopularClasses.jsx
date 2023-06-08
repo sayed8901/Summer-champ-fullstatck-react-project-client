@@ -39,14 +39,16 @@ const PopularClasses = () => {
             <LazyLoad>
               <div className="space-y-4 py-8 px-4 text-center">
                 <h2 className="mb-8 text-gradient text-2xl font-bold">{singleClass?.className}</h2>
+                <div className="divider pb-2">Instructor info</div>
                 <p><small >
                   Instructor: <b className="text-xl">{singleClass?.instructorName}</b>
                 </small></p>
                 <p><small>
                   Instructor email: <b>{singleClass?.instructorEmail}</b>
                 </small></p>
+                <div className="divider pt-8 pb-2">Sports class info</div>
                 <p><small className="mt-4 mb-2 text-gradient">
-                  Price: <b>{singleClass?.price}</b>
+                  Price: BDTK <b>{singleClass?.price}</b>
                 </small></p>
                 <div className="flex justify-between">
                   <small className="text-center">
