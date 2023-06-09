@@ -1,7 +1,7 @@
 import { makeAdmin, makeInstructor } from "../../api/userAuth";
 import LazyLoad from "react-lazy-load";
 import { toast } from "react-hot-toast";
-import { useAllUsers } from "../../hooks/useCustomHook";
+import { useAllUsers } from "../../hooks/useHooksAPI";
 
 
 const AllUsers = () => {
@@ -55,12 +55,11 @@ const [allUsers, refetch] = useAllUsers();
                 </td>
                 <td className="text-center font-bold">{singleUser.name}</td>
                 <td className="text-center">{singleUser.email}</td>
+
                 <td className="mx-auto grid grid-cols-2 items-center text-center gap-4">
-                  {/* <button className="btn btn-outline btn-info">
-                    Make Instructor
-                  </button> */}
+                    {/* instructor btn */}
                   {singleUser.role === "instructor" || "" ? (
-                    "Instructor Already!"
+                    <span className="text-base font-semibold">Instructor Already!</span>
                   ) : (
                     <button disabled={singleUser.role === "admin" || ""}
                       onClick={() => {
@@ -71,8 +70,10 @@ const [allUsers, refetch] = useAllUsers();
                       Make Instructor
                     </button>
                   )}
+
+                  {/* admin btn */}
                   {singleUser.role === "admin" || "" ? (
-                    "Admin Already!"
+                    <span className="text-base font-semibold">Admin Already!</span>
                   ) : (
                     <button disabled={singleUser.role === "instructor" || ""}
                       onClick={() => {

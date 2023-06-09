@@ -12,8 +12,7 @@ import {
 } from "firebase/auth";
 import app from "./firebase.config";
 import { getRole } from "../api/userAuth";
-
-
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 
@@ -32,7 +31,6 @@ const AuthProvider = ({ children }) => {
       getRole(user.email).then((data) => setRole(data));
     }
   }, [user]);
-
 
   //   to create a new user using email & password
   const createNewUser = (email, password) => {
@@ -70,7 +68,6 @@ const AuthProvider = ({ children }) => {
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
-
   };
 
   // to observe auth state change
@@ -78,11 +75,24 @@ const AuthProvider = ({ children }) => {
     const unmount = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       console.log("auth state change:", currentUser);
-      setLoading(false);
+      
+      // get and set token
+      if (currentUser) {
+        axios
+        .post(`${import.meta.env.VITE_API_URL}/jwt`, { email: currentUser.email })
+        .then((data) => {
+          console.log(data.data);
+          localStorage.setItem("access-token", data.data.token);
+          setLoading(false);
+        });
+      } else {
+        localStorage.removeItem("access-token");
+      }
     });
+
+    // to stop observing while unmounting
     return () => unmount();
   }, []);
-
 
   //   to pass the data for further re-using purpose
   const AuthInfo = {
