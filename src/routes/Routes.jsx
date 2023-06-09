@@ -11,7 +11,7 @@ import PopularInstructors from "../pages/Home/PopularInstructors";
 import PopularClasses from "../pages/Home/PopularClasses";
 import Instructors from "../pages/Instructors/Instructors";
 import Classes from "../pages/Classes/Classes";
-import BookedClasses from "../pages/Classes/BookedClasses";
+import SelectedClasses from "../pages/Classes/SelectedClasses";
 import EnrolledClasses from "../pages/Classes/EnrolledClasses";
 
 const router = createBrowserRouter([
@@ -82,10 +82,10 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "booked-classes",
+        path: "selected-classes",
         element: (
           <AnimatedSection>
-            <BookedClasses></BookedClasses>
+            <SelectedClasses></SelectedClasses>
           </AnimatedSection>
         ),
       },

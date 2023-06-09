@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import useTitle from "../../hooks/useTitle";
-import { getAllApprovedClasses } from "../../api/classes";
+import { getAllApprovedClasses, saveSelectedClass } from "../../api/classes";
 import LazyLoad from "react-lazy-load";
 import { AuthContext } from "../../authProviders/AuthProvider";
 import Swal from "sweetalert2";
@@ -22,7 +22,7 @@ const Classes = () => {
   }, []);
   // console.log(classes);
 
-  const handleSelect = () => {
+  const handleSelect = (singleClass) => {
     if (!user) {
       Swal.fire({
         position: "center",
@@ -31,17 +31,29 @@ const Classes = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      navigate('/login', {state:{ from: location }, replace:true});
-    }
-    else{
-        Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "You have successfully booked this class.",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          navigate('/');
+      navigate("/login", { state: { from: location }, replace: true });
+    } 
+    else {
+      // console.log(singleClass);
+      const {_id, className, classImage, instructorName, instructorEmail } = singleClass;
+      const newSelectedClassData = {
+        bookingId : _id,
+        student: user.email,
+        className,
+        classImage,
+        instructorName,
+        instructorEmail
+      }
+
+      saveSelectedClass(newSelectedClassData)
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "You have successfully booked this class.",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      navigate("/dashboard/selected-classes");
     }
   };
 
@@ -60,7 +72,11 @@ const Classes = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
         {classes.map((singleClass) => (
           <LazyLoad key={singleClass._id}>
-            <div className={`card sm:card-side shadow-xl ${singleClass.availableSeats === 0 ? 'bg-red-400' : 'bg-base-100' }`}>
+            <div
+              className={`card sm:card-side shadow-xl ${
+                singleClass.availableSeats === 0 ? "bg-red-400" : "bg-base-100"
+              }`}
+            >
               <figure className="sm:w-5/12 sm:ms-4">
                 <img className="rounded-xl" src={singleClass?.classImage} />
               </figure>
@@ -72,14 +88,22 @@ const Classes = () => {
                   <p>
                     Instructor: <b>{singleClass.instructorName}</b>
                   </p>
-                  <p>Available Seats: {singleClass.availableSeats}</p>
+                  <p>Available Seats: <b>{singleClass.availableSeats}</b></p>
                   <p>
                     Price:{" "}
                     <b className="text-gradient">BDTK {singleClass.price}</b>
                   </p>
                 </div>
                 <div className="card-actions justify-end">
-                  <button disabled={singleClass.availableSeats === 0} onClick={handleSelect} className="btn btn-primary">Select</button>
+                  <button
+                    disabled={singleClass.availableSeats === 0}
+                    onClick={() => {
+                      handleSelect(singleClass);
+                    }}
+                    className="btn btn-primary"
+                  >
+                    Select
+                  </button>
                 </div>
               </div>
             </div>

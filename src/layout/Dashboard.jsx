@@ -3,30 +3,39 @@ import { Link, Outlet } from "react-router-dom";
 const Dashboard = () => {
   return (
     <div className="drawer lg:drawer-open my-container">
-      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col items-center justify-center">
+      <input id="sidebar" type="checkbox" className="drawer-toggle" />
+      <div className="drawer-content flex flex-col items-center justify-center relative">
         {/* Page content here */}
         <label
-          htmlFor="my-drawer-2"
-          className="btn btn-primary drawer-button lg:hidden mt-[50vh]"
+          htmlFor="sidebar"
+          className="btn btn-primary btn-sm drawer-button lg:hidden absolute top-5 right-0"
         >
           Open drawer
         </label>
-        <Outlet></Outlet>
+        <div className="min-h-screen hero">
+          <Outlet></Outlet>
+        </div>
       </div>
       <div className="drawer-side">
-        <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-72 h-full bg-base-200 text-base-content">
+        <label htmlFor="sidebar" className="drawer-overlay"></label>
+        <ul className="menu p-4 w-56 h-full bg-base-200 text-base-content">
           {/* Sidebar content here */}
           <li>
-          <Link to={'/dashboard/booked-classes'}>My Selected Classes</Link>
+            <Link to={"/dashboard/selected-classes"}>My Selected Classes</Link>
           </li>
           <li>
-          <Link to={'/dashboard/enrolled-classes'}>My Enrolled Classes</Link>
+            <Link to={"/dashboard/enrolled-classes"}>My Enrolled Classes</Link>
           </li>
           <div className="divider"></div>
           <li>
-            <Link to={'/'}>Back to Home Page</Link>
+            <Link to={"/classes"}>See All Classes</Link>
+          </li>
+          <div className="divider"></div>
+          <li>
+            <Link to={"/instructors"}>See All Instructors</Link>
+          </li>
+          <li>
+            <Link to={"/"}>Back to Home Page</Link>
           </li>
         </ul>
       </div>
