@@ -11,6 +11,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import app from "./firebase.config";
+import { getRole } from "../api/userAuth";
 
 
 
@@ -23,7 +24,15 @@ const gitHubProvider = new GithubAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  // console.log(user);
+
+  const [role, setRole] = useState(null);
+
+  useEffect(() => {
+    if (user) {
+      getRole(user.email).then((data) => setRole(data));
+    }
+  }, [user]);
+
 
   //   to create a new user using email & password
   const createNewUser = (email, password) => {
@@ -31,7 +40,7 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  // to update user name to firebase auth
+  // to update user profile info to firebase auth
   const updateUserData = (userName, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: userName,
@@ -87,6 +96,8 @@ const AuthProvider = ({ children }) => {
     googleSignIn,
     gitHubSignIn,
     logOut,
+    role,
+    setRole,
   };
 
   // providing " AuthInfo " data to its all children components

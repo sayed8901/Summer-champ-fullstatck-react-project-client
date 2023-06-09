@@ -5,6 +5,7 @@ import LazyLoad from "react-lazy-load";
 import { AuthContext } from "../../authProviders/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+// import { toast } from "react-hot-toast";
 
 const Classes = () => {
   useTitle("Classes");
@@ -35,12 +36,13 @@ const Classes = () => {
     } 
     else {
       // console.log(singleClass);
-      const {_id, className, classImage, instructorName, instructorEmail } = singleClass;
+      const {_id, className, classImage, price, instructorName, instructorEmail } = singleClass;
       const newSelectedClassData = {
         bookingId : _id,
         user: user.email,
         className,
         classImage,
+        price,
         instructorName,
         instructorEmail
       }
@@ -53,6 +55,7 @@ const Classes = () => {
         showConfirmButton: false,
         timer: 1500,
       });
+      // toast.success('You have successfully booked this class.')
       navigate("/dashboard/selected-classes");
     }
   };

@@ -13,6 +13,7 @@ import Instructors from "../pages/Instructors/Instructors";
 import Classes from "../pages/Classes/Classes";
 import SelectedClasses from "../pages/Classes/SelectedClasses";
 import EnrolledClasses from "../pages/Classes/EnrolledClasses";
+import AllUsers from "../pages/AllUsers/AllUsers";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
             <Classes></Classes>
           </AnimatedSection>
         ),
+      },
+      {
+        path: '/users',
+        element: <AnimatedSection><AllUsers></AllUsers></AnimatedSection>
       },
     ],
   },

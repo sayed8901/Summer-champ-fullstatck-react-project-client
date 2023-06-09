@@ -40,6 +40,15 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
+          to="/users"
+          className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({ isActive }) =>
+            isActive ? "active" : ""}`}
+        >
+          All Users
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
           to="/dashboard"
           className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({ isActive }) =>
             isActive ? "active" : ""}`}
@@ -105,7 +114,7 @@ const Navbar = () => {
               data-tip={user.displayName}
             >
               <LazyLoad>
-                <img className="rounded-full w-12" src={user.photoURL} alt="" />
+                <img className="rounded-full w-12 h-12" src={user.photoURL} alt="" />
               </LazyLoad>
             </div>
             <button onClick={logOut} className="btn btn-sm btn-primary h-10">

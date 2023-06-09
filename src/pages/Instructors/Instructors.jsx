@@ -4,7 +4,7 @@ import useTitle from "../../hooks/useTitle";
 import LazyLoad from "react-lazy-load";
 
 const Instructors = () => {
-    useTitle("Instructors");
+  useTitle("Instructors");
 
   const [instructors, setInstructors] = useState([]);
   useEffect(() => {
@@ -12,16 +12,17 @@ const Instructors = () => {
       setInstructors(data);
     });
   }, []);
-//   console.log(instructors);
+  //   console.log(instructors);
 
   return (
     <div>
-        <div className="sm:w-3/4 mx-auto">
+      <div className="sm:w-3/4 mx-auto">
         <h2 className="text-2xl lg:text-4xl font-bold text-center mt-16">
           All <span className="text-gradient">Instructors</span>
         </h2>
         <p className="py-12 text-center">
-          Meet our all the instructors who are always ready to excite your sports experience.
+          Meet our all the instructors who are always ready to excite your
+          sports experience.
         </p>
       </div>
 
@@ -43,13 +44,19 @@ const Instructors = () => {
               <tr className="hover" key={instructor._id}>
                 <td className="text-center">{index + 1}</td>
                 <td>
-                  <div className="mx-auto mask mask-squircle w-12 h-12">
-                    <img src={instructor.image} />
+                  <div className="avatar">
+                    <div className="mx-auto mask mask-squircle w-12 h-12">
+                      <img src={instructor.image} />
+                    </div>
                   </div>
                 </td>
                 <td className="text-center font-bold">{instructor.name}</td>
                 <td className="text-center">{instructor.email}</td>
-                <td className="text-center">{instructor.classes.map(singleClass => <span key={singleClass}>{singleClass}, </span>)}</td>
+                <td className="text-center">
+                  {instructor.classes.map((singleClass) => (
+                    <span key={singleClass}>{singleClass}, </span>
+                  ))}
+                </td>
               </tr>
             ))}
           </tbody>

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query"
 import { useContext } from "react"
 import { AuthContext } from "../authProviders/AuthProvider";
 
+
 // to get all the selected classes
 export const useSelectedClasses = () => {
     const {user} = useContext(AuthContext);
@@ -14,4 +15,18 @@ export const useSelectedClasses = () => {
         },
     });
     return [selectedClasses, refetch]
+}
+
+
+
+// to get users
+export const useAllUsers = () => {
+    const {data: allUsers = [], refetch} = useQuery({
+        queryKey: ['users'],
+        queryFn: async () => {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/users`)
+            return res.json();
+        },
+    });
+    return [allUsers, refetch]
 }

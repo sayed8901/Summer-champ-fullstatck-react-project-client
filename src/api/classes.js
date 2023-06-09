@@ -42,4 +42,15 @@ export const saveSelectedClass = (classData) => {
 };
 
 
+// delete a selected class data
+export const deleteSelectedClass = async (id) => {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/selectedClasses/${id}`, {
+    method: "DELETE",
+    headers: {
+      "content-type": "application/json",
+    },
+  })
+  const result = await response.json();
+  return result;
+}
 
