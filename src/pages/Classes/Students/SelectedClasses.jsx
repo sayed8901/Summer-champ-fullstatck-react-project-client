@@ -9,7 +9,7 @@ const SelectedClasses = () => {
 
   const handleDelete = (singleClass) => {
     const id = singleClass._id;
-    console.log(id);
+    // console.log(id);
     deleteSelectedClass(id);
     refetch();
     toast.success('Your have successfully deleted this class from your list.')

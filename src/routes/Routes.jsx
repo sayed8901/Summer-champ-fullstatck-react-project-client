@@ -14,6 +14,8 @@ import Classes from "../pages/Classes/Classes";
 import SelectedClasses from "../pages/Classes/Students/SelectedClasses";
 import EnrolledClasses from "../pages/Classes/Students/EnrolledClasses";
 import AllUsers from "../pages/AllUsers/AllUsers";
+import AddClass from "../pages/Classes/Instructors/AddClass";
+import ManageClasses from "../pages/Classes/Admin/ManageClasses";
 
 const router = createBrowserRouter([
   {
@@ -101,6 +103,18 @@ const router = createBrowserRouter([
             <EnrolledClasses></EnrolledClasses>
           </AnimatedSection>
         ),
+      },
+
+      // instructor only routes
+      {
+        path: "add-class",
+        element: <AddClass></AddClass>
+      },
+
+      // admin only routes
+      {
+        path: "manage-classes",
+        element: <ManageClasses></ManageClasses>
       },
     ]
   },
