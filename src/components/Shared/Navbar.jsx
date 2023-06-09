@@ -14,8 +14,9 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className={`my-5 lg:my-0 mx-2 font-bold text-blue-600 ${({ isActive }) =>
-            isActive ? "active" : ""}`}
+          className={`my-5 lg:my-0 mx-2 font-bold text-blue-600 ${({
+            isActive,
+          }) => (isActive ? "active" : "")}`}
         >
           Home
         </NavLink>
@@ -23,8 +24,9 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/instructors"
-          className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({ isActive }) =>
-            isActive ? "active" : ""}`}
+          className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({
+            isActive,
+          }) => (isActive ? "active" : "")}`}
         >
           Instructors
         </NavLink>
@@ -32,8 +34,9 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/classes"
-          className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({ isActive }) =>
-            isActive ? "active" : ""}`}
+          className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({
+            isActive,
+          }) => (isActive ? "active" : "")}`}
         >
           Classes
         </NavLink>
@@ -41,21 +44,27 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/users"
-          className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({ isActive }) =>
-            isActive ? "active" : ""}`}
+          className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({
+            isActive,
+          }) => (isActive ? "active" : "")}`}
         >
           All Users
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/dashboard"
-          className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({ isActive }) =>
-            isActive ? "active" : ""}`}
-        >
-          Dashboard
-        </NavLink>
-      </li>
+      {user && (
+        <li>
+          <LazyLoad>
+            <NavLink
+              to="/dashboard"
+              className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({
+                isActive,
+              }) => (isActive ? "active" : "")}`}
+            >
+              Dashboard
+            </NavLink>
+          </LazyLoad>
+        </li>
+      )}
     </>
   );
 
@@ -114,7 +123,11 @@ const Navbar = () => {
               data-tip={user.displayName}
             >
               <LazyLoad>
-                <img className="rounded-full w-12 h-12" src={user.photoURL} alt="" />
+                <img
+                  className="rounded-full w-12 h-12"
+                  src={user.photoURL}
+                  alt=""
+                />
               </LazyLoad>
             </div>
             <button onClick={logOut} className="btn btn-sm btn-primary h-10">

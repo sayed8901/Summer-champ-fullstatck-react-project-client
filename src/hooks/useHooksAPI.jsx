@@ -25,6 +25,30 @@ export const useSelectedClasses = () => {
   return [selectedClasses, refetch];
 };
 
+
+// ToDo: Check
+// to get all addedClasses for individual instructor by email
+export const useAddedClasses = (user) => {  
+    const { data: myAllClasses = [], refetch } = useQuery({
+      queryKey: ["classes", user?.email],
+      queryFn: async () => {
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/classes?email=${user?.email}`,
+          {
+            method: "GET",
+            headers: {
+              "content-type": "application/json",
+              authorization: `Bearer ${localStorage.getItem("access-token")}`,
+            },
+          }
+        );
+        return res.json();
+      },
+    });
+    return [myAllClasses, refetch];
+  };
+
+
 // to get users
 export const useAllUsers = () => {
   const { data: allUsers = [], refetch } = useQuery({

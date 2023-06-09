@@ -8,8 +8,7 @@ const Dashboard = () => {
   const [role, setRole] = useState();
   const { user } = useContext(AuthContext);
   getRole(user.email).then((data) => setRole(data));
-
-  console.log(role);
+  // console.log(role);
 
   return (
     <div className="drawer lg:drawer-open my-container">
@@ -38,6 +37,9 @@ const Dashboard = () => {
             <div>
               <li className="mb-6 font-bold text-blue-600 border-b-8 border-amber-400 rounded-xl">
                 <NavLink to="/dashboard/add-class">Add a New Class</NavLink>
+              </li>
+              <li className="mb-6 font-bold text-blue-600 border-b-8 border-amber-400 rounded-xl">
+                <NavLink to="/dashboard/my-all-classes">My All Classes</NavLink>
               </li>
             </div>
           }

@@ -16,6 +16,9 @@ import EnrolledClasses from "../pages/Classes/Students/EnrolledClasses";
 import AllUsers from "../pages/AllUsers/AllUsers";
 import AddClass from "../pages/Classes/Instructors/AddClass";
 import ManageClasses from "../pages/Classes/Admin/ManageClasses";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
+import MyClasses from "../pages/Classes/Instructors/MyClasses";
 
 const router = createBrowserRouter([
   {
@@ -75,8 +78,12 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: '/users',
-        element: <AnimatedSection><AllUsers></AllUsers></AnimatedSection>
+        path: "/users",
+        element: (
+          <AnimatedSection>
+            <AllUsers></AllUsers>
+          </AnimatedSection>
+        ),
       },
     ],
   },
@@ -108,15 +115,37 @@ const router = createBrowserRouter([
       // instructor only routes
       {
         path: "add-class",
-        element: <AddClass></AddClass>
+        element: (
+          <AnimatedSection>
+            <InstructorRoute>
+              <AddClass></AddClass>
+            </InstructorRoute>
+          </AnimatedSection>
+        ),
+      },
+      {
+        path: "my-all-classes",
+        element: (
+          <AnimatedSection>
+            <InstructorRoute>
+              <MyClasses></MyClasses>
+            </InstructorRoute>
+          </AnimatedSection>
+        ),
       },
 
       // admin only routes
       {
         path: "manage-classes",
-        element: <ManageClasses></ManageClasses>
+        element: (
+          <AnimatedSection>
+            <AdminRoute>
+              <ManageClasses></ManageClasses>
+            </AdminRoute>
+          </AnimatedSection>
+        ),
       },
-    ]
+    ],
   },
   {
     path: "*",
