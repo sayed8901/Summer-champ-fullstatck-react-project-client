@@ -11,8 +11,8 @@ import PopularInstructors from "../pages/Home/PopularInstructors";
 import PopularClasses from "../pages/Home/PopularClasses";
 import Instructors from "../pages/Instructors/Instructors";
 import Classes from "../pages/Classes/Classes";
-import SelectedClasses from "../pages/Classes/SelectedClasses";
-import EnrolledClasses from "../pages/Classes/EnrolledClasses";
+import SelectedClasses from "../pages/Classes/Students/SelectedClasses";
+import EnrolledClasses from "../pages/Classes/Students/EnrolledClasses";
 import AllUsers from "../pages/AllUsers/AllUsers";
 
 const router = createBrowserRouter([

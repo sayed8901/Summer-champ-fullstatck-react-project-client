@@ -1,6 +1,6 @@
 import LazyLoad from "react-lazy-load";
-import { useSelectedClasses } from "../../hooks/useHooksAPI";
-import { deleteSelectedClass } from "../../api/classes";
+import { useSelectedClasses } from "../../../hooks/useHooksAPI";
+import { deleteSelectedClass } from "../../../api/classes";
 import { toast } from "react-hot-toast";
 
 const SelectedClasses = () => {
