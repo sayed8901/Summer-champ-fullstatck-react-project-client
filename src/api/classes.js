@@ -28,7 +28,7 @@ export const getAllApprovedClasses = async () => {
 // save a selected class data
 export const saveSelectedClass = (classData) => {
 
-  fetch(`${import.meta.env.VITE_API_URL}/selectedClass/${classData?.bookingId}`, {
+  fetch(`${import.meta.env.VITE_API_URL}/selectedClasses/${classData?.bookingId}`, {
     method: "PUT",
     headers: {
       "content-type": "application/json",
@@ -42,12 +42,4 @@ export const saveSelectedClass = (classData) => {
 };
 
 
-// get all the selected classes
-export const getAllSelectedClasses = async () => {
-  const response = await fetch(
-    `${import.meta.env.VITE_API_URL}/selectedClasses`
-  );
-  const data = await response.json();
-  return data;
-};
 

@@ -38,7 +38,7 @@ const Classes = () => {
       const {_id, className, classImage, instructorName, instructorEmail } = singleClass;
       const newSelectedClassData = {
         bookingId : _id,
-        student: user.email,
+        user: user.email,
         className,
         classImage,
         instructorName,
