@@ -20,6 +20,7 @@ import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import MyClasses from "../pages/Classes/Instructors/MyClasses";
 import UpdateClassData from "../pages/Classes/Instructors/UpdateClassData";
+import Payment from "../pages/Classes/Students/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -88,6 +89,7 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      // students / common users routes
       {
         path: "selected-classes",
         element: (
@@ -103,6 +105,11 @@ const router = createBrowserRouter([
             <EnrolledClasses></EnrolledClasses>
           </AnimatedSection>
         ),
+      },
+      // payment route for students class enrollment
+      {
+        path: "payment/:id",
+        element: <Payment></Payment>
       },
 
       // instructor only routes

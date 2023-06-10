@@ -2,8 +2,12 @@ import LazyLoad from "react-lazy-load";
 import { useSelectedClasses } from "../../../hooks/useHooksAPI";
 import { deleteSelectedClass } from "../../../api/classes";
 import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle";
 
 const SelectedClasses = () => {
+  useTitle('Selected Classes')
+  
   const [selectedClasses, refetch] = useSelectedClasses();
   //   console.log(selectedClasses);
 
@@ -56,11 +60,11 @@ const SelectedClasses = () => {
                 >
                   Delete
                 </button>
-                <button
+                <Link to={`/dashboard/payment/${singleClass._id}`}
                   className="btn btn-sm btn-primary bg-gradient"
                 >
                   Payment
-                </button>
+                </Link>
               </div>
             </div>
           </div>

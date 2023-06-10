@@ -33,7 +33,7 @@ const Login = () => {
   // console.log(fromLocation);
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
 
     // to log in an user
     userLogin(data.email, data.password)

@@ -33,7 +33,7 @@ export const useAddedClasses = () => {
     queryKey: ["myAllClasses", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/classes/${user.email}`,
+        `${import.meta.env.VITE_API_URL}/instructor/classes/${user.email}`,
         {
           method: "GET",
           headers: {
@@ -48,7 +48,7 @@ export const useAddedClasses = () => {
   return [myAllClasses, refetch];
 };
 
-// to get users
+// to get all users
 export const useAllUsers = () => {
   const { data: allUsers = [], refetch } = useQuery({
     queryKey: ["users"],
@@ -67,7 +67,7 @@ export const useAllUsers = () => {
 };
 
 
-// to get users
+// to get all classes
 export const useAllClasses = () => {
   const { data: allClasses = [], refetch } = useQuery({
     queryKey: ["allClasses"],
@@ -83,4 +83,23 @@ export const useAllClasses = () => {
     },
   });
   return [allClasses, refetch];
+};
+
+
+// to get a single class by ID
+export const useGetSingleClass = (id) => {
+  const { data: singleClass = [], refetch } = useQuery({
+    queryKey: ["singleClass"],
+    queryFn: async () => {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/classes/${id}`, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("access-token")}`,
+        },
+      });
+      return res.json();
+    },
+  });
+  return [singleClass, refetch];
 };
