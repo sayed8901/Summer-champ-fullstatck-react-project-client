@@ -41,7 +41,7 @@ const PaymentHistory = () => {
                 <td className="text-center font-bold">{singleClass.className}</td>
                 <td className="text-center">{singleClass.price}</td>
                 <td className="text-center font-bold">{singleClass.paymentMethod}</td>
-                <td className="text-center text-xsm">{singleClass.transactionID}</td>
+                <td className="text-center text-xs">{singleClass.transactionID}</td>
                 <td className="text-center text-sm">{moment(singleClass.date).format("dddd, MMMM Do YYYY, hh:mm a")}</td>
               </tr>
             ))}
