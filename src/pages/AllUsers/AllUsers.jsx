@@ -3,9 +3,8 @@ import LazyLoad from "react-lazy-load";
 import { toast } from "react-hot-toast";
 import { useAllUsers } from "../../hooks/useHooksAPI";
 
-
 const AllUsers = () => {
-const [allUsers, refetch] = useAllUsers();
+  const [allUsers, refetch] = useAllUsers();
 
   const handleMakeAdmin = (currentSingleUser) => {
     makeAdmin(currentSingleUser.email);
@@ -19,8 +18,6 @@ const [allUsers, refetch] = useAllUsers();
     refetch();
   };
 
-
-
   return (
     <div>
       <div className="sm:w-3/4 mx-auto my-16">
@@ -29,7 +26,7 @@ const [allUsers, refetch] = useAllUsers();
         </h2>
       </div>
 
-      <LazyLoad className="overflow-x-auto my-12">
+      <LazyLoad className="overflow-x-auto my-12 lg:mx-8">
         <table className="table">
           {/* head */}
           <thead>
@@ -56,34 +53,44 @@ const [allUsers, refetch] = useAllUsers();
                 <td className="text-center font-bold">{singleUser.name}</td>
                 <td className="text-center">{singleUser.email}</td>
 
-                <td className="mx-auto grid grid-cols-2 items-center text-center gap-4">
-                    {/* instructor btn */}
-                  {singleUser.role === "instructor" || "" ? (
-                    <span className="text-base font-semibold">Instructor Already!</span>
-                  ) : (
-                    <button disabled={singleUser.role === "admin" || ""}
-                      onClick={() => {
-                        handleMakeInstructor(singleUser);
-                      }}
-                      className="btn btn-outline btn-primary"
-                    >
-                      Make Instructor
-                    </button>
-                  )}
+                <td className="mx-auto flex items-center text-center gap-4">
+                  {/* instructor btn */}
+                  <div className="w-1/2">
+                    {singleUser.role === "instructor" || "" ? (
+                      <span className="text-base font-semibold">
+                        Instructor Already!
+                      </span>
+                    ) : (
+                      <button
+                        disabled={singleUser.role === "admin" || ""}
+                        onClick={() => {
+                          handleMakeInstructor(singleUser);
+                        }}
+                        className="btn btn-outline btn-primary"
+                      >
+                        Make Instructor
+                      </button>
+                    )}
+                  </div>
 
                   {/* admin btn */}
-                  {singleUser.role === "admin" || "" ? (
-                    <span className="text-base font-semibold">Admin Already!</span>
-                  ) : (
-                    <button disabled={singleUser.role === "instructor" || ""}
-                      onClick={() => {
-                        handleMakeAdmin(singleUser);
-                      }}
-                      className="btn btn-outline btn-primary"
-                    >
-                      Make Admin
-                    </button>
-                  )}
+                  <div className="w-1/2">
+                    {singleUser.role === "admin" || "" ? (
+                      <span className="text-base font-semibold">
+                        Admin Already!
+                      </span>
+                    ) : (
+                      <button
+                        disabled={singleUser.role === "instructor" || ""}
+                        onClick={() => {
+                          handleMakeAdmin(singleUser);
+                        }}
+                        className="btn btn-outline btn-primary"
+                      >
+                        Make Admin
+                      </button>
+                    )}
+                  </div>
                 </td>
               </tr>
             ))}

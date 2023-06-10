@@ -44,12 +44,15 @@ const Dashboard = () => {
             </div>
           }
 
-          {/* instructor only routes */}
+          {/* admin only routes */}
           {
             role === "admin" && 
             <div>
               <li className="mb-6 font-bold text-blue-600 border-b-8 border-amber-400 rounded-xl">
                 <NavLink to="/dashboard/manage-classes">Manage Classes</NavLink>
+              </li>
+              <li className="mb-6 font-bold text-blue-600 border-b-8 border-amber-400 rounded-xl">
+                <NavLink to="/dashboard/manage-users">Manage Users</NavLink>
               </li>
             </div>
           }

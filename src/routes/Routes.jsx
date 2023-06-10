@@ -19,6 +19,7 @@ import ManageClasses from "../pages/Classes/Admin/ManageClasses";
 import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import MyClasses from "../pages/Classes/Instructors/MyClasses";
+import UpdateClassData from "../pages/Classes/Instructors/UpdateClassData";
 
 const router = createBrowserRouter([
   {
@@ -77,14 +78,6 @@ const router = createBrowserRouter([
           </AnimatedSection>
         ),
       },
-      {
-        path: "/users",
-        element: (
-          <AnimatedSection>
-            <AllUsers></AllUsers>
-          </AnimatedSection>
-        ),
-      },
     ],
   },
   {
@@ -133,6 +126,16 @@ const router = createBrowserRouter([
           </AnimatedSection>
         ),
       },
+      {
+        path: "update-class/:id",
+        element: (
+          <AnimatedSection>
+            <InstructorRoute>
+              <UpdateClassData></UpdateClassData>
+            </InstructorRoute>
+          </AnimatedSection>
+        ),
+      },
 
       // admin only routes
       {
@@ -141,6 +144,16 @@ const router = createBrowserRouter([
           <AnimatedSection>
             <AdminRoute>
               <ManageClasses></ManageClasses>
+            </AdminRoute>
+          </AnimatedSection>
+        ),
+      },
+      {
+        path: "manage-users",
+        element: (
+          <AnimatedSection>
+            <AdminRoute>
+              <AllUsers></AllUsers>
             </AdminRoute>
           </AnimatedSection>
         ),

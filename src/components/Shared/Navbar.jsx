@@ -41,16 +41,7 @@ const Navbar = () => {
           Classes
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/users"
-          className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({
-            isActive,
-          }) => (isActive ? "active" : "")}`}
-        >
-          All Users
-        </NavLink>
-      </li>
+      
       {user && (
         <li>
           <LazyLoad>
