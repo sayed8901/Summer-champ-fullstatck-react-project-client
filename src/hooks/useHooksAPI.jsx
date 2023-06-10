@@ -25,13 +25,12 @@ export const useSelectedClasses = () => {
   return [selectedClasses, refetch];
 };
 
-
 // to get all addedClasses for individual instructor by email
 export const useAddedClasses = () => {
   const { user } = useContext(AuthContext);
 
   const { data: myAllClasses = [], refetch } = useQuery({
-    queryKey: ["classes", user?.email],
+    queryKey: ["myAllClasses", user?.email],
     queryFn: async () => {
       const res = await fetch(
         `${import.meta.env.VITE_API_URL}/classes/${user.email}`,
@@ -49,16 +48,39 @@ export const useAddedClasses = () => {
   return [myAllClasses, refetch];
 };
 
-
-
 // to get users
 export const useAllUsers = () => {
   const { data: allUsers = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/users`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/users`, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("access-token")}`,
+        },
+      });
       return res.json();
     },
   });
   return [allUsers, refetch];
+};
+
+
+// to get users
+export const useAllClasses = () => {
+  const { data: allClasses = [], refetch } = useQuery({
+    queryKey: ["allClasses"],
+    queryFn: async () => {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/classes`, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("access-token")}`,
+        },
+      });
+      return res.json();
+    },
+  });
+  return [allClasses, refetch];
 };

@@ -20,13 +20,13 @@ const AllUsers = () => {
 
   return (
     <div>
-      <div className="sm:w-3/4 mx-auto my-16">
+      <div className="sm:w-3/4 mx-auto mt-12 mb-8">
         <h2 className="text-2xl lg:text-4xl font-bold text-center">
           All <span className="text-gradient">Users</span>
         </h2>
       </div>
 
-      <LazyLoad className="overflow-x-auto my-12 lg:mx-8">
+      <LazyLoad className="overflow-x-auto my-6 lg:mx-8">
         <table className="table">
           {/* head */}
           <thead>
@@ -66,7 +66,7 @@ const AllUsers = () => {
                         onClick={() => {
                           handleMakeInstructor(singleUser);
                         }}
-                        className="btn btn-outline btn-primary"
+                        className="btn btn-outline btn-info"
                       >
                         Make Instructor
                       </button>

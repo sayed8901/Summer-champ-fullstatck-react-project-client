@@ -72,3 +72,39 @@ export const getRole = async (email) => {
   const user = await response.json();
   return user?.role;
 };
+
+
+
+
+
+
+// to make class status set to "approved"
+export const makeApproved = async (id) => {
+  const approvalStatus = {
+    status: "approved",
+  };
+
+  return await fetch(`${import.meta.env.VITE_API_URL}/classes/${id}`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(approvalStatus),
+  }).then((res) => res.json());
+};
+
+
+// to make class status set to "denied"
+export const makeDenied = async (id) => {
+  const approvalStatus = {
+    status: "denied",
+  };
+
+  return await fetch(`${import.meta.env.VITE_API_URL}/classes/${id}`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(approvalStatus),
+  }).then((res) => res.json());
+};
