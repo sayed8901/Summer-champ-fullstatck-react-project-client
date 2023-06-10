@@ -9,13 +9,15 @@ const ManageClasses = () => {
 
   const handleStatusApproved = (currentSingleClassData) => {
     makeApproved(currentSingleClassData._id);
-    toast.success(`${currentSingleClassData.className} has been approved.`);
+    toast.success(`"${currentSingleClassData.className}" has been approved.`);
     refetch();
   };
 
   const handleStatusDenied = (currentSingleClassData) => {
     makeDenied(currentSingleClassData._id);
-    toast.error(`Oops! ${currentSingleClassData.className} has been denied!`);
+    toast.error(
+      `Oops!! "${currentSingleClassData.className}" has been denied!`
+    );
     refetch();
   };
 
@@ -27,7 +29,7 @@ const ManageClasses = () => {
         </h2>
       </div>
 
-      <LazyLoad className="overflow-x-auto my-6 lg:mx-8">
+      <LazyLoad className="overflow-x-auto my-6 lg:mx-4">
         <table className="table">
           {/* head */}
           <thead>
@@ -50,11 +52,11 @@ const ManageClasses = () => {
                 <td className="text-center">{index + 1}</td>
                 <td>
                   <div className="flex items-center space-x-3">
-                  <div className="avatar">
-                    <div className="mx-auto mask mask-squircle w-12 h-12">
-                      <img src={singleClass.classImage} />
+                    <div className="avatar">
+                      <div className="mx-auto mask mask-squircle w-12 h-12">
+                        <img src={singleClass.classImage} />
+                      </div>
                     </div>
-                  </div>
                     <div>
                       <div className="font-bold">{singleClass.className}</div>
                     </div>
@@ -70,46 +72,42 @@ const ManageClasses = () => {
                 <td className="text-center">{singleClass.availableSeats}</td>
                 <td className="text-center">{singleClass.price}</td>
                 <td className="text-center">{singleClass.status}</td>
-                
+
                 <td className="mx-auto flex items-center text-center gap-4">
                   {/* denied btn */}
                   <div className="w-1/3">
-                    {singleClass.status === "denied" || "" ? (
-                      <span className="text-base font-semibold">
-                        Already Denied!
-                      </span>
-                    ) : (
-                      <button
-                        disabled={singleClass.status === "approved" || ""}
-                        onClick={() => {
-                            handleStatusDenied(singleClass);
-                        }}
-                        className="btn btn-outline btn-primary"
-                      >
-                        Approve
-                      </button>
-                    )}
+                    <button
+                      disabled={
+                        singleClass.status === "approved" ||
+                        singleClass.status === "denied"
+                      }
+                      onClick={() => {
+                        handleStatusApproved(singleClass);
+                      }}
+                      className="btn btn-outline btn-primary"
+                    >
+                      Approve
+                    </button>
                   </div>
 
                   {/* approved btn */}
                   <div className="w-1/3">
-                    {singleClass.status === "denied" || "" ? (
-                      <span className="text-base font-semibold">
-                        Already Approved!
-                      </span>
-                    ) : (
-                      <button
-                        disabled={singleClass.status === "denied" || ""}
-                        onClick={() => {
-                            handleStatusApproved(singleClass);
-                        }}
-                        className="btn btn-outline btn-error"
-                      >
-                        Deny
-                      </button>
-                    )}
+                    <button
+                      disabled={
+                        singleClass.status === "approved" ||
+                        singleClass.status === "denied"
+                      }
+                      onClick={() => {
+                        handleStatusDenied(singleClass);
+                      }}
+                      className="btn btn-outline btn-error"
+                    >
+                      Deny
+                    </button>
                   </div>
-                  <button className="btn btn-sm btn-outline btn-info w-1/3">Feedback</button>
+                  <button className="btn btn-sm btn-outline btn-info w-1/3">
+                    Feedback
+                  </button>
                 </td>
               </tr>
             ))}
