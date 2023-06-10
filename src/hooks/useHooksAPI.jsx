@@ -48,6 +48,7 @@ export const useAddedClasses = () => {
   return [myAllClasses, refetch];
 };
 
+
 // to get all users
 export const useAllUsers = () => {
   const { data: allUsers = [], refetch } = useQuery({
@@ -102,4 +103,27 @@ export const useGetSingleClass = (id) => {
     },
   });
   return [singleClass, refetch];
+};
+
+
+
+// to get all enrolledClasses for individual student by email
+export const useEnrolledClasses = (user) => {
+  const { data: myEnrolledClasses = [], refetch } = useQuery({
+    queryKey: ["myEnrolledClasses", user?.email],
+    queryFn: async () => {
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/enrolledClasses/${user.email}`,
+        {
+          method: "GET",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("access-token")}`,
+          },
+        }
+      );
+      return res.json();
+    },
+  });
+  return [myEnrolledClasses, refetch];
 };

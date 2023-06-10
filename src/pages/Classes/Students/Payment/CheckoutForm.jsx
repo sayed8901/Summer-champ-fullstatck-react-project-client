@@ -16,7 +16,7 @@ const CheckOutForm = ({ classData }) => {
   const [transactionID, setTransactionID] = useState("");
 
   
-  const {price, className, _id, instructorName, instructorEmail} = classData;
+  const {price, classImage, className, _id, instructorName, instructorEmail} = classData;
 
   useEffect(() => {
     if (price > 0) {
@@ -86,6 +86,7 @@ const CheckOutForm = ({ classData }) => {
         transactionID,
         price,
         classId : _id,
+        classImage,
         className,
         instructorName,
         instructorEmail,
