@@ -67,6 +67,9 @@ const Dashboard = () => {
               <li className="mb-6 font-bold text-blue-600 border-b-8 border-amber-400 rounded-xl">
                 <NavLink to="/dashboard/enrolled-classes">My Enrolled Classes</NavLink>
               </li>
+              <li className="mb-6 font-bold text-blue-600 border-b-8 border-amber-400 rounded-xl">
+                <NavLink to="/dashboard/payment-history">Payment History</NavLink>
+              </li>
             </div>
           }
 

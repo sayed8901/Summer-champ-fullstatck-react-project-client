@@ -35,9 +35,9 @@ const ManageClasses = () => {
           <thead>
             <tr className="text-center font-bold bg-base-200">
               <th>#</th>
-              <th>Class Name & Image</th>
-              <th>Instructor Name & Email</th>
-              <th>Available Seats</th>
+              <th>Class Name <br /> & Image</th>
+              <th>Instructor Name <br /> & Email</th>
+              <th>Available <br /> Seats</th>
               <th>Price</th>
               <th>Status</th>
               <th>Action</th>

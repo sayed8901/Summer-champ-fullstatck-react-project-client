@@ -21,6 +21,7 @@ import InstructorRoute from "./InstructorRoute";
 import MyClasses from "../pages/Classes/Instructors/MyClasses";
 import UpdateClassData from "../pages/Classes/Instructors/UpdateClassData";
 import Payment from "../pages/Classes/Students/Payment/Payment";
+import PaymentHistory from "../pages/Classes/Students/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -106,10 +107,22 @@ const router = createBrowserRouter([
           </AnimatedSection>
         ),
       },
-      // payment route for students class enrollment
+      // payment routes for students class enrollment
       {
         path: "payment/:id",
-        element: <Payment></Payment>
+        element: (
+          <AnimatedSection>
+            <Payment></Payment>
+          </AnimatedSection>
+        ),
+      },
+      {
+        path: "payment-history",
+        element: (
+          <AnimatedSection>
+            <PaymentHistory></PaymentHistory>
+          </AnimatedSection>
+        ),
       },
 
       // instructor only routes

@@ -74,6 +74,7 @@ const CheckOutForm = ({ classData }) => {
     }
 
     console.log("payment intent:", paymentIntent);
+    console.log('payment method:', paymentIntent.payment_method_types[0]);
 
     setProcessing(false);
     if (paymentIntent.status === "succeeded") {
@@ -84,6 +85,7 @@ const CheckOutForm = ({ classData }) => {
       const paymentInfo = {
         user: user?.email,
         transactionID,
+        paymentMethod: paymentIntent.payment_method_types[0],
         price,
         classId : _id,
         classImage,

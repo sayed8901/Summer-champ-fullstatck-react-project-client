@@ -17,14 +17,14 @@ const Payment = () => {
   const [singleClass] = useGetSingleClass(id);
 
   return (
-    <div className="w-full">
-      <div className="sm:w-3/4 mx-auto mb-16">
+    <div className="mx-auto w-[350px] sm:w-[500px] md:w-[600px] lg:w-[700px] sm:px-8">
+      <div className="mb-8 lg:mb-16 ">
         <h2 className="text-2xl lg:text-4xl font-bold text-center">
           <span className="text-gradient">Payment</span> process
         </h2>
       </div>
 
-      <div className="border-y-8 rounded-3xl w-3/4 mx-auto">
+      <div className="border-y-8 rounded-3xl">
         <Elements stripe={stripePromise}>
           <CheckoutForm classData={singleClass}></CheckoutForm>
         </Elements>
