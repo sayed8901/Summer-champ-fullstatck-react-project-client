@@ -31,11 +31,11 @@ const SelectedClasses = () => {
             <figure className="sm:w-5/12 sm:ms-4">
               <img className="rounded-xl" src={singleClass?.classImage} />
             </figure>
-            <div className="card-body">
-              <h2 className="card-title text-gradient">
+            <div className="card-body space-y-2 md:space-y-4">
+              <h2 className="card-title text-gradient md:text-2xl mb-2 md:mb-4">
                 {singleClass.className}
               </h2>
-              <div>
+              <div className="space-y-1 md:space-y-2">
                 <p>
                   Instructor Name: <b>{singleClass.instructorName}</b>
                 </p>

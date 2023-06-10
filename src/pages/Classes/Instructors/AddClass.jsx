@@ -16,12 +16,12 @@ const AddClass = () => {
         const form = event.target;
         const className = form.className.value;
         const classImage = form.classImage.value;
-        const availableSeats = form.availableSeats.value;
-        const price = form.price.value;
+        const availableSeats = parseFloat(form.availableSeats.value);
+        const price = parseFloat(form.price.value);
         const instructorName = user.displayName;
         const instructorEmail = user.email;
 
-        const newClassData = {className, classImage, availableSeats, price, instructorName, instructorEmail};
+        const newClassData = {className, classImage, availableSeats, price, instructorName, instructorEmail, status: "pending"};
 
         addClass(newClassData)
         Swal.fire({
@@ -74,7 +74,7 @@ const AddClass = () => {
                 <span className="label-text">Available Seats</span>
               </label>
               <input
-                type="text"
+                type="number"
                 name="availableSeats"
                 placeholder="Number of seats open"
                 className="input input-bordered"
@@ -86,7 +86,7 @@ const AddClass = () => {
                 <span className="label-text">Price</span>
               </label>
               <input
-                type="text"
+                type="number"
                 name="price"
                 placeholder="Price of the course"
                 className="input input-bordered"
