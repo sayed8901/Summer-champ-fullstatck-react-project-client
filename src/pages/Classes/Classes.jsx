@@ -5,12 +5,16 @@ import LazyLoad from "react-lazy-load";
 import { AuthContext } from "../../authProviders/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import { getRole } from "../../api/userAuth";
 // import { toast } from "react-hot-toast";
 
 const Classes = () => {
   useTitle("All Classes");
 
   const { user } = useContext(AuthContext);
+  const [role, setRole] = useState();
+  getRole(user?.email).then((data) => setRole(data));
+  // console.log(role);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -93,13 +97,12 @@ const Classes = () => {
                   </p>
                   <p>Available Seats: <b>{singleClass.availableSeats}</b></p>
                   <p>
-                    Price:{" "}
-                    <b className="text-gradient">BDTK {singleClass.price}</b>
+                    Price: <b className="text-gradient">BDTK {singleClass.price}</b>
                   </p>
                 </div>
                 <div className="card-actions justify-end">
                   <button
-                    disabled={singleClass.availableSeats === 0}
+                    disabled={singleClass.availableSeats === 0 || role === "admin" || role === "instructor"}
                     onClick={() => {
                       handleSelect(singleClass);
                     }}
