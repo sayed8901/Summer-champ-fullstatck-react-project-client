@@ -76,7 +76,7 @@ const Register = () => {
   return (
     <div className="w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[50%] mx-auto mt-12 mb-16 py-8 bg-base-200 rounded-xl">
       <h2 className="text-3xl font-bold text-center my-2">
-        <span className="text-gradient">Log in</span> Now!
+        <span className="text-gradient">Register</span> Now!
       </h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -227,7 +227,7 @@ const Register = () => {
           )}
           {/* to display error msg when "password" does not match with the "confirm password" */}
           {errors.confirmPassword && (
-            <p className="text-red-600">Passwords do not match</p>
+            <p className="text-red-500 text-center mt-4">Passwords do not matched</p>
           )}
         </div>
 

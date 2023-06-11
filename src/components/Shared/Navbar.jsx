@@ -97,11 +97,11 @@ const Navbar = () => {
         </div>
 
         <Link to={"/"} className="normal-case text-xl">
-          <div className="sm:flex flex-row items-center justify-center gap-1 w-20 sm:w-48">
+          <div className="sm:flex flex-row items-center justify-center gap-1 w-24 sm:w-48">
             <div>
               <img className="hidden sm:inline" src={logo} alt="" />
             </div>
-            <h2 className="mt-1 sm:mt-4 text-base sm:text-2xl px-1 font-bold text-gradient">
+            <h2 className="mt-1 sm:mt-4 text-xl sm:text-2xl px-1 font-bold text-gradient">
               Summer Champ
             </h2>
           </div>
@@ -116,7 +116,7 @@ const Navbar = () => {
       {/* to dynamically show user photo & name and also to switch button action between "log in" or "log out" */}
       <div className="navbar-end flex gap-4">
         {user ? (
-          <div className="flex gap-2 justify-center items-center">
+          <div className="flex gap-2 justify-center items-center border-4 rounded-full bg-gradient p-2">
             <div
               className="tooltip tooltip-bottom tooltip-primary"
               data-tip={user.displayName}
@@ -129,13 +129,13 @@ const Navbar = () => {
                 />
               </LazyLoad>
             </div>
-            <button onClick={logOut} className="btn btn-sm btn-primary h-10">
+            <button onClick={logOut} className="btn btn-sm btn-outline h-10 w-12 rounded-xl capitalize font-bold text-white">
               Log out
             </button>
           </div>
         ) : (
           <button>
-            <Link to={"/login"} className="btn btn-primary font-bold">
+            <Link to={"/login"} className="btn btn-primary btn-outline font-bold">
               log in
             </Link>
           </button>

@@ -5,10 +5,10 @@ export const getAllClasses = async () => {
   return data;
 };
 
-// get all classes by sorting on available seats
-export const getAllClassesBySeats = async () => {
+// get all classes by sorting on enrolledStudents
+export const getAllClassesByEnrolledStudents = async () => {
   const response = await fetch(
-    `${import.meta.env.VITE_API_URL}/classesByAvailableSeats`
+    `${import.meta.env.VITE_API_URL}/classesByEnrolledStudents`
   );
   const data = await response.json();
   return data;

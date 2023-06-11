@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { getAllClassesBySeats } from "../../api/classes";
+import { getAllClassesByEnrolledStudents } from "../../api/classes";
 import LazyLoad from "react-lazy-load";
 import AnimatedSection from "../../components/AOS-Animate/AnimatedSection";
 
 const PopularClasses = () => {
   const [classes, setClasses] = useState([]);
   useEffect(() => {
-    getAllClassesBySeats().then((data) => {
+    getAllClassesByEnrolledStudents().then((data) => {
       setClasses(data);
     });
   }, []);
@@ -62,8 +62,7 @@ const PopularClasses = () => {
                   </p>
                   <div className="flex justify-between">
                     <small className="text-center">
-                      Total students enrolled:{" "}
-                      <b>{singleClass?.availableSeats}</b>
+                      Total students enrolled: <b>{singleClass?.enrolledStudents}</b>
                     </small>
                     <small className="text-center text-gradient">
                       Available Seats: <b>{singleClass?.availableSeats}</b>
