@@ -76,9 +76,9 @@ const ManageClasses = () => {
                 <td className="text-center">{singleClass.price}</td>
                 <td className="text-center">{singleClass.status}</td>
 
-                <td className="mx-auto flex items-center text-center gap-4">
+                <td className="mx-auto flex flex-col justify-center items-center text-center gap-2">
                   {/* denied btn */}
-                  <div className="w-1/3">
+                  <div>
                     <button
                       disabled={
                         singleClass.status === "approved" ||
@@ -87,14 +87,14 @@ const ManageClasses = () => {
                       onClick={() => {
                         handleStatusApproved(singleClass);
                       }}
-                      className="btn btn-outline btn-primary"
+                      className="btn btn-sm btn-outline btn-primary"
                     >
                       Approve
                     </button>
                   </div>
 
                   {/* approved btn */}
-                  <div className="w-1/3">
+                  <div>
                     <button
                       disabled={
                         singleClass.status === "approved" ||
@@ -103,12 +103,12 @@ const ManageClasses = () => {
                       onClick={() => {
                         handleStatusDenied(singleClass);
                       }}
-                      className="btn btn-outline btn-error"
+                      className="btn btn-sm btn-outline btn-error"
                     >
                       Deny
                     </button>
                   </div>
-                  <button className="btn btn-sm btn-outline btn-info w-1/3">
+                  <button className="btn btn-sm btn-outline btn-info">
                     Feedback
                   </button>
                 </td>

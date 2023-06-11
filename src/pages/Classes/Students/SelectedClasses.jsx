@@ -20,7 +20,7 @@ const SelectedClasses = () => {
   }
 
   return (
-    <div>
+    <div className="lg:px-8">
       <div className="sm:w-3/4 mx-auto my-16">
         <h2 className="text-2xl lg:text-4xl font-bold text-center">
           My <span className="text-gradient">Selected Classes</span>

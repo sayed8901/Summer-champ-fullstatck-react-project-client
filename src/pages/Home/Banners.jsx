@@ -72,6 +72,13 @@ const BannerSlider = () => {
             />
             <p className="legend">Are you ready to take the challenge?</p>
           </div>
+          <div>
+            <img
+              className="rounded-xl"
+              src={"https://i.ibb.co/N6CHZNg/istockphoto-1369485989-612x612.jpg"}
+            />
+            <p className="legend">Dare to leap?</p>
+          </div>
         </Carousel>
       </div>
     </div>

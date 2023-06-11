@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { AuthContext } from "../authProviders/AuthProvider";
+import useAxiosSecure from "./useAxiosSecure";
 
 // to get all the selected classes
 export const useSelectedClasses = () => {
@@ -127,3 +128,22 @@ export const useEnrolledClasses = (user) => {
   });
   return [myEnrolledClasses, refetch];
 };
+
+
+
+
+// to get number of payment completed class to get number of enrolled students for that individual class
+export const useEnrolledNumberOfStudents = (classID) => {
+  const [axiosSecure] = useAxiosSecure();
+  const {data: totalEnrolledStudentsByClassID = [], refetch} = useQuery({
+    queryKey: ['totalEnrolledStudentsByClassID'],
+    queryFn: async () => {
+        const res = await axiosSecure.get(`/payment-enrolled-students/${classID}`)
+        // console.log(res.data);
+        return res.data;
+    }
+  })
+  return [totalEnrolledStudentsByClassID, refetch];
+};
+
+
