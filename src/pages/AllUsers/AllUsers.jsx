@@ -1,9 +1,13 @@
-import { makeAdmin, makeInstructor } from "../../api/userAuth";
+import { makeAdmin, makeInstructor, saveAsInstructor,  } from "../../api/userAuth";
 import LazyLoad from "react-lazy-load";
 import { toast } from "react-hot-toast";
 import { useAllUsers } from "../../hooks/useHooksAPI";
+import useTitle from "../../hooks/useTitle";
+
 
 const AllUsers = () => {
+  useTitle("Manage Users");
+
   const [allUsers, refetch] = useAllUsers();
 
   const handleMakeAdmin = (currentSingleUser) => {
@@ -15,8 +19,12 @@ const AllUsers = () => {
   const handleMakeInstructor = (currentSingleUser) => {
     makeInstructor(currentSingleUser.email);
     toast.success(`${currentSingleUser.name} is an instructor now!`);
+    saveAsInstructor(currentSingleUser);
+    toast.success(`${currentSingleUser.name} has also been saved as an instructor!`);
     refetch();
   };
+
+  
 
   return (
     <div>

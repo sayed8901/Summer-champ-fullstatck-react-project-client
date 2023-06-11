@@ -37,7 +37,7 @@ const EnrolledClasses = () => {
             {myEnrolledClasses.map((singleClass, index) => (
               <tr className="hover" key={singleClass._id}>
                 <td className="text-center">{index + 1}</td>
-                <td>
+                <td className="text-center">
                   <div className="avatar">
                     <div className="mx-auto mask mask-squircle w-12 h-12">
                       <img src={singleClass.classImage} />

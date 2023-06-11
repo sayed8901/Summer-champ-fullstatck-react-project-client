@@ -8,7 +8,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 // import { toast } from "react-hot-toast";
 
 const Classes = () => {
-  useTitle("Classes");
+  useTitle("All Classes");
 
   const { user } = useContext(AuthContext);
 

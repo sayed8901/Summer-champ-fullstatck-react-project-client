@@ -2,8 +2,11 @@ import LazyLoad from "react-lazy-load";
 import { useAllClasses } from "../../../hooks/useHooksAPI";
 import { makeApproved, makeDenied } from "../../../api/userAuth";
 import { toast } from "react-hot-toast";
+import useTitle from "../../../hooks/useTitle";
 
 const ManageClasses = () => {
+  useTitle("Manage Classes");
+
   const [allClasses, refetch] = useAllClasses();
   //   console.log(allClasses);
 

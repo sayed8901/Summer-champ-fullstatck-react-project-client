@@ -3,7 +3,7 @@ export const saveUser = (user) => {
   const currentUser = {
     email: user.email,
     name: user.displayName,
-    image: user.photoURL
+    image: user.photoURL,
   };
 
   fetch(`${import.meta.env.VITE_API_URL}/users/${user?.email}`, {
@@ -77,7 +77,6 @@ export const getRole = async (email) => {
 
 
 
-
 // to make class status set to "approved"
 export const makeApproved = async (id) => {
   const approvalStatus = {
@@ -107,4 +106,30 @@ export const makeDenied = async (id) => {
     },
     body: JSON.stringify(approvalStatus),
   }).then((res) => res.json());
+};
+
+
+
+
+
+// save a instructor to database
+export const saveAsInstructor = (user) => {
+  const instructorInfo = {
+    image: user.image,
+    name: user.name,
+    email: user.email,
+  };
+
+  fetch(`${import.meta.env.VITE_API_URL}/instructors/${user?.email}`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("access-token")}`,
+    },
+    body: JSON.stringify(instructorInfo),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+    });
 };

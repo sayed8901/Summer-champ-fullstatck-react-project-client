@@ -1,12 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
 import { AuthContext } from "../../authProviders/AuthProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import LazyLoad from "react-lazy-load";
+import { getRole } from "../../api/userAuth";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  // console.log(user);
+  const [role, setRole] = useState();
+  getRole(user?.email).then((data) => setRole(data));
+  // console.log(role);
 
   // Creating NavBar Menu Items for further used below
   const navItems = (
@@ -41,12 +44,17 @@ const Navbar = () => {
           Classes
         </NavLink>
       </li>
-      
+
       {user && (
         <li>
           <LazyLoad>
             <NavLink
-              to="/dashboard"
+              to={
+                (role === "instructor" && "/dashboard/my-all-classes") ||
+                (role === "admin" && "/dashboard/manage-classes") ||
+                "/dashboard/selected-classes"
+              }
+              // to="/dashboard/my-all-classes"
               className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({
                 isActive,
               }) => (isActive ? "active" : "")}`}

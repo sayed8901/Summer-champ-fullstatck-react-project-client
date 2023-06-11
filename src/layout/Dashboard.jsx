@@ -7,7 +7,7 @@ import { useState } from "react";
 const Dashboard = () => {
   const [role, setRole] = useState();
   const { user } = useContext(AuthContext);
-  getRole(user.email).then((data) => setRole(data));
+  getRole(user?.email).then((data) => setRole(data));
   // console.log(role);
 
   return (
@@ -35,10 +35,10 @@ const Dashboard = () => {
           {
             role === "instructor" && 
             <div>
-              <li className="mb-6 font-bold text-blue-600 border-b-8 border-amber-400 rounded-xl">
+              <li className="mb-6 font-bold text-blue-600 border-b-8 border-pink-300 rounded-xl">
                 <NavLink to="/dashboard/add-class">Add a New Class</NavLink>
               </li>
-              <li className="mb-6 font-bold text-blue-600 border-b-8 border-amber-400 rounded-xl">
+              <li className="mb-6 font-bold text-blue-600 border-b-8 border-pink-300 rounded-xl">
                 <NavLink to="/dashboard/my-all-classes">My All Classes</NavLink>
               </li>
             </div>
@@ -48,10 +48,10 @@ const Dashboard = () => {
           {
             role === "admin" && 
             <div>
-              <li className="mb-6 font-bold text-blue-600 border-b-8 border-amber-400 rounded-xl">
+              <li className="mb-6 font-bold text-blue-600 border-b-8 border-orange-500 rounded-xl">
                 <NavLink to="/dashboard/manage-classes">Manage Classes</NavLink>
               </li>
-              <li className="mb-6 font-bold text-blue-600 border-b-8 border-amber-400 rounded-xl">
+              <li className="mb-6 font-bold text-blue-600 border-b-8 border-orange-500 rounded-xl">
                 <NavLink to="/dashboard/manage-users">Manage Users</NavLink>
               </li>
             </div>
