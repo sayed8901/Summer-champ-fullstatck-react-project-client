@@ -1,6 +1,5 @@
 import LazyLoad from "react-lazy-load";
-import { useSelectedClasses } from "../../../hooks/useHooksAPI";
-import { deleteSelectedClass } from "../../../api/classes";
+import { deleteSelectedClass, useSelectedClasses } from "../../../hooks/useHooksAPI";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import useTitle from "../../../hooks/useTitle";

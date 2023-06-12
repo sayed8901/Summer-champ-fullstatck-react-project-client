@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import useTitle from "../../hooks/useTitle";
-import { getAllApprovedClasses, saveSelectedClass } from "../../api/classes";
+import { getAllApprovedClasses } from "../../api/classes";
 import LazyLoad from "react-lazy-load";
 import { AuthContext } from "../../authProviders/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getRole } from "../../api/userAuth";
+import { saveSelectedClass } from "../../hooks/useHooksAPI";
 // import { toast } from "react-hot-toast";
 
 const Classes = () => {

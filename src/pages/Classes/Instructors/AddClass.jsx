@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import useTitle from "../../../hooks/useTitle";
 import { AuthContext } from "../../../authProviders/AuthProvider";
-import { addClass } from "../../../api/addClass";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { addClass } from "../../../hooks/useHooksAPI";
+
 
 const AddClass = () => {
   useTitle("Add a Class");
@@ -13,7 +14,7 @@ const AddClass = () => {
   const img_hosting_token = import.meta.env.VITE_IMGBB_KEY;
   const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
 
-  
+
   const handleAdd = (event) => {
     event.preventDefault();
 
@@ -48,6 +49,7 @@ const AddClass = () => {
           instructorName,
           instructorEmail,
           status: "pending",
+          enrolledStudents: 0,
         };
 
         addClass(newClassData);
@@ -62,6 +64,7 @@ const AddClass = () => {
       });
   };
 
+  
   return (
     <div>
       <form

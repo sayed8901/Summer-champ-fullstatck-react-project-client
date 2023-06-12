@@ -3,6 +3,25 @@ import { useContext } from "react";
 import { AuthContext } from "../authProviders/AuthProvider";
 import useAxiosSecure from "./useAxiosSecure";
 
+
+// save a selected class data
+export const saveSelectedClass = (classData) => {
+
+  fetch(`${import.meta.env.VITE_API_URL}/selectedClasses/${classData?.bookingId}`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("access-token")}`,
+    },
+    body: JSON.stringify(classData),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+    });
+};
+
+
 // to get all the selected classes
 export const useSelectedClasses = () => {
   const { user } = useContext(AuthContext);
@@ -26,6 +45,38 @@ export const useSelectedClasses = () => {
   return [selectedClasses, refetch];
 };
 
+
+// delete a selected class data
+export const deleteSelectedClass = async (id) => {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/selectedClasses/${id}`, {
+    method: "DELETE",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("access-token")}`,
+    },
+  })
+  const result = await response.json();
+  return result;
+}
+
+
+
+
+// save newClass data by an instructor
+export const addClass = async (newClassData) => {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/instructors/add-class`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("access-token")}`,
+    },
+    body: JSON.stringify(newClassData),
+  });
+  const data = await response.json();
+  return data;
+};
+
+
 // to get all addedClasses for individual instructor by email
 export const useAddedClasses = () => {
   const { user } = useContext(AuthContext);
@@ -48,6 +99,9 @@ export const useAddedClasses = () => {
   });
   return [myAllClasses, refetch];
 };
+
+
+
 
 
 // to get all users
@@ -132,7 +186,11 @@ export const useEnrolledClasses = (user) => {
 
 
 
+
+
+
 // to get number of payment completed class to get number of enrolled students for that individual class
+// extra created: not been used
 export const useEnrolledNumberOfStudents = (classID) => {
   const [axiosSecure] = useAxiosSecure();
   const {data: totalEnrolledStudentsByClassID = [], refetch} = useQuery({

@@ -1,12 +1,11 @@
 import useTitle from "../../../hooks/useTitle";
 import { useAddedClasses } from "../../../hooks/useHooksAPI";
-import MyClassCard from "./MyClassCard";
-
+import LazyLoad from "react-lazy-load";
 
 const MyClasses = () => {
   useTitle("My Classes");
 
-  const [myAllClasses, ] = useAddedClasses();
+  const [myAllClasses] = useAddedClasses();
   //   console.log(myAllClasses);
 
   return (
@@ -19,7 +18,32 @@ const MyClasses = () => {
         </div>
 
         {myAllClasses.map((singleClass) => (
-            <MyClassCard key={singleClass._id} singleClass={singleClass}></MyClassCard>
+          <LazyLoad key={singleClass._id}>
+            <div
+              className={`card sm:card-side shadow-xl bg-base-100 mb-12 sm:mb-8`}
+            >
+              <figure className="sm:w-5/12 sm:ms-4">
+                <img className="rounded-xl" src={singleClass.classImage} />
+              </figure>
+              <div className="card-body space-y-2 md:space-y-4">
+                <h2 className="card-title text-gradient md:text-2xl">
+                  {singleClass.className}
+                </h2>
+                <div className="space-y-1 md:space-y-2">
+                  <p>Total Enrolled Students: {singleClass.enrolledStudents}</p>
+                  <p>
+                    Approval Status:
+                    <b className="text-gradient"> {singleClass?.status}</b>
+                  </p>
+                </div>
+                <div className="card-actions justify-end">
+                  <button className="btn btn-sm btn-primary btn-outline">
+                    Update the class info
+                  </button>
+                </div>
+              </div>
+            </div>
+          </LazyLoad>
         ))}
       </div>
     </div>

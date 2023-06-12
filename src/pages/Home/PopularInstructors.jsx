@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllInstructors } from "../../api/instructors";
+import { getAllInstructors } from "../../api/classes";
 
 const PopularInstructors = () => {
   const [instructors, setInstructors] = useState([]);
