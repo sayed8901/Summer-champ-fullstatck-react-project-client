@@ -22,6 +22,7 @@ import MyClasses from "../pages/Classes/Instructors/MyClasses";
 import UpdateClassData from "../pages/Classes/Instructors/UpdateClassData";
 import Payment from "../pages/Classes/Students/Payment/Payment";
 import PaymentHistory from "../pages/Classes/Students/PaymentHistory";
+import Feedback from "../pages/Classes/Admin/Feedback";
 
 const router = createBrowserRouter([
   {
@@ -164,6 +165,16 @@ const router = createBrowserRouter([
           <AnimatedSection>
             <AdminRoute>
               <ManageClasses></ManageClasses>
+            </AdminRoute>
+          </AnimatedSection>
+        ),
+      },
+      {
+        path: "manage-classes/feedback/:id",
+        element: (
+          <AnimatedSection>
+            <AdminRoute>
+              <Feedback></Feedback>
             </AdminRoute>
           </AnimatedSection>
         ),

@@ -3,6 +3,7 @@ import { useAllClasses } from "../../../hooks/useHooksAPI";
 import { makeApproved, makeDenied } from "../../../api/userAuth";
 import { toast } from "react-hot-toast";
 import useTitle from "../../../hooks/useTitle";
+import { Link } from "react-router-dom";
 
 const ManageClasses = () => {
   useTitle("Manage Classes");
@@ -108,9 +109,12 @@ const ManageClasses = () => {
                       Deny
                     </button>
                   </div>
-                  <button className="btn btn-sm btn-outline btn-info">
+                  {/* <button className="btn btn-sm btn-outline btn-info">
                     Feedback
-                  </button>
+                  </button> */}
+                  <Link to={`feedback/${singleClass._id}`} className="btn btn-sm btn-outline btn-info">
+                    Feedback
+                  </Link>
                 </td>
               </tr>
             ))}

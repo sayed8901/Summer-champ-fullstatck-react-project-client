@@ -1,8 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { updateClassInfo, useGetSingleClass } from "../../../hooks/useHooksAPI";
 import Swal from "sweetalert2";
+import useTitle from "../../../hooks/useTitle";
 
 const UpdateClassData = () => {
+  useTitle("Update Class");
   const { id } = useParams();
   const [singleClass] = useGetSingleClass(id);
   console.log(id, singleClass);

@@ -38,6 +38,23 @@ export const updateClassInfo = (classData) => {
 };
 
 
+// to send feedback
+export const sendFeedback = (feedbackData) => {
+  fetch(`${import.meta.env.VITE_API_URL}/feedback/${feedbackData?.feedbackId}`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("access-token")}`,
+    },
+    body: JSON.stringify(feedbackData),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+    });
+};
+
+
 // to get all the selected classes
 export const useSelectedClasses = () => {
   const [axiosSecure] = useAxiosSecure();
