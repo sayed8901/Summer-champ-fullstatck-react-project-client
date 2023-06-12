@@ -15,13 +15,12 @@ const CheckOutForm = ({ classData }) => {
   const [processing, setProcessing] = useState(false);
   const [transactionID, setTransactionID] = useState("");
 
-  
-  const {price, classImage, className, _id, instructorName, instructorEmail} = classData;
+  const { price, classImage, className, _id, instructorName, instructorEmail } =
+    classData;
 
   useEffect(() => {
     if (price > 0) {
-      axiosSecure.post("/create-payment-intent", { price })
-      .then((res) => {
+      axiosSecure.post("/create-payment-intent", { price }).then((res) => {
         console.log("clientSecret:", res.data.clientSecret);
         setClientSecret(res.data.clientSecret);
       });
@@ -74,7 +73,7 @@ const CheckOutForm = ({ classData }) => {
     }
 
     console.log("payment intent:", paymentIntent);
-    console.log('payment method:', paymentIntent.payment_method_types[0]);
+    console.log("payment method:", paymentIntent.payment_method_types[0]);
 
     setProcessing(false);
     if (paymentIntent.status === "succeeded") {
@@ -87,7 +86,7 @@ const CheckOutForm = ({ classData }) => {
         transactionID,
         paymentMethod: paymentIntent.payment_method_types[0],
         price,
-        classId : _id,
+        classId: _id,
         classImage,
         className,
         instructorName,
@@ -95,11 +94,10 @@ const CheckOutForm = ({ classData }) => {
         date: new Date(),
       };
 
-      axiosSecure.post("/payments", paymentInfo)
-      .then((res) => {
+      axiosSecure.post("/payments", paymentInfo).then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
-          toast.success('Payment Successfully Completed.')
+          toast.success("Payment Successfully Completed.");
         }
       });
     }
@@ -140,7 +138,16 @@ const CheckOutForm = ({ classData }) => {
       )}
       {transactionID && (
         <p className="text-center border-x-4 rounded-2xl w-3/4 mx-auto mb-8">
-          Payment completed with <span className="text-primary">transactionID</span>: <br /><span className="text-xl font-bold text-gradient">{transactionID}</span>
+          <span className="text-xl">Your Payment Successful for: <b className="text-gradient">{className}</b></span>
+          <br /> <br />
+          <span className="text-gradient">
+            BDTK <b>{price}</b>
+          </span>{" "}
+          Payment completed with{" "}
+          <span className="text-primary">transactionID</span>: <br />
+          <span className="text-xl font-bold text-gradient">
+            {transactionID}
+          </span>
         </p>
       )}
     </>

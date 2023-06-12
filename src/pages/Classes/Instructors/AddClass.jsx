@@ -6,33 +6,61 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const AddClass = () => {
-    useTitle('Add a Class');
-    const {user} = useContext(AuthContext);
-    const navigate = useNavigate();
+  useTitle("Add a Class");
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-    const handleAdd = (event) => {
-        event.preventDefault();
+  const img_hosting_token = import.meta.env.VITE_IMGBB_KEY;
+  const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
 
-        const form = event.target;
-        const className = form.className.value;
-        const classImage = form.classImage.value;
-        const availableSeats = parseFloat(form.availableSeats.value);
-        const price = parseFloat(form.price.value);
-        const instructorName = user.displayName;
-        const instructorEmail = user.email;
+  
+  const handleAdd = (event) => {
+    event.preventDefault();
 
-        const newClassData = {className, classImage, availableSeats, price, instructorName, instructorEmail, status: "pending"};
+    const form = event.target;
+    const className = form.className.value;
+    // const classImage = form.classImage.value;
+    const availableSeats = parseFloat(form.availableSeats.value);
+    const price = parseFloat(form.price.value);
+    const instructorName = user.displayName;
+    const instructorEmail = user.email;
 
-        addClass(newClassData)
+    // image upload
+    const uploadedImage = form.image.files[0];
+    // console.log(uploadedImage);
+    const formData = new FormData();
+    formData.append("image", uploadedImage);
+
+    fetch(img_hosting_url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imageData) => {
+        // console.log(imageData.data);
+        const imageURL = imageData.data.display_url;
+
+        const newClassData = {
+          className,
+          classImage: imageURL,
+          availableSeats,
+          price,
+          instructorName,
+          instructorEmail,
+          status: "pending",
+        };
+
+        addClass(newClassData);
         Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "You have successfully created a new class.",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          navigate("/dashboard/my-all-classes");
-    }
+          position: "center",
+          icon: "success",
+          title: "You have successfully created a new class.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/dashboard/my-all-classes");
+      });
+  };
 
   return (
     <div>
@@ -61,15 +89,14 @@ const AddClass = () => {
               <span className="label-text">Class Image</span>
             </label>
             <input
-              type="url"
-              name="classImage"
-              placeholder="Relevant photo_URL of the class"
-              className="input input-bordered"
+              type="file"
+              name="image"
+              className="input input-bordered pt-2"
               required
             />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-8">
-          <div className="form-control">
+            <div className="form-control">
               <label className="label">
                 <span className="label-text">Available Seats</span>
               </label>
@@ -99,7 +126,9 @@ const AddClass = () => {
               <span className="label-text">Instructor Name</span>
             </label>
             <input
-              type="text" readOnly defaultValue={user.displayName}
+              type="text"
+              readOnly
+              defaultValue={user.displayName}
               name="instructorName"
               className="input input-bordered"
             />
@@ -109,7 +138,9 @@ const AddClass = () => {
               <span className="label-text">Instructor Email</span>
             </label>
             <input
-              type="email" readOnly defaultValue={user.email}
+              type="email"
+              readOnly
+              defaultValue={user.email}
               name="instructorEmail"
               className="input input-bordered"
             />
