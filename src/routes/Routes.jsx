@@ -147,7 +147,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "update-class/:id",
+        path: "my-all-classes/update-class/:id",
         element: (
           <AnimatedSection>
             <InstructorRoute>

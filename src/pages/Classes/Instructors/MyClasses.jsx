@@ -1,6 +1,7 @@
 import useTitle from "../../../hooks/useTitle";
 import { useAddedClasses } from "../../../hooks/useHooksAPI";
 import LazyLoad from "react-lazy-load";
+import { Link } from "react-router-dom";
 
 const MyClasses = () => {
   useTitle("My Classes");
@@ -37,9 +38,9 @@ const MyClasses = () => {
                   </p>
                 </div>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-sm btn-primary btn-outline">
+                  <Link to={`update-class/${singleClass._id}`} className="btn btn-sm btn-primary btn-outline">
                     Update the class info
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
