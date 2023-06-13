@@ -8,9 +8,11 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { saveUser } from "../../api/userAuth";
 import { toast } from "react-hot-toast";
 import SocialLogin from "./SocialLogin";
+import { ThemeContext } from "../../authProviders/ThemeContextProvider";
 
 const Register = () => {
   useTitle("Registration");
+  const {darkMode} = useContext(ThemeContext);
 
   const [showPassword, setShowPassword] = useState(false);
   // for password view/hide toggling
@@ -74,7 +76,7 @@ const Register = () => {
   const password = watch("password");
 
   return (
-    <div className="w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[50%] mx-auto mt-12 mb-16 py-8 bg-base-200 rounded-xl">
+    <div className={`w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[50%] mx-auto mt-12 mb-16 py-8 bg-base-200 rounded-xl ${darkMode ? 'theme-dark' : 'theme-light'}`}>
       <h2 className="text-3xl font-bold text-center my-2">
         <span className="text-gradient">Register</span> Now!
       </h2>
@@ -255,7 +257,7 @@ const Register = () => {
       <p className="text-center">
         <small>
           Already Have an Account?{" "}
-          <Link to={"/login"} className="ms-2 btn btn-sm btn-outline">
+          <Link to={"/login"} className="ms-2 btn btn-sm btn-neutral">
             Log in now!
           </Link>
         </small>

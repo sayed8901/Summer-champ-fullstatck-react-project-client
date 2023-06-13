@@ -5,8 +5,11 @@ import { useContext, useState } from "react";
 import LazyLoad from "react-lazy-load";
 import { getRole } from "../../api/userAuth";
 import { Fade } from "react-awesome-reveal";
+import { ThemeContext } from "../../authProviders/ThemeContextProvider";
 
 const Navbar = () => {
+  const {darkMode} = useContext(ThemeContext);
+
   const { user, logOut } = useContext(AuthContext);
   const [role, setRole] = useState();
   getRole(user?.email).then((data) => setRole(data));
@@ -67,7 +70,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-300 bg-opacity-70 h-24 sticky top-0 z-10 rounded">
+    <div className={`navbar bg-base-300 bg-opacity-70 h-24 sticky top-0 z-10 rounded ${darkMode ? 'theme-dark' : 'theme-light'}`}>
       <div className="navbar-start">
         {/* dropdown navbar for small display */}
         <div className="dropdown">
@@ -117,7 +120,7 @@ const Navbar = () => {
         {user ? (
           <div className="flex gap-2 justify-center items-center border-4 rounded-full bg-gradient p-2">
             <div
-              className="tooltip tooltip-bottom tooltip-primary"
+              className="tooltip tooltip-left tooltip-primary"
               data-tip={user.displayName}
             >
               <LazyLoad>

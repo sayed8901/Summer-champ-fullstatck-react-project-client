@@ -3,6 +3,7 @@ import { AuthContext } from "../../authProviders/AuthProvider";
 import { saveUser } from "../../api/userAuth";
 import { toast } from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const SocialLogin = () => {
   const { setLoading, googleSignIn, gitHubSignIn } = useContext(AuthContext);
@@ -19,6 +20,13 @@ const SocialLogin = () => {
         console.log(result.user);
         // save user to BD
         saveUser(result.user);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "You have successfully logged in!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate(fromLocation, { replace: true });
       })
       .catch((error) => {

@@ -6,9 +6,11 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../authProviders/AuthProvider";
 import Swal from "sweetalert2";
 import SocialLogin from "./SocialLogin";
+import { ThemeContext } from "../../authProviders/ThemeContextProvider";
 
 const Login = () => {
   useTitle("Log in");
+  const {darkMode} = useContext(ThemeContext);
 
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -58,7 +60,7 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[50%] mx-auto mt-12 mb-16 py-8 bg-base-200 rounded-xl">
+    <div className={`w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[50%] mx-auto mt-12 mb-16 py-8 bg-base-200 rounded-xl ${darkMode ? 'theme-dark' : 'theme-light'}`}>
       <h2 className="text-3xl font-bold text-center my-2">
         <span className="text-gradient">Log in</span> Now!
       </h2>
@@ -85,7 +87,7 @@ const Login = () => {
             <span className="label-text">Password</span>
           </label>
           {/* based on password shoe/hide toggling, dynamically change the type of input field..*/}
-          <div className="flex justify-between items-center gap-4">
+          <div className="flex justify-between items-center gap-4 text-black">
             <input
               type={showPassword ? "text" : "password"}
               name="password"
@@ -147,7 +149,7 @@ const Login = () => {
       <p className="text-center">
         <small>
           New to this site?{" "}
-          <Link to={"/register"} className="ms-2 btn btn-sm btn-outline">
+          <Link to={"/register"} className="ms-2 btn btn-sm btn-neutral">
             Register Now!
           </Link>
         </small>

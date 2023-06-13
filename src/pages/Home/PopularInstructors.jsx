@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { getAllInstructors } from "../../api/classes";
 import { Slide } from "react-awesome-reveal";
+import { useContext } from "react";
+import { ThemeContext } from "../../authProviders/ThemeContextProvider";
 
 const PopularInstructors = () => {
+  const {darkMode} = useContext(ThemeContext);
+  
   const [instructors, setInstructors] = useState([]);
   useEffect(() => {
     getAllInstructors().then((data) => {
@@ -28,7 +32,7 @@ const PopularInstructors = () => {
         {topInstructors.map((instructor) => (
           <div
             key={instructor._id}
-            className="card glass bg-base-100 shadow-xl flex flex-row"
+            className={`card glass bg-base-100 shadow-xl flex flex-row ${darkMode ? 'theme-dark' : 'theme-light'}`}
           >
             <figure className="m-4">
               <img
