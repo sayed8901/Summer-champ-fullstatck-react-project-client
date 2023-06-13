@@ -8,7 +8,7 @@ Features:
 
 * You can find our top popular sports classes here & enroll in your favorite one. You can also check out our top instructors who are always ready to excite your sports experience.
 
-
+<br /> <br />
 
 * As a user, after logging in to your dashboard, you can select your favorite class & enroll in it later subject to availability of seats. 
 
@@ -41,6 +41,7 @@ Features:
 
 <hr />
 Technology/ Packages Used alongside:
+
 * React Awesome Reveal
 * AOS
 * react-lazy-load
