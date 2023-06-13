@@ -3,9 +3,12 @@ import { useAddedClasses } from "../../../hooks/useHooksAPI";
 import LazyLoad from "react-lazy-load";
 import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
+import { useContext } from "react";
+import { ThemeContext } from "../../../authProviders/ThemeContextProvider";
 
 const MyClasses = () => {
   useTitle("My Classes");
+  const {darkMode} = useContext(ThemeContext);
 
   const [myAllClasses] = useAddedClasses();
   //   console.log(myAllClasses);
@@ -22,7 +25,7 @@ const MyClasses = () => {
         {myAllClasses.map((singleClass) => (
           <LazyLoad key={singleClass._id}>
             <div
-              className={`card sm:card-side shadow-xl bg-base-100 mb-12 sm:mb-8`}
+              className={`card glass sm:card-side shadow-xl bg-base-100 mb-12 sm:mb-8 ${darkMode ? 'theme-dark' : 'theme-light'}`}
             >
               <figure className="sm:w-5/12 sm:ms-4">
                 <img className="rounded-xl" src={singleClass.classImage} />

@@ -32,7 +32,7 @@ const PopularInstructors = () => {
         {topInstructors.map((instructor) => (
           <div
             key={instructor._id}
-            className={`card glass bg-base-100 shadow-xl flex flex-row ${darkMode ? 'theme-dark' : 'theme-light'}`}
+          className={`card glass bg-base-100 shadow-xl flex flex-row ${darkMode ? 'theme-dark' : 'theme-light'}`}
           >
             <figure className="m-4">
               <img
