@@ -1,7 +1,8 @@
-Welcome to the “Summer Champ” ![Website Logo](image.png) website.
+Welcome to the <b>“Summer Champ”</b> ![Website Logo](image.png) website.
+
+<br />
 
 You can check out our special sports events to utilize this summer time at its best.
-
 
 <br /> <hr />
 Features:
@@ -58,10 +59,9 @@ Technology/ Packages Used alongside:
 
 
 
-
 <br /> <br /> <hr />
 
-firebase deploy website live link:
+Firebase deploy website live link:
 
 https://summer-champ-school-camping.web.app/ 
 
@@ -80,8 +80,8 @@ https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-sa
 
 
 
-
 <br /> <hr />
+
 Extra info:
 
 Admin credentials for this site:

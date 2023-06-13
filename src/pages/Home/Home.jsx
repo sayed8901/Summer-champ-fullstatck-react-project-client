@@ -7,7 +7,8 @@ import PopularInstructors from "./PopularInstructors";
 
 // N.B.: The routes below wrapped with <AnimatedSection> to show AOS effect.
 const Home = () => {
-    useTitle('Home')
+    useTitle('Home');
+    
     return (
         <div>
             <AnimatedSection><BannerSlider></BannerSlider></AnimatedSection>

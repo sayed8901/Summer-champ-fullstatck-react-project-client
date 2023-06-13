@@ -28,7 +28,7 @@ const PopularInstructors = () => {
         {topInstructors.map((instructor) => (
           <div
             key={instructor._id}
-            className="card bg-base-100 shadow-xl flex flex-row"
+            className="card glass bg-base-100 shadow-xl flex flex-row"
           >
             <figure className="m-4">
               <img
