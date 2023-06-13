@@ -3,7 +3,7 @@ Welcome to the “Summer Champ” ![Website Logo](image.png) website.
 You can check out our special sports events to utilize this summer time at its best.
 
 
-
+<hr />
 Features:
 
 * You can find our top popular sports classes here & enroll in your favorite one. You can also check out our top instructors who are always ready to excite your sports experience.
@@ -39,7 +39,7 @@ Features:
 * Besides these, I have used "stripe/stripe-js" as the payment method for this website.
 
 
-
+<hr />
 Technology/ Packages Used alongside:
 * React Awesome Reveal
 * AOS
@@ -58,7 +58,7 @@ Technology/ Packages Used alongside:
 
 
 
-
+<hr />
 Important links:
 
 
@@ -84,7 +84,7 @@ https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-sa
 
 
 
-
+<hr />
 Extra info:
 
 Admin credentials for this site:
