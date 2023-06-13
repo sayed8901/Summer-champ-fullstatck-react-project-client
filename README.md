@@ -60,8 +60,6 @@ Technology/ Packages Used alongside:
 
 
 <br /> <br /> <hr />
-Important links:
-
 
 firebase deploy website live link:
 
@@ -71,14 +69,12 @@ https://summer-champ-school-camping.web.app/
 
 <br />
 
-GitHub Repository Links: 
-
-Client-side repo link: 
+Client-side GitHub Repository link: 
 
 https://github.com/programming-hero-web-course1/b712-summer-camp-client-side-sayed8901 
 
 
-Server-side repo link: 
+Server-side GitHub Repository link: 
 
 https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-sayed8901 
 
@@ -89,10 +85,15 @@ https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-sa
 Extra info:
 
 Admin credentials for this site:
+
 Admin ID: sayed91515@gmail.com
+
 Admin Password: Sayed@8901
 
+<br /> 
 
 Instructor credentials for this site:
+
 Instructor ID: sdssayed24@gmail.com
+
 Instructor Password: Sayed@8901
