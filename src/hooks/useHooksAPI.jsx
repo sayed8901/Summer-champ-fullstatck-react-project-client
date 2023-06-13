@@ -64,15 +64,6 @@ export const useSelectedClasses = () => {
     queryFn: async () => {
       const res = await axiosSecure.get(`/selectedClasses?email=${user?.email}`);
       return res.data;
-      // await fetch(`${import.meta.env.VITE_API_URL}/selectedClasses?email=${user?.email}`, {
-      //     method: "GET",
-      //     headers: {
-      //       "content-type": "application/json",
-      //       authorization: `Bearer ${localStorage.getItem("access-token")}`,
-      //     },
-      //   }
-      // );
-      // return res.json();
     },
   });
   return [selectedClasses, refetch];
@@ -119,15 +110,6 @@ export const useAddedClasses = () => {
     queryFn: async () => {
       const res = await axiosSecure.get(`/instructor/classes/${user.email}`);
       return res.data;
-      // await fetch(`${import.meta.env.VITE_API_URL}/instructor/classes/${user.email}`, {
-      //     method: "GET",
-      //     headers: {
-      //       "content-type": "application/json",
-      //       authorization: `Bearer ${localStorage.getItem("access-token")}`,
-      //     },
-      //   }
-      // );
-      // return res.json();
     },
   });
   return [myAllClasses, refetch];
@@ -145,14 +127,6 @@ export const useAllUsers = () => {
     queryFn: async () => {
       const res = await axiosSecure.get(`/users`);
       return res.data;
-      // await fetch(`${import.meta.env.VITE_API_URL}/users`, {
-      //   method: "GET",
-      //   headers: {
-      //     "content-type": "application/json",
-      //     authorization: `Bearer ${localStorage.getItem("access-token")}`,
-      //   },
-      // });
-      // return res.json();
     },
   });
   return [allUsers, refetch];
@@ -167,14 +141,6 @@ export const useAllClasses = () => {
     queryFn: async () => {
       const res = await axiosSecure.get(`/admin/classes`);
       return res.data;
-      // await fetch(`${import.meta.env.VITE_API_URL}/admin/classes`, {
-      //   method: "GET",
-      //   headers: {
-      //     "content-type": "application/json",
-      //     authorization: `Bearer ${localStorage.getItem("access-token")}`,
-      //   },
-      // });
-      // return res.json();
     },
   });
   return [allClasses, refetch];
@@ -190,14 +156,6 @@ export const useGetSingleClass = (id) => {
     queryFn: async () => {
       const res = await axiosSecure.get(`/classes/${id}`);
       return res.data;
-      // await fetch(`${import.meta.env.VITE_API_URL}/classes/${id}`, {
-      //   method: "GET",
-      //   headers: {
-      //     "content-type": "application/json",
-      //     authorization: `Bearer ${localStorage.getItem("access-token")}`,
-      //   },
-      // });
-      // return res.json();
     },
   });
   return [singleClass, refetch];
@@ -213,15 +171,6 @@ export const useEnrolledClasses = (user) => {
     queryFn: async () => {
       const res = await axiosSecure.get(`/enrolledClasses/${user.email}`);
       return res.data;
-      // await fetch(`${import.meta.env.VITE_API_URL}/enrolledClasses/${user.email}`, {
-      //     method: "GET",
-      //     headers: {
-      //       "content-type": "application/json",
-      //       authorization: `Bearer ${localStorage.getItem("access-token")}`,
-      //     },
-      //   }
-      // );
-      // return res.json();
     },
   });
   return [myEnrolledClasses, refetch];

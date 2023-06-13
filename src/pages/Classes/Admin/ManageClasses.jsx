@@ -113,7 +113,7 @@ const ManageClasses = () => {
                   {/* <button className="btn btn-sm btn-outline btn-info">
                     Feedback
                   </button> */}
-                  <Link to={`feedback/${singleClass._id}`} className="btn btn-sm btn-outline btn-info">
+                  <Link to={`feedback/${singleClass._id}`} className="btn btn-sm btn-outline btn-info lowercase">
                     Feedback
                   </Link>
                 </td>
