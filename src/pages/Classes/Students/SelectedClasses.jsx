@@ -3,6 +3,7 @@ import { deleteSelectedClass, useSelectedClasses } from "../../../hooks/useHooks
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import useTitle from "../../../hooks/useTitle";
+import { Fade } from "react-awesome-reveal";
 
 const SelectedClasses = () => {
   useTitle('Selected Classes')
@@ -20,11 +21,11 @@ const SelectedClasses = () => {
 
   return (
     <div className="lg:px-8">
-      <div className="sm:w-3/4 mx-auto my-16">
+      <Fade className="sm:w-3/4 mx-auto my-16">
         <h2 className="text-2xl lg:text-4xl font-bold text-center">
           My <span className="text-gradient">Selected Classes</span>
         </h2>
-      </div>
+      </Fade>
 
       {selectedClasses.map((singleClass) => (
         <LazyLoad key={singleClass._id}>

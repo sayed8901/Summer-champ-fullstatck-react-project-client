@@ -4,6 +4,7 @@ import { AuthContext } from "../../authProviders/AuthProvider";
 import { useContext, useState } from "react";
 import LazyLoad from "react-lazy-load";
 import { getRole } from "../../api/userAuth";
+import { Fade } from "react-awesome-reveal";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -47,7 +48,6 @@ const Navbar = () => {
 
       {user && (
         <li>
-          <LazyLoad>
             <NavLink
               to={
                 (role === "instructor" && "/dashboard/my-all-classes") ||
@@ -59,9 +59,8 @@ const Navbar = () => {
                 isActive,
               }) => (isActive ? "active" : "")}`}
             >
-              Dashboard
+              <Fade cascade damping={0.1}>Dashboard</Fade>
             </NavLink>
-          </LazyLoad>
         </li>
       )}
     </>

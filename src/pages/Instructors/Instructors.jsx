@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useTitle from "../../hooks/useTitle";
 import LazyLoad from "react-lazy-load";
 import { getAllInstructors } from "../../api/classes";
+import { Slide } from "react-awesome-reveal";
 
 const Instructors = () => {
   useTitle("All Instructors");
@@ -16,7 +17,7 @@ const Instructors = () => {
 
   return (
     <div>
-      <div className="sm:w-3/4 mx-auto">
+      <Slide className="sm:w-3/4 mx-auto">
         <h2 className="text-2xl lg:text-4xl font-bold text-center mt-16">
           All <span className="text-gradient">Instructors</span>
         </h2>
@@ -24,7 +25,7 @@ const Instructors = () => {
           Meet our all the instructors who are always ready to excite your
           sports experience.
         </p>
-      </div>
+      </Slide>
 
       <LazyLoad className="overflow-x-auto my-12">
         <table className="table">

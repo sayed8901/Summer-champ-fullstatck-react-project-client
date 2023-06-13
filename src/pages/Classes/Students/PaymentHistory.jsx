@@ -4,21 +4,21 @@ import { AuthContext } from "../../../authProviders/AuthProvider";
 import { useEnrolledClasses } from "../../../hooks/useHooksAPI";
 import useTitle from "../../../hooks/useTitle";
 import LazyLoad from "react-lazy-load";
-
+import { Fade } from "react-awesome-reveal";
 
 const PaymentHistory = () => {
-    useTitle("Payment History");
+  useTitle("Payment History");
   const { user } = useContext(AuthContext);
 
   const [myEnrolledClasses] = useEnrolledClasses(user);
 
-    return (
-        <div>
-      <div className="sm:w-3/4 mx-auto my-12">
+  return (
+    <div>
+      <Fade className="sm:w-3/4 mx-auto my-12">
         <h2 className="text-2xl lg:text-4xl font-bold text-center">
           <span className="text-gradient">Payment</span> History
         </h2>
-      </div>
+      </Fade>
 
       <LazyLoad className="overflow-x-auto my-6 lg:mx-8">
         <table className="table">
@@ -27,8 +27,12 @@ const PaymentHistory = () => {
             <tr className="text-center font-bold text-base bg-base-200">
               <th>#</th>
               <th>Class Name</th>
-              <th>Payment <br /> Amount</th>
-              <th>Payment <br /> Method</th>
+              <th>
+                Payment <br /> Amount
+              </th>
+              <th>
+                Payment <br /> Method
+              </th>
               <th>Transaction ID</th>
               <th>Payment Date</th>
             </tr>
@@ -38,18 +42,28 @@ const PaymentHistory = () => {
             {myEnrolledClasses.map((singleClass, index) => (
               <tr className="hover" key={singleClass._id}>
                 <td className="text-center">{index + 1}</td>
-                <td className="text-center font-bold">{singleClass.className}</td>
+                <td className="text-center font-bold">
+                  {singleClass.className}
+                </td>
                 <td className="text-center">{singleClass.price}</td>
-                <td className="text-center font-bold">{singleClass.paymentMethod}</td>
-                <td className="text-center text-xs">{singleClass.transactionID}</td>
-                <td className="text-center text-sm">{moment(singleClass.date).format("dddd, MMMM Do YYYY, hh:mm a")}</td>
+                <td className="text-center font-bold">
+                  {singleClass.paymentMethod}
+                </td>
+                <td className="text-center text-xs">
+                  {singleClass.transactionID}
+                </td>
+                <td className="text-center text-sm">
+                  {moment(singleClass.date).format(
+                    "dddd, MMMM Do YYYY, hh:mm a"
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </LazyLoad>
     </div>
-    );
+  );
 };
 
 export default PaymentHistory;

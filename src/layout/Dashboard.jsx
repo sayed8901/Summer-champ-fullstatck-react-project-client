@@ -3,6 +3,7 @@ import { getRole } from "../api/userAuth";
 import { useContext } from "react";
 import { AuthContext } from "../authProviders/AuthProvider";
 import { useState } from "react";
+import { FaChalkboardTeacher, FaCheckCircle, FaCheckDouble, FaCreditCard, FaHouseUser, FaMedal, FaSpa, FaUserCheck, FaVolleyballBall } from 'react-icons/fa';
 
 const Dashboard = () => {
   const [role, setRole] = useState();
@@ -28,7 +29,7 @@ const Dashboard = () => {
 
       <div className="drawer-side">
         <label htmlFor="sidebar" className="drawer-overlay"></label>
-        <div className="menu px-8 py-12 w-60 h-full bg-base-200 text-base-content flex flex-row justify-center items-start overflow-y-auto">
+        <div className="menu px-4 py-12 w-64 h-full bg-base-200 text-base-content flex flex-row justify-center items-start overflow-y-auto">
           {/* Sidebar content here */}
 
           {/* instructor only routes */}
@@ -36,10 +37,10 @@ const Dashboard = () => {
             role === "instructor" && 
             <div>
               <li className="mb-6 font-bold text-blue-600 border-b-8 border-pink-300 rounded-xl">
-                <NavLink to="/dashboard/add-class">Add a New Class</NavLink>
+                <NavLink to="/dashboard/add-class"> <FaVolleyballBall /> Add a New Class</NavLink>
               </li>
               <li className="mb-6 font-bold text-blue-600 border-b-8 border-pink-300 rounded-xl">
-                <NavLink to="/dashboard/my-all-classes">My All Classes</NavLink>
+                <NavLink to="/dashboard/my-all-classes"> <FaMedal /> My All Classes</NavLink>
               </li>
             </div>
           }
@@ -49,10 +50,10 @@ const Dashboard = () => {
             role === "admin" && 
             <div>
               <li className="mb-6 font-bold text-blue-600 border-b-8 border-orange-500 rounded-xl">
-                <NavLink to="/dashboard/manage-classes">Manage Classes</NavLink>
+                <NavLink to="/dashboard/manage-classes"> <FaMedal/> Manage Classes</NavLink>
               </li>
               <li className="mb-6 font-bold text-blue-600 border-b-8 border-orange-500 rounded-xl">
-                <NavLink to="/dashboard/manage-users">Manage Users</NavLink>
+                <NavLink to="/dashboard/manage-users"> <FaUserCheck/> Manage Users</NavLink>
               </li>
             </div>
           }
@@ -62,13 +63,13 @@ const Dashboard = () => {
             !role &&
             <div>
               <li className="mb-6 font-bold text-blue-600 border-b-8 border-amber-400 rounded-xl">
-                <NavLink to={"/dashboard/selected-classes"}>My Selected Classes</NavLink>
+                <NavLink to={"/dashboard/selected-classes"}> <FaCheckCircle/> My Selected Classes</NavLink>
               </li>
               <li className="mb-6 font-bold text-blue-600 border-b-8 border-amber-400 rounded-xl">
-                <NavLink to="/dashboard/enrolled-classes">My Enrolled Classes</NavLink>
+                <NavLink to="/dashboard/enrolled-classes"> <FaCheckDouble/> My Enrolled Classes</NavLink>
               </li>
               <li className="mb-6 font-bold text-blue-600 border-b-8 border-amber-400 rounded-xl">
-                <NavLink to="/dashboard/payment-history">Payment History</NavLink>
+                <NavLink to="/dashboard/payment-history"> <FaCreditCard/> Payment History</NavLink>
               </li>
             </div>
           }
@@ -77,13 +78,13 @@ const Dashboard = () => {
           {/* <div className="divider my-8"></div> */}
           <div>
             <li className="mb-6 font-bold text-blue-600 border-b-8 border-lime-400 rounded-xl">
-              <NavLink to={"/classes"}>See All Classes</NavLink>
+              <NavLink to={"/classes"}> <FaSpa/> See All Classes</NavLink>
             </li>
             <li className="mb-6 font-bold text-blue-600 border-b-8 border-lime-400 rounded-xl">
-              <NavLink to={"/instructors"}>See All Instructors</NavLink>
+              <NavLink to={"/instructors"}> <FaChalkboardTeacher/> See All Instructors</NavLink>
             </li>
             <li className="mb-6 font-bold text-blue-600 border-b-8 border-lime-400 rounded-xl">
-              <NavLink to={"/"}>Back to Home Page</NavLink>
+              <NavLink to={"/"}><FaHouseUser/> Home Page</NavLink>
             </li>
           </div>
         </div>

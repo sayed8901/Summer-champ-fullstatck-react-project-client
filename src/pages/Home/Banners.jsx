@@ -1,10 +1,11 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import { Fade } from "react-awesome-reveal";
 
 const BannerSlider = () => {
   return (
     <div>
-      <div className="sm:w-3/4 mx-auto">
+      <Fade className="sm:w-3/4 mx-auto">
         <h2 className="text-2xl lg:text-4xl font-bold text-center mt-16">
           Welcome <span className="text-gradient">Champs</span>
         </h2>
@@ -12,7 +13,7 @@ const BannerSlider = () => {
           Hi Champs. How is going.. Welcome you to this summer camping.
           <br /> <br /> You can check out our special sports events to utilize this summer time at its best.
         </p>
-      </div>
+      </Fade>
 
       <div className="mt-4 mb-16 rounded-xl overflow-hidden object-cover">
         <Carousel autoPlay>

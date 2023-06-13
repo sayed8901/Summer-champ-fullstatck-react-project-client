@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllInstructors } from "../../api/classes";
+import { Slide } from "react-awesome-reveal";
 
 const PopularInstructors = () => {
   const [instructors, setInstructors] = useState([]);
@@ -13,7 +14,7 @@ const PopularInstructors = () => {
 
   return (
     <div className="my-32">
-      <div className="sm:w-3/4 mx-auto">
+      <Slide className="sm:w-3/4 mx-auto">
         <h2 className="text-2xl lg:text-4xl font-bold text-center mt-16">
           Popular <span className="text-gradient">Instructors</span>
         </h2>
@@ -21,7 +22,7 @@ const PopularInstructors = () => {
           Meet our top instructors who are always ready to excite your
           sports experience.
         </p>
-      </div>
+      </Slide>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {topInstructors.map((instructor) => (

@@ -4,6 +4,7 @@ import { makeApproved, makeDenied } from "../../../api/userAuth";
 import { toast } from "react-hot-toast";
 import useTitle from "../../../hooks/useTitle";
 import { Link } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 
 const ManageClasses = () => {
   useTitle("Manage Classes");
@@ -27,11 +28,11 @@ const ManageClasses = () => {
 
   return (
     <div>
-      <div className="sm:w-3/4 mx-auto mt-12 mb-8">
+      <Fade className="sm:w-3/4 mx-auto mt-12 mb-8">
         <h2 className="text-2xl lg:text-4xl font-bold text-center">
           All <span className="text-gradient">Classes</span>
         </h2>
-      </div>
+      </Fade>
 
       <LazyLoad className="overflow-x-auto my-6 lg:mx-4">
         <table className="table">

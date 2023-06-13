@@ -4,6 +4,7 @@ import useTitle from "../../../hooks/useTitle";
 import { AuthContext } from "../../../authProviders/AuthProvider";
 import LazyLoad from "react-lazy-load";
 import moment from "moment/moment";
+import { Fade } from "react-awesome-reveal";
 
 const EnrolledClasses = () => {
   useTitle("Enrolled Classes");
@@ -13,11 +14,11 @@ const EnrolledClasses = () => {
 
   return (
     <div>
-      <div className="sm:w-3/4 mx-auto my-12">
+      <Fade className="sm:w-3/4 mx-auto my-12">
         <h2 className="text-2xl lg:text-4xl font-bold text-center">
           My All <span className="text-gradient">Enrolled Classes</span>
         </h2>
-      </div>
+      </Fade>
 
       <LazyLoad className="overflow-x-auto my-6 lg:mx-8">
         <table className="table">

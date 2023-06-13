@@ -4,6 +4,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import { useParams } from "react-router-dom";
 import { useGetSingleClass } from "../../../../hooks/useHooksAPI";
+import { Fade, Slide } from "react-awesome-reveal";
 
 // provide publishable Key.
 // it is said to be use this stripePromise outside or above of the components
@@ -18,17 +19,17 @@ const Payment = () => {
 
   return (
     <div className="mx-auto w-[350px] sm:w-[500px] md:w-[600px] lg:w-[700px] sm:px-8">
-      <div className="mb-8 lg:mb-16 ">
+      <Fade className="mb-8 lg:mb-16 ">
         <h2 className="text-2xl lg:text-4xl font-bold text-center">
           <span className="text-gradient">Payment</span> process
         </h2>
-      </div>
+      </Fade>
 
-      <div className="border-y-8 rounded-3xl">
+      <Slide className="border-y-8 rounded-3xl">
         <Elements stripe={stripePromise}>
           <CheckoutForm classData={singleClass}></CheckoutForm>
         </Elements>
-      </div>
+      </Slide>
     </div>
   );
 };

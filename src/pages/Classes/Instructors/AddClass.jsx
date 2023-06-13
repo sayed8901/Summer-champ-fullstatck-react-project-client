@@ -4,6 +4,7 @@ import { AuthContext } from "../../../authProviders/AuthProvider";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { addClass } from "../../../hooks/useHooksAPI";
+import { Fade, Slide } from "react-awesome-reveal";
 
 
 const AddClass = () => {
@@ -71,10 +72,10 @@ const AddClass = () => {
         onSubmit={handleAdd}
         className="card-body w-full sm:max-w-[90%] mx-auto"
       >
-        <h2 className="text-2xl font-bold text-center text-gradient mb-2">
+        <Fade className="text-3xl font-bold text-center text-gradient mb-4">
           Add a New Class
-        </h2>
-        <div>
+        </Fade>
+        <Slide cascade>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Class Name</span>
@@ -148,7 +149,7 @@ const AddClass = () => {
               className="input input-bordered"
             />
           </div>
-        </div>
+        </Slide>
 
         <input
           className="btn btn-primary w-36 mx-auto mt-6 bg-gradient font-bold"

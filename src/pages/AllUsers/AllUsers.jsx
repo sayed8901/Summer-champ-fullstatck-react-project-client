@@ -3,6 +3,7 @@ import LazyLoad from "react-lazy-load";
 import { toast } from "react-hot-toast";
 import { useAllUsers } from "../../hooks/useHooksAPI";
 import useTitle from "../../hooks/useTitle";
+import { Fade } from "react-awesome-reveal";
 
 
 const AllUsers = () => {
@@ -28,11 +29,11 @@ const AllUsers = () => {
 
   return (
     <div>
-      <div className="sm:w-3/4 mx-auto mt-12 mb-8">
+      <Fade className="sm:w-3/4 mx-auto mt-12 mb-8">
         <h2 className="text-2xl lg:text-4xl font-bold text-center">
           All <span className="text-gradient">Users</span>
         </h2>
-      </div>
+      </Fade>
 
       <LazyLoad className="overflow-x-auto my-6 lg:mx-8">
         <table className="table">

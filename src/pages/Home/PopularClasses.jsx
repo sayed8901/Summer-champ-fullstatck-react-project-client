@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllClassesByEnrolledStudents } from "../../api/classes";
 import LazyLoad from "react-lazy-load";
 import AnimatedSection from "../../components/AOS-Animate/AnimatedSection";
+import { Slide } from "react-awesome-reveal";
 
 const PopularClasses = () => {
   const [classes, setClasses] = useState([]);
@@ -15,7 +16,7 @@ const PopularClasses = () => {
 
   return (
     <div className="my-32">
-      <div className="sm:w-3/4 mx-auto">
+      <Slide className="sm:w-3/4 mx-auto">
         <h2 className="text-2xl lg:text-4xl font-bold text-center mt-16">
           Popular <span className="text-gradient">Classes</span>
         </h2>
@@ -24,7 +25,8 @@ const PopularClasses = () => {
           <br /> <br /> If you are interested, you can find our top popular
           sports classes here & enroll to your favorite one today...
         </p>
-      </div>
+      </Slide>
+      
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {topClasses.map((singleClass) => (

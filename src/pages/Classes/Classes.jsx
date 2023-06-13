@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getRole } from "../../api/userAuth";
 import { saveSelectedClass } from "../../hooks/useHooksAPI";
+import { Slide } from "react-awesome-reveal";
 // import { toast } from "react-hot-toast";
 
 const Classes = () => {
@@ -67,7 +68,7 @@ const Classes = () => {
 
   return (
     <div>
-      <div className="sm:w-3/4 mx-auto">
+      <Slide className="sm:w-3/4 mx-auto">
         <h2 className="text-2xl lg:text-4xl font-bold text-center mt-16">
           All <span className="text-gradient">Classes</span>
         </h2>
@@ -75,7 +76,7 @@ const Classes = () => {
           You can check out our popular sports classes here & enroll to your
           favorite one.
         </p>
-      </div>
+      </Slide>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
         {classes.map((singleClass) => (
