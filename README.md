@@ -23,11 +23,11 @@ Features:
 
 * If you are logged in as an admin, You can view all the classes & you may approve or deny it. You can send a feedback to the concerned instructor if you denied the class approval. 
 
-* You can also find all the registered users on the “manage users ” page. You can make any user to an “Instructor” or an “Admin” here.
+* You can also find all the registered users on the “manage users ” page. You can make any user an “Instructor” or an “Admin” here.
 
 <br />
 
-* So, as you can see, here is 3 different user functionality in dashboard & these are: common user or students, instructors & admin.
+* So, as you can see, there are 3 different user functionality in dashboard & these are: common user or students, instructors & admin.
 
 * You can "log in" by "registering" with an email address & password. You can also log in with your "Google" or "GutHub" authentication.
 
@@ -35,7 +35,7 @@ Features:
 
 * Here, "firebase" is used for authentication & "mongoDB" for database management . It is easy & more user friendly. Anyway, if you face any issues regarding security concerns, you can contact us.
 
-* I have also implemented "@tanstack/react-query" along with "axiosSecure" by using "axios" for extra phase of security.
+* I have also implemented "@tanstack/react-query" along with "axiosSecure" by using "axios" for extra phases of security.
 
 * Besides these, I have used "stripe/stripe-js" as the payment method for this website.
 
@@ -58,7 +58,7 @@ Technology/ Packages Used alongside:
 * react-hot-toast
 * sweet-alert
 * react-responsive-carousel
-
+* react-fast-marquee
 
 
 
@@ -77,6 +77,8 @@ Client-side GitHub Repository link:
 
 https://github.com/programming-hero-web-course1/b712-summer-camp-client-side-sayed8901 
 
+
+<br />
 
 Server-side GitHub Repository link: 
 
