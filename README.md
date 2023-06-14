@@ -41,7 +41,7 @@ Features:
 
 <br />
 
-You might notice that I also have implemented light/dark toggle theme mode for the overall website covering homepage along with the dashboard layout also.
+* You might notice that I also have implemented light/dark toggle theme mode for the overall website covering homepage along with the dashboard layout also.
 
 
 <br /> <hr />
@@ -90,7 +90,7 @@ Extra info:
 
 Admin credentials for this site:
 
-Admin ID: sayed91515@gmail.com
+Admin ID: sayed@mssbd.org
 
 Admin Password: Sayed@8901
 
@@ -98,6 +98,6 @@ Admin Password: Sayed@8901
 
 Instructor credentials for this site:
 
-Instructor ID: sdssayed24@gmail.com
+Instructor ID: shah@jalal.com
 
 Instructor Password: Sayed@8901
