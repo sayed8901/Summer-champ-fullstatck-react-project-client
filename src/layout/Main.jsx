@@ -14,11 +14,11 @@ const Main = () => {
       }`}
     >
       <Navbar></Navbar>
-      <div className="sticky top-20 z-10 -mt-5 text-right">
+      <div className="sticky top-[70px] z-10 -mt-10 mr-2 text-right">
         <button className="btn btn-sm capitalize" onClick={toggleTheme}>
-          <span className="text-gradient flex gap-2">
-            <p>{darkMode ? "Dark" : "Light"}</p>
-          <small>mode</small>
+          <span className="flex gap-1 items-baseline">
+            <p className="text-gradient text-sm">{darkMode ? "Dark" : "Light"}</p>
+            <p className="text-xs">mode</p>
           </span>
         </button>
       </div>

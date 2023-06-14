@@ -84,7 +84,7 @@ const AddClass = () => {
               type="text"
               name="className"
               placeholder="Name of the class you want to add."
-              className="input input-bordered"
+              className="input input-bordered text-black"
               required
             />
           </div>
@@ -95,7 +95,7 @@ const AddClass = () => {
             <input
               type="file"
               name="image"
-              className="input input-bordered pt-2"
+              className="input input-bordered pt-2 text-black"
               required
             />
           </div>
@@ -108,7 +108,7 @@ const AddClass = () => {
                 type="number"
                 name="availableSeats"
                 placeholder="Number of seats open"
-                className="input input-bordered"
+                className="input input-bordered text-black"
                 required
               />
             </div>
@@ -120,7 +120,7 @@ const AddClass = () => {
                 type="number"
                 name="price"
                 placeholder="Price of the course"
-                className="input input-bordered"
+                className="input input-bordered text-black"
                 required
               />
             </div>
@@ -134,7 +134,7 @@ const AddClass = () => {
               readOnly
               defaultValue={user.displayName}
               name="instructorName"
-              className="input input-bordered"
+              className="input input-bordered text-black"
             />
           </div>
           <div className="form-control">
@@ -146,7 +146,7 @@ const AddClass = () => {
               readOnly
               defaultValue={user.email}
               name="instructorEmail"
-              className="input input-bordered"
+              className="input input-bordered text-black"
             />
           </div>
         </Slide>

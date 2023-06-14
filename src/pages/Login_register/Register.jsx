@@ -91,7 +91,7 @@ const Register = () => {
             name="name"
             {...register("name", { required: true })}
             placeholder="Name"
-            className="input input-bordered"
+            className="input input-bordered text-black"
           />
           {errors.name && (
             <span className="text-red-500">Name is required</span>
@@ -107,7 +107,7 @@ const Register = () => {
             name="email"
             {...register("email", { required: true })}
             placeholder="Email"
-            className="input input-bordered"
+            className="input input-bordered text-black"
           />
           {errors.email && (
             <span className="text-red-500">Email is required</span>
@@ -124,7 +124,7 @@ const Register = () => {
               type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Password"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full text-black"
               {...register("password", {
                 required: true,
                 minLength: 6,
@@ -180,7 +180,7 @@ const Register = () => {
               type={showPassword ? "text" : "password"}
               name="confirmPassword"
               placeholder="Confirm Password"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full text-black"
               {...register("confirmPassword", {
                 required: true,
                 minLength: 6,
@@ -242,7 +242,7 @@ const Register = () => {
             name="photoURL"
             {...register("photoURL", { required: true })}
             placeholder="Photo URL"
-            className="input input-bordered"
+            className="input input-bordered text-black"
           />
           {errors.photoURL && (
             <span className="text-red-500">Photo URL is required</span>

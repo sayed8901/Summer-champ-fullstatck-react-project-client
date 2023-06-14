@@ -118,7 +118,7 @@ const Navbar = () => {
       {/* to dynamically show user photo & name and also to switch button action between "log in" or "log out" */}
       <div className="navbar-end flex gap-4">
         {user ? (
-          <div className="flex gap-2 justify-center items-center border-4 rounded-full bg-gradient p-2">
+          <div className="flex gap-2 justify-center items-center gap-4 border-4 rounded-full bg-gradient px-2 py-1">
             <div
               className="tooltip tooltip-left tooltip-primary"
               data-tip={user.displayName}
@@ -131,13 +131,13 @@ const Navbar = () => {
                 />
               </LazyLoad>
             </div>
-            <button onClick={logOut} className="btn btn-sm btn-outline h-10 w-12 rounded-xl capitalize font-bold text-white">
+            <button onClick={logOut} className="btn btn-sm btn-outline h-10 w-14 rounded-xl capitalize font-bold text-white">
               Log out
             </button>
           </div>
         ) : (
           <button>
-            <Link to={"/login"} className="btn btn-primary btn-outline font-bold">
+            <Link to={"/login"} className="btn btn-info btn-outline font-bold">
               log in
             </Link>
           </button>

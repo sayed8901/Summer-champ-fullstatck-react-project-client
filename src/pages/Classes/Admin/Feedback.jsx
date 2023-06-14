@@ -28,7 +28,7 @@ const Feedback = () => {
       <div>
         <div className="my-12 textarea ">
           <textarea
-            className="input input-bordered w-72 md:w-96 h-44 p-8 border-y-8 rounded-3xl"
+            className="input input-bordered w-72 md:w-96 h-44 p-8 border-y-8 rounded-3xl text-black"
             name="feedback"
             placeholder="Write here about your feedback about the class status approval."
           ></textarea>

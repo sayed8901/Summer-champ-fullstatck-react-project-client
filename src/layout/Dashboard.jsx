@@ -34,11 +34,11 @@ const Dashboard = () => {
           className="drawer-button lg:hidden absolute top-5 right-0 flex flex-col gap-1"
         >
           <span className="btn btn-primary btn-sm z-10">Open drawer</span>
-          <button className="btn btn-sm capitalize w-24 ml-6 -mt-2" onClick={toggleTheme}>
-            <span className="text-gradient flex gap-2">
-              <p className="text-right">{darkMode ? "Dark" : "Light"}</p>
-              <small>mode</small>
-            </span>
+          <button className="btn btn-sm capitalize w-24 ml-6 -mt-3" onClick={toggleTheme}>
+          <span className="flex gap-1 items-baseline">
+            <p className="text-gradient text-sm">{darkMode ? "Dark" : "Light"}</p>
+            <p className="text-xs">mode</p>
+          </span>
           </button>
 
         </label>

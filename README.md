@@ -39,6 +39,10 @@ Features:
 
 * Besides these, I have used "stripe/stripe-js" as the payment method for this website.
 
+<br />
+
+You might notice that I also have implemented light/dark toggle theme mode for the overall website covering homepage along with the dashboard layout also.
+
 
 <br /> <hr />
 Technology/ Packages Used alongside:

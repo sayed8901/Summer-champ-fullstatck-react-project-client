@@ -44,13 +44,14 @@ const Classes = () => {
     } 
     else {
       // console.log(singleClass);
-      const {_id, className, classImage, price, instructorName, instructorEmail } = singleClass;
+      const {_id, className, classImage, price, instructorName, instructorEmail, availableSeats } = singleClass;
       const newSelectedClassData = {
         bookingId : _id,
         user: user.email,
         className,
         classImage,
         price,
+        availableSeats,
         instructorName,
         instructorEmail
       }
@@ -100,6 +101,7 @@ const Classes = () => {
                     Instructor: <b>{singleClass.instructorName}</b>
                   </p>
                   <p>Available Seats: <b>{singleClass.availableSeats}</b></p>
+                  <p>Number of students enrolled: <b>{singleClass.enrolledStudents}</b></p>
                   <p>
                     Price: <b className="text-gradient">BDTK {singleClass.price}</b>
                   </p>

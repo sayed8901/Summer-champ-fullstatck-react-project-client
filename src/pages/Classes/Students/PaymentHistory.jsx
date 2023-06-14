@@ -26,7 +26,7 @@ const PaymentHistory = () => {
           <thead>
             <tr className="text-center font-bold text-base bg-base-200">
               <th>#</th>
-              <th>Class Name</th>
+              <th>Class Name <br /> & image</th>
               <th>
                 Payment <br /> Amount
               </th>
@@ -42,8 +42,13 @@ const PaymentHistory = () => {
             {myEnrolledClasses.map((singleClass, index) => (
               <tr className="hover" key={singleClass._id}>
                 <td className="text-center">{index + 1}</td>
-                <td className="text-center font-bold">
-                  {singleClass.className}
+                <td className="text-center font-bold flex justify-center items-center gap-2">
+                  <div className="avatar">
+                    <div className="mx-auto mask mask-squircle w-12 h-12">
+                      <img src={singleClass.classImage} />
+                    </div>
+                  </div>
+                  <div>{singleClass.className}</div>
                 </td>
                 <td className="text-center">{singleClass.price}</td>
                 <td className="text-center font-bold">

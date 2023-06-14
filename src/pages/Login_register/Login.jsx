@@ -75,7 +75,7 @@ const Login = () => {
             name="email"
             {...register("email", { required: true })}
             placeholder="Email"
-            className="input input-bordered"
+            className="input input-bordered text-black"
           />
           {errors.email && (
             <span className="text-red-500">Email is required</span>

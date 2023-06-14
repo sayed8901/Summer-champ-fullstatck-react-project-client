@@ -50,10 +50,16 @@ const SelectedClasses = () => {
                   Instructor email: <b>{singleClass.instructorEmail}</b>
                 </p>
               </div>
+                <div>
+                <p>
+                  Available Seats:{" "}
+                  <b>{singleClass.availableSeats}</b>
+                </p>
                 <p>
                   Price:{" "}
                   <b className="text-gradient">BDTK {singleClass.price}</b>
                 </p>
+                </div>
               <div className="card-actions justify-end gap-4">
                 <button
                   onClick={() => {
