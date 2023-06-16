@@ -76,7 +76,7 @@ const BannerSlider = () => {
           <div>
             <img
               className="rounded-xl"
-              src={"https://i.ibb.co/N6CHZNg/istockphoto-1369485989-612x612.jpg"}
+              src={"https://i.ibb.co/9cFKrx6/Sea-bath.jpg"}
             />
             <p className="legend">Dare to leap?</p>
           </div>
