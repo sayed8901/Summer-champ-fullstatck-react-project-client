@@ -1,19 +1,39 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
 import { AuthContext } from "../../authProviders/AuthProvider";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import LazyLoad from "react-lazy-load";
 import { getRole } from "../../api/userAuth";
 import { Fade } from "react-awesome-reveal";
 import { ThemeContext } from "../../authProviders/ThemeContextProvider";
 
 const Navbar = () => {
-  const {darkMode} = useContext(ThemeContext);
+  const { darkMode } = useContext(ThemeContext);
 
   const { user, logOut } = useContext(AuthContext);
   const [role, setRole] = useState();
   getRole(user?.email).then((data) => setRole(data));
   // console.log(role);
+
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      setIsNavbarVisible(
+        prevScrollPos > currentScrollPos || currentScrollPos < 10
+      );
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // to clean up the "scroll" event listener while unmounting
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPos]);
 
   // Creating NavBar Menu Items for further used below
   const navItems = (
@@ -51,26 +71,34 @@ const Navbar = () => {
 
       {user && (
         <li>
-            <NavLink
-              to={
-                (role === "instructor" && "/dashboard/my-all-classes") ||
-                (role === "admin" && "/dashboard/manage-classes") ||
-                "/dashboard/selected-classes"
-              }
-              // to="/dashboard/my-all-classes"
-              className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({
-                isActive,
-              }) => (isActive ? "active" : "")}`}
-            >
-              <Fade cascade damping={0.1}>Dashboard</Fade>
-            </NavLink>
+          <NavLink
+            to={
+              (role === "instructor" && "/dashboard/my-all-classes") ||
+              (role === "admin" && "/dashboard/manage-classes") ||
+              "/dashboard/selected-classes"
+            }
+            // to="/dashboard/my-all-classes"
+            className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({
+              isActive,
+            }) => (isActive ? "active" : "")}`}
+          >
+            <Fade cascade damping={0.1}>
+              Dashboard
+            </Fade>
+          </NavLink>
         </li>
       )}
     </>
   );
 
   return (
-    <div className={`navbar bg-base-300 bg-opacity-70 h-24 sticky top-0 z-10 rounded ${darkMode ? 'theme-dark' : 'theme-light'}`}>
+    <div
+      className={`navbar bg-base-300 bg-opacity-50 h-24 sticky top-0 z-10 rounded ${
+        darkMode ? "theme-dark" : "theme-light"
+      } ${
+        isNavbarVisible ? "opacity-100" : "opacity-0"
+      } transition-opacity duration-300`}
+    >
       <div className="navbar-start">
         {/* dropdown navbar for small display */}
         <div className="dropdown">
@@ -118,7 +146,7 @@ const Navbar = () => {
       {/* to dynamically show user photo & name and also to switch button action between "log in" or "log out" */}
       <div className="navbar-end flex gap-4">
         {user ? (
-          <div className="flex gap-2 justify-center items-center gap-4 border-4 rounded-full bg-gradient px-2 py-1">
+          <div className="flex justify-center items-center gap-4 border-4 rounded-full bg-gradient px-2 py-1">
             <div
               className="tooltip tooltip-left tooltip-primary"
               data-tip={user.displayName}
@@ -131,7 +159,10 @@ const Navbar = () => {
                 />
               </LazyLoad>
             </div>
-            <button onClick={logOut} className="btn btn-sm btn-outline h-10 w-14 rounded-xl capitalize font-bold text-white">
+            <button
+              onClick={logOut}
+              className="btn btn-sm btn-outline h-10 w-14 rounded-xl capitalize font-bold text-white"
+            >
               Log out
             </button>
           </div>

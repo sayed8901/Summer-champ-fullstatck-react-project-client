@@ -14,7 +14,8 @@ const Main = () => {
       }`}
     >
       <Navbar></Navbar>
-      <div className="sticky top-[70px] z-10 -mt-10 mr-2 text-right">
+      {/* dark/light toggle btn */}
+      <div className="sticky top-[2px] z-10 -mt-7 mr-2 text-right">
         <button className="btn btn-sm capitalize" onClick={toggleTheme}>
           <span className="flex gap-1 items-baseline">
             <p className="text-gradient text-sm">{darkMode ? "Dark" : "Light"}</p>
