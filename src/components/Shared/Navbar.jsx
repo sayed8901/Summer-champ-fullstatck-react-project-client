@@ -15,26 +15,29 @@ const Navbar = () => {
   getRole(user?.email).then((data) => setRole(data));
   // console.log(role);
 
-  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  
+// for hide/ un-hide navbar on sticky-scroll
+  // const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  // const [prevScrollPos, setPrevScrollPos] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.scrollY;
-      setIsNavbarVisible(
-        prevScrollPos > currentScrollPos || currentScrollPos < 10
-      );
-      setPrevScrollPos(currentScrollPos);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentScrollPos = window.scrollY;
+  //     setIsNavbarVisible(
+  //       prevScrollPos > currentScrollPos || currentScrollPos < 10
+  //     );
+  //     setPrevScrollPos(currentScrollPos);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    // to clean up the "scroll" event listener while unmounting
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [prevScrollPos]);
+  //   // to clean up the "scroll" event listener while unmounting
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [prevScrollPos]);
 
+  
   // Creating NavBar Menu Items for further used below
   const navItems = (
     <>
@@ -95,9 +98,10 @@ const Navbar = () => {
     <div
       className={`navbar bg-base-300 bg-opacity-50 h-24 sticky top-0 z-10 rounded ${
         darkMode ? "theme-dark" : "theme-light"
-      } ${
-        isNavbarVisible ? "opacity-100" : "opacity-0"
-      } transition-opacity duration-300`}
+      } 
+
+      transition-opacity duration-300`}
+      // ${ isNavbarVisible ? "opacity-100" : "opacity-0" }
     >
       <div className="navbar-start">
         {/* dropdown navbar for small display */}

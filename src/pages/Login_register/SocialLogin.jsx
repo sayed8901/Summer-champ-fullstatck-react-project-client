@@ -56,7 +56,7 @@ const SocialLogin = () => {
     <div>
       <div className="divider w-3/4 mx-auto"></div>
 
-      <div className="flex flex-col w-full lg:flex-row">
+      <div className="flex flex-col w-full md:flex-row">
         <div className="grid flex-grow card rounded-box place-items-center">
           {/* Google log in btn */}
           <div onClick={handleGoogleLogIn} className="gap-4 btn btn-active">
