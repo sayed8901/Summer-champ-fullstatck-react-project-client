@@ -17,8 +17,13 @@ const Main = () => {
     <div data-theme={themeClassName}
       className={`min-h-screen my-container`}
     >
-      <button className="btn btn-sm glass fixed z-20 top-0 right-12" onClick={toggleMode}>{isDarkMode ? 'Dark' : 'Light'} Mode</button>
-      {/* <button className="btn glass">Glass button</button> */}
+      <button className="btn btn-sm glass capitalize w-24 ml-6 fixed right-12 z-20" onClick={toggleMode}>
+          <span className="flex gap-1 items-baseline">
+            <p className="text-gradient text-sm">{isDarkMode ? "Dark" : "Light"}</p>
+            <p className="text-xs">mode</p>
+          </span>
+          </button>
+      
       <Navbar></Navbar>
       {/* dark/light toggle btn */}
 

@@ -22,10 +22,18 @@ const Dashboard = () => {
   getRole(user?.email).then((data) => setRole(data));
   // console.log(role);
 
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const themeClassName = isDarkMode ? 'dark' : 'light';
+
+  const toggleMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
 
   return (
-    <div className={`drawer lg:drawer-open my-container`}>
+    <div data-theme={themeClassName}
+      className={`drawer lg:drawer-open my-container`}
+    >
       <input id="sidebar" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center justify-center relative">
         {/* Page content here */}
@@ -34,8 +42,12 @@ const Dashboard = () => {
           className="drawer-button lg:hidden absolute top-5 right-0 flex flex-col gap-1"
         >
           <span className="btn btn-primary btn-sm z-10">Open drawer</span>
-          
-          {/* Theme toggle btn should place here: ToDo */}
+          <button className="btn btn-sm glass capitalize w-24 ml-6 -mt-3" onClick={toggleMode}>
+          <span className="flex gap-1 items-baseline">
+            <p className="text-gradient text-sm">{isDarkMode ? "Dark" : "Light"}</p>
+            <p className="text-xs">mode</p>
+          </span>
+          </button>
 
         </label>
         <div className="min-h-screen hero">
