@@ -4,12 +4,10 @@ import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import useTitle from "../../../hooks/useTitle";
 import { Fade } from "react-awesome-reveal";
-import { useContext } from "react";
-import { ThemeContext } from "../../../authProviders/ThemeContextProvider";
+
 
 const SelectedClasses = () => {
   useTitle('Selected Classes');
-  const {darkMode} = useContext(ThemeContext);
   
   const [selectedClasses, refetch] = useSelectedClasses();
   //   console.log(selectedClasses);
@@ -33,7 +31,7 @@ const SelectedClasses = () => {
       {selectedClasses.map((singleClass) => (
         <LazyLoad key={singleClass._id}>
           <div
-            className={`card glass sm:card-side shadow-xl bg-base-100 mb-12 sm:mb-8 ${darkMode ? 'theme-dark' : 'theme-light'}`}
+            className={`card glass sm:card-side shadow-xl bg-base-100 mb-12 sm:mb-8`}
           >
             <figure className="sm:w-5/12 sm:ms-4">
               <img className="rounded-xl" src={singleClass?.classImage} />

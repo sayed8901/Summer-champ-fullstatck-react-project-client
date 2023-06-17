@@ -74,6 +74,18 @@ export const getRole = async (email) => {
   return user?.role;
 };
 
+// export const getRole = async (email) => {
+//   if(email){
+//     const response = await fetch(
+//       `${import.meta.env.VITE_API_URL}/users/${email}`)
+//     const user = await response.json();
+//     return user?.role;
+//   }
+//   else{
+//     return "";
+//   }
+// };
+
 
 
 

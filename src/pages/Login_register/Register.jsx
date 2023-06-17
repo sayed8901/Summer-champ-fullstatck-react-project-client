@@ -8,11 +8,10 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { saveUser } from "../../api/userAuth";
 import { toast } from "react-hot-toast";
 import SocialLogin from "./SocialLogin";
-import { ThemeContext } from "../../authProviders/ThemeContextProvider";
+
 
 const Register = () => {
   useTitle("Registration");
-  const {darkMode} = useContext(ThemeContext);
 
   const [showPassword, setShowPassword] = useState(false);
   // for password view/hide toggling
@@ -76,7 +75,7 @@ const Register = () => {
   const password = watch("password");
 
   return (
-    <div className={`w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[50%] mx-auto mt-12 mb-16 py-8 bg-base-200 rounded-xl ${darkMode ? 'theme-dark' : 'theme-light'}`}>
+    <div className={`w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[50%] mx-auto mt-12 mb-16 py-8 bg-base-200 rounded-xl`}>
       <h2 className="text-3xl font-bold text-center my-2">
         <span className="text-gradient">Register</span> Now!
       </h2>
@@ -91,7 +90,7 @@ const Register = () => {
             name="name"
             {...register("name", { required: true })}
             placeholder="Name"
-            className="input input-bordered text-black"
+            className="input input-bordered"
           />
           {errors.name && (
             <span className="text-red-500">Name is required</span>
@@ -107,7 +106,7 @@ const Register = () => {
             name="email"
             {...register("email", { required: true })}
             placeholder="Email"
-            className="input input-bordered text-black"
+            className="input input-bordered"
           />
           {errors.email && (
             <span className="text-red-500">Email is required</span>
@@ -124,7 +123,7 @@ const Register = () => {
               type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Password"
-              className="input input-bordered w-full text-black"
+              className="input input-bordered w-full"
               {...register("password", {
                 required: true,
                 minLength: 6,
@@ -180,7 +179,7 @@ const Register = () => {
               type={showPassword ? "text" : "password"}
               name="confirmPassword"
               placeholder="Confirm Password"
-              className="input input-bordered w-full text-black"
+              className="input input-bordered w-full"
               {...register("confirmPassword", {
                 required: true,
                 minLength: 6,
@@ -242,7 +241,7 @@ const Register = () => {
             name="photoURL"
             {...register("photoURL", { required: true })}
             placeholder="Photo URL"
-            className="input input-bordered text-black"
+            className="input input-bordered"
           />
           {errors.photoURL && (
             <span className="text-red-500">Photo URL is required</span>

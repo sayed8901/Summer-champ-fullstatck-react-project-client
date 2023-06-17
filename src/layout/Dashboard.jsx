@@ -14,7 +14,7 @@ import {
   FaUserCheck,
   FaVolleyballBall,
 } from "react-icons/fa";
-import { ThemeContext } from "../authProviders/ThemeContextProvider";
+
 
 const Dashboard = () => {
   const [role, setRole] = useState();
@@ -22,10 +22,10 @@ const Dashboard = () => {
   getRole(user?.email).then((data) => setRole(data));
   // console.log(role);
 
-  const { darkMode, toggleTheme } = useContext(ThemeContext);
+
 
   return (
-    <div className={`drawer lg:drawer-open my-container ${darkMode ? 'theme-dark' : 'theme-light'}`}>
+    <div className={`drawer lg:drawer-open my-container`}>
       <input id="sidebar" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center justify-center relative">
         {/* Page content here */}
@@ -34,12 +34,8 @@ const Dashboard = () => {
           className="drawer-button lg:hidden absolute top-5 right-0 flex flex-col gap-1"
         >
           <span className="btn btn-primary btn-sm z-10">Open drawer</span>
-          <button className="btn btn-sm capitalize w-24 ml-6 -mt-3" onClick={toggleTheme}>
-          <span className="flex gap-1 items-baseline">
-            <p className="text-gradient text-sm">{darkMode ? "Dark" : "Light"}</p>
-            <p className="text-xs">mode</p>
-          </span>
-          </button>
+          
+          {/* Theme toggle btn should place here: ToDo */}
 
         </label>
         <div className="min-h-screen hero">
@@ -49,7 +45,7 @@ const Dashboard = () => {
 
       <div className="drawer-side">
         <label htmlFor="sidebar" className="drawer-overlay"></label>
-        <div className={`menu px-4 py-12 w-64 h-full bg-base-200 text-base-content flex flex-row justify-center items-start overflow-y-auto ${darkMode ? 'theme-dark' : 'theme-light'}`}>
+        <div className={`menu px-4 py-12 w-64 h-full bg-base-200 text-base-content flex flex-row justify-center items-start overflow-y-auto`}>
           {/* Sidebar content here */}
 
           {/* instructor only routes */}

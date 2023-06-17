@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
-import { useContext } from "react";
-import { ThemeContext } from "../../authProviders/ThemeContextProvider";
+
 
 const Footer = () => {
-  const {darkMode} = useContext(ThemeContext);
+
   
   return (
-    <footer className={`grid grid-cols-3 items-center justify-between gap-6 sm:gap-12 text-center bg-base-100 sticky top-[100vh] pb-4 ${darkMode ? 'theme-dark' : 'theme-light'}`}>
+    <footer className={`grid grid-cols-3 items-center justify-between gap-6 sm:gap-12 text-center bg-base-100 sticky top-[100vh] pb-4`}>
       <Link to={"/"}>
         <div className="items-center">
           <div className="flex items-center justify-center mx-auto">

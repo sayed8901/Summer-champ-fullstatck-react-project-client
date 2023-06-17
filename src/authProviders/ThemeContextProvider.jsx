@@ -7,6 +7,7 @@ const ThemeContextProvider = ({ children }) => {
     const [darkMode, setDarkMode] = useState(false);
 
     const toggleTheme = () => {
+      console.log('dark btn clicked');
       setDarkMode(!darkMode);
     };
 

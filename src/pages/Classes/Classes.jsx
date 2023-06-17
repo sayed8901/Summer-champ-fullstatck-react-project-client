@@ -8,12 +8,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { getRole } from "../../api/userAuth";
 import { saveSelectedClass } from "../../hooks/useHooksAPI";
 import { Slide } from "react-awesome-reveal";
-import { ThemeContext } from "../../authProviders/ThemeContextProvider";
 // import { toast } from "react-hot-toast";
 
 const Classes = () => {
   useTitle("All Classes");
-  const {darkMode} = useContext(ThemeContext);
 
   const { user } = useContext(AuthContext);
   const [role, setRole] = useState();
@@ -86,8 +84,7 @@ const Classes = () => {
           <LazyLoad key={singleClass._id}>
             <div
               className={`card glass sm:card-side shadow-xl ${
-                singleClass.availableSeats === 0 ? "bg-red-400" : darkMode ? 'theme-dark' : 'theme-light'}
-              }`}
+                singleClass.availableSeats === 0 && "bg-red-400"}`}
             >
               <figure className="sm:w-5/12 sm:ms-4">
                 <img className="rounded-xl" src={singleClass?.classImage} />

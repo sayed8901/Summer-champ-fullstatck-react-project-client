@@ -1,28 +1,26 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Shared/Navbar";
 import Footer from "../components/Shared/Footer";
-import { useContext } from "react";
-import { ThemeContext } from "../authProviders/ThemeContextProvider";
+import { useState } from "react";
+
 
 const Main = () => {
-  const { darkMode, toggleTheme } = useContext(ThemeContext);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const themeClassName = isDarkMode ? 'dark' : 'light';
+
+  const toggleMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
 
   return (
-    <div
-      className={`min-h-screen my-container ${
-        darkMode ? "theme-dark" : "theme-light"
-      }`}
+    <div data-theme={themeClassName}
+      className={`min-h-screen my-container`}
     >
+      <button className="btn btn-sm glass fixed z-20 top-0 right-12" onClick={toggleMode}>{isDarkMode ? 'Dark' : 'Light'} Mode</button>
+      {/* <button className="btn glass">Glass button</button> */}
       <Navbar></Navbar>
       {/* dark/light toggle btn */}
-      <div className="sticky top-[2px] z-10 -mt-7 mr-2 text-right">
-        <button className="btn btn-sm capitalize" onClick={toggleTheme}>
-          <span className="flex gap-1 items-baseline">
-            <p className="text-gradient text-sm">{darkMode ? "Dark" : "Light"}</p>
-            <p className="text-xs">mode</p>
-          </span>
-        </button>
-      </div>
 
       <Outlet></Outlet>
       <Footer></Footer>

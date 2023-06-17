@@ -5,10 +5,8 @@ import { useContext, useEffect, useState } from "react";
 import LazyLoad from "react-lazy-load";
 import { getRole } from "../../api/userAuth";
 import { Fade } from "react-awesome-reveal";
-import { ThemeContext } from "../../authProviders/ThemeContextProvider";
 
 const Navbar = () => {
-  const { darkMode } = useContext(ThemeContext);
 
   const { user, logOut } = useContext(AuthContext);
   const [role, setRole] = useState();
@@ -17,25 +15,25 @@ const Navbar = () => {
 
   
 // for hide/ un-hide navbar on sticky-scroll
-  // const [isNavbarVisible, setIsNavbarVisible] = useState(true);
-  // const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const currentScrollPos = window.scrollY;
-  //     setIsNavbarVisible(
-  //       prevScrollPos > currentScrollPos || currentScrollPos < 10
-  //     );
-  //     setPrevScrollPos(currentScrollPos);
-  //   };
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      setIsNavbarVisible(
+        prevScrollPos > currentScrollPos || currentScrollPos < 10
+      );
+      setPrevScrollPos(currentScrollPos);
+    };
 
-  //   window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
-  //   // to clean up the "scroll" event listener while unmounting
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [prevScrollPos]);
+    // to clean up the "scroll" event listener while unmounting
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPos]);
 
   
   // Creating NavBar Menu Items for further used below
@@ -80,7 +78,6 @@ const Navbar = () => {
               (role === "admin" && "/dashboard/manage-classes") ||
               "/dashboard/selected-classes"
             }
-            // to="/dashboard/my-all-classes"
             className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({
               isActive,
             }) => (isActive ? "active" : "")}`}
@@ -96,12 +93,9 @@ const Navbar = () => {
 
   return (
     <div
-      className={`navbar bg-base-300 bg-opacity-50 h-24 sticky top-0 z-10 rounded ${
-        darkMode ? "theme-dark" : "theme-light"
-      } 
-
+      className={`navbar glass bg-opacity-50 h-24 sticky top-0 z-10 rounded $
+      ${ isNavbarVisible ? "opacity-100" : "opacity-0" }
       transition-opacity duration-300`}
-      // ${ isNavbarVisible ? "opacity-100" : "opacity-0" }
     >
       <div className="navbar-start">
         {/* dropdown navbar for small display */}
