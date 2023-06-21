@@ -93,7 +93,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`navbar glass bg-opacity-50 h-24 sticky top-0 z-10 rounded $
+      className={`navbar glass bg-opacity-50 h-24 sticky top-0 z-10 rounded 
       ${ isNavbarVisible ? "opacity-100" : "opacity-0" }
       transition-opacity duration-300`}
     >
