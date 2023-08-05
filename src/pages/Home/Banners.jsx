@@ -17,7 +17,7 @@ const BannerSlider = () => {
       </Fade>
 
       <div className="mt-4 mb-16 rounded-xl overflow-hidden object-cover">
-        <Carousel autoPlay>
+        <Carousel autoPlay infiniteLoop>
           <div>
             <img
               className="rounded-xl"

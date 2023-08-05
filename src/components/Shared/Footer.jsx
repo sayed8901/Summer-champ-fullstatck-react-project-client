@@ -25,14 +25,14 @@ const Footer = () => {
       </Link>
       
       <div className="items-center">
-        <p className="footer-title mx-auto mb-2">Address</p>
+        <p className="footer-title mx-auto mb-2">Find us at</p>
         <div className="text-center text-sm sm:text-base lg:text-xl">
           <b>29, West Panthapath, Dhaka</b> <br />
         </div>
       </div>
 
       <div className="items-center">
-        <p className="footer-title mx-auto mb-2">Contact</p>
+        <p className="footer-title mx-auto mb-2">Contact Us</p>
         <div className="text-center text-sm sm:text-base lg:text-xl">
           <p>sayed@mssbd.org</p>
           <p>01730024046</p>

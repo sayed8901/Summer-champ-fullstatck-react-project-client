@@ -5,6 +5,7 @@ import PopularClasses from "./PopularClasses";
 import PopularInstructors from "./PopularInstructors";
 import OurHeros from "./OurHeros";
 import ImprovementStrategy from "./ImprovementStrategy";
+import Testimonials from "./Testimonials";
 
 // N.B.: The routes below wrapped with <AnimatedSection> to show AOS effect.
 const Home = () => {
@@ -26,6 +27,9 @@ const Home = () => {
       </AnimatedSection>
       <AnimatedSection>
         <OurHeros></OurHeros>
+      </AnimatedSection>
+      <AnimatedSection>
+        <Testimonials></Testimonials>
       </AnimatedSection>
     </div>
   );
