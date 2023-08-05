@@ -86,8 +86,8 @@ const Classes = () => {
               className={`card glass sm:card-side shadow-xl ${
                 singleClass.availableSeats === 0 && "bg-red-400"}`}
             >
-              <figure className="sm:w-5/12 sm:ms-4">
-                <img className="rounded-xl" src={singleClass?.classImage} />
+              <figure className="w-full sm:w-5/12 sm:ms-4">
+                <img className="w-full h-auto rounded-xl" src={singleClass?.classImage} />
               </figure>
               <div className="card-body">
                 <h2 className="card-title text-gradient">
@@ -98,7 +98,7 @@ const Classes = () => {
                     Instructor: <b>{singleClass.instructorName}</b>
                   </p>
                   <p>Available Seats: <b>{singleClass.availableSeats}</b></p>
-                  <p>Number of students enrolled: <b>{singleClass.enrolledStudents}</b></p>
+                  <p># of students enrolled: <b>{singleClass.enrolledStudents}</b></p>
                   <p>
                     Price: <b className="text-gradient">BDTK {singleClass.price}</b>
                   </p>

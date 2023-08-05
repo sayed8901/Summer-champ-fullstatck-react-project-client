@@ -43,7 +43,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className={`my-5 lg:my-0 mx-1 font-bold text-blue-600 ${({
+          className={`my-1 mx-1 font-bold text-blue-600 ${({
             isActive,
           }) => (isActive ? "active" : "")}`}
         >
@@ -56,7 +56,7 @@ const Navbar = () => {
           to="hero"
           smooth
           duration={500}
-          className={`cursor mb-5 lg:mb-0 mx-1 font-bold text-blue-600 ${({
+          className={`mb-1 mx-1 font-bold text-blue-600 ${({
             isActive,
           }) => (isActive ? "active" : "")}`}
         >
@@ -68,7 +68,7 @@ const Navbar = () => {
           to="reviews"
           smooth
           duration={500}
-          className={`cursor mb-5 lg:mb-0 mx-1 font-bold text-blue-600 ${({
+          className={`mb-1 mx-1 font-bold text-blue-600 ${({
             isActive,
           }) => (isActive ? "active" : "")}`}
         >
@@ -80,7 +80,7 @@ const Navbar = () => {
           to="FAQ"
           smooth
           duration={500}
-          className={`cursor mb-5 lg:mb-0 mx-1 font-bold text-blue-600 ${({
+          className={`mb-1 mx-1 font-bold text-blue-600 ${({
             isActive,
           }) => (isActive ? "active" : "")}`}
         >
@@ -91,7 +91,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/instructors"
-          className={`mb-5 lg:mb-0 mx-1 font-bold text-blue-600 ${({
+          className={`mb-1 mx-1 font-bold text-blue-600 ${({
             isActive,
           }) => (isActive ? "active" : "")}`}
         >
@@ -101,7 +101,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/classes"
-          className={`mb-5 lg:mb-0 mx-1 font-bold text-blue-600 ${({
+          className={`mb-1 mx-1 font-bold text-blue-600 ${({
             isActive,
           }) => (isActive ? "active" : "")}`}
         >
@@ -117,7 +117,7 @@ const Navbar = () => {
               (role === "admin" && "/dashboard/manage-classes") ||
               "/dashboard/selected-classes"
             }
-            className={`mb-5 lg:mb-0 mx-1 font-bold text-blue-600 ${({
+            className={`mb-1 mx-1 font-bold text-blue-600 ${({
               isActive,
             }) => (isActive ? "active" : "")}`}
           >

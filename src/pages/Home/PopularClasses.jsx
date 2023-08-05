@@ -27,14 +27,14 @@ const PopularClasses = () => {
         </p>
       </Slide>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {topClasses.map((singleClass) => (
           <LazyLoad key={singleClass._id}>
             <AnimatedSection>
               <div className="card glass">
                 <figure>
                   <img
-                    className="h-48 lg:h-64 xl:h-72 rounded-2xl"
+                    className="max-h-64 w-full lg:h-64 xl:h-72 rounded-2xl"
                     src={singleClass?.classImage}
                   />
                 </figure>
