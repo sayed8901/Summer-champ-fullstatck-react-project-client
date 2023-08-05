@@ -6,6 +6,7 @@ import PopularInstructors from "./PopularInstructors";
 import OurHeros from "./OurHeros";
 import ImprovementStrategy from "./ImprovementStrategy";
 import Testimonials from "./Testimonials";
+import CommonQNA from "./CommonQNA";
 
 // N.B.: The routes below wrapped with <AnimatedSection> to show AOS effect.
 const Home = () => {
@@ -30,6 +31,9 @@ const Home = () => {
       </AnimatedSection>
       <AnimatedSection>
         <Testimonials></Testimonials>
+      </AnimatedSection>
+      <AnimatedSection>
+        <CommonQNA></CommonQNA>
       </AnimatedSection>
     </div>
   );

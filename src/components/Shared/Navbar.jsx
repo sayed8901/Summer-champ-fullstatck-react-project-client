@@ -1,10 +1,11 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
 import { AuthContext } from "../../authProviders/AuthProvider";
 import { useContext, useEffect, useState } from "react";
 import LazyLoad from "react-lazy-load";
 import { getRole } from "../../api/userAuth";
 import { Fade } from "react-awesome-reveal";
+import { Link } from "react-scroll";
 
 const Navbar = () => {
 
@@ -42,17 +43,55 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className={`my-5 lg:my-0 mx-2 font-bold text-blue-600 ${({
+          className={`my-5 lg:my-0 mx-1 font-bold text-blue-600 ${({
             isActive,
           }) => (isActive ? "active" : "")}`}
         >
           Home
         </NavLink>
       </li>
+
+      <li>
+        <Link
+          to="hero"
+          smooth
+          duration={500}
+          className={`cursor mb-5 lg:mb-0 mx-1 font-bold text-blue-600 ${({
+            isActive,
+          }) => (isActive ? "active" : "")}`}
+        >
+          Heros
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="reviews"
+          smooth
+          duration={500}
+          className={`cursor mb-5 lg:mb-0 mx-1 font-bold text-blue-600 ${({
+            isActive,
+          }) => (isActive ? "active" : "")}`}
+        >
+          Reviews
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="FAQ"
+          smooth
+          duration={500}
+          className={`cursor mb-5 lg:mb-0 mx-1 font-bold text-blue-600 ${({
+            isActive,
+          }) => (isActive ? "active" : "")}`}
+        >
+          FAQs
+        </Link>
+      </li>
+      
       <li>
         <NavLink
           to="/instructors"
-          className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({
+          className={`mb-5 lg:mb-0 mx-1 font-bold text-blue-600 ${({
             isActive,
           }) => (isActive ? "active" : "")}`}
         >
@@ -62,7 +101,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/classes"
-          className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({
+          className={`mb-5 lg:mb-0 mx-1 font-bold text-blue-600 ${({
             isActive,
           }) => (isActive ? "active" : "")}`}
         >
@@ -78,7 +117,7 @@ const Navbar = () => {
               (role === "admin" && "/dashboard/manage-classes") ||
               "/dashboard/selected-classes"
             }
-            className={`mb-5 lg:mb-0 mx-2 font-bold text-blue-600 ${({
+            className={`mb-5 lg:mb-0 mx-1 font-bold text-blue-600 ${({
               isActive,
             }) => (isActive ? "active" : "")}`}
           >
@@ -94,7 +133,7 @@ const Navbar = () => {
   return (
     <div
       className={`navbar glass bg-opacity-50 h-24 sticky top-0 z-10 rounded 
-      ${ isNavbarVisible ? "opacity-100" : "opacity-0" }
+      ${isNavbarVisible ? "opacity-100" : "opacity-0"}
       transition-opacity duration-300`}
     >
       <div className="navbar-start">
@@ -144,7 +183,7 @@ const Navbar = () => {
       {/* to dynamically show user photo & name and also to switch button action between "log in" or "log out" */}
       <div className="navbar-end flex gap-4">
         {user ? (
-          <div className="flex justify-center items-center gap-4 border-4 rounded-full bg-gradient px-2 py-1">
+          <div className="flex justify-center items-center gap-2 border-4 rounded-full bg-gradient p-1">
             <div
               className="tooltip tooltip-left tooltip-primary"
               data-tip={user.displayName}
@@ -159,16 +198,19 @@ const Navbar = () => {
             </div>
             <button
               onClick={logOut}
-              className="btn btn-sm btn-outline h-10 w-14 rounded-xl capitalize font-bold text-white"
+              className="btn btn-sm btn-outline h-8 w-12 rounded-xl capitalize font-bold text-white"
             >
               Log out
             </button>
           </div>
         ) : (
           <button>
-            <Link to={"/login"} className="btn btn-info btn-outline font-bold">
+            <NavLink
+              to={"/login"}
+              className="btn btn-info btn-outline font-bold"
+            >
               log in
-            </Link>
+            </NavLink>
           </button>
         )}
       </div>

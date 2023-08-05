@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 
 const OurHeros = () => {
   return (
-    <div className="my-32">
+    <div className="my-32" name="hero">
       <Slide className="sm:w-3/4 mx-auto">
         <h2 className="text-2xl lg:text-4xl font-bold text-center mt-16">
           Our <span className="text-gradient">Heros</span>

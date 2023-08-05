@@ -15,16 +15,16 @@ const Testimonials = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`/reviews.json`)
+    fetch("/reviews.json")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
 
   return (
-    <div className="my-32">
+    <div className="my-32" name="reviews">
       <Slide className="sm:w-3/4 mx-auto">
         <h2 className="text-2xl lg:text-4xl font-bold text-center mt-16">
-          What Our <span className="text-gradient">Students Say?</span>
+          What Our <span className="text-gradient">Students Say</span>
         </h2>
         <p className="py-12 text-center">
           We are always excited to share our students thought & also concerned

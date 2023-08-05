@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "question": "What sports are offered in the program?",
+    "answer": "We offer a diverse range of sports including soccer, basketball, tennis, swimming, and athletics. Each sport is taught by experienced coaches who focus on skill development, teamwork, and personal growth."
+  },
+  {
+    "id": 2,
+    "question": "Is prior experience required to join?",
+    "answer": "No prior experience is necessary. Our program welcomes participants of all skill levels, from beginners looking to learn new sports to more experienced athletes aiming to enhance their abilities."
+  },
+  {
+    "id": 3,
+    "question": "How are participants supervised and kept safe?",
+    "answer": "Participant safety is our top priority. We have a team of certified instructors who provide constant supervision during training sessions and activities. Additionally, we follow strict safety guidelines and have first aid facilities on-site."
+  },
+  {
+    "id": 4,
+    "question": "What does a typical training day look like?",
+    "answer": "A typical day includes morning training sessions in your chosen sport, followed by interactive workshops focusing on sportsmanship, strategy, and team building. Afternoons are dedicated to cultural and educational activities to ensure a well-rounded experience."
+  },
+  {
+    "id": 5,
+    "question": "Are there any cultural components to the program?",
+    "answer": "Absolutely! We believe in holistic development. Our program includes cultural workshops, where participants can engage with local traditions and arts. We also organize field trips to nearby landmarks and arrange talent shows to celebrate diverse talents."
+  },
+  {
+    "id": 6,
+    "question": "Can I choose multiple sports to participate in?",
+    "answer": "Yes, you have the flexibility to choose and switch between multiple sports during the program. This allows you to explore different activities and broaden your skillset."
+  },
+  {
+    "id": 7,
+    "question": "What kind of training facilities do you have?",
+    "answer": "We have state-of-the-art training facilities equipped with modern sports equipment. Our facilities are designed to provide a conducive environment for skill development, practice, and fitness."
+  }
+]
