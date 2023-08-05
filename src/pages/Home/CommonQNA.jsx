@@ -13,7 +13,7 @@ const CommonQNA = () => {
   }, []);
 
   return (
-    <div className="my-8" name="FAQ">
+    <div className="mt-8 mb-24" name="FAQ">
       <Slide className="sm:w-3/4 mx-auto">
         <h2 className="text-2xl lg:text-4xl font-bold text-center">
           Some <span className="text-gradient">FAQs</span>
