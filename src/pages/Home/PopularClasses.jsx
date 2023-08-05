@@ -26,7 +26,6 @@ const PopularClasses = () => {
           sports classes here & enroll to your favorite one today...
         </p>
       </Slide>
-      
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {topClasses.map((singleClass) => (
@@ -40,35 +39,35 @@ const PopularClasses = () => {
                   />
                 </figure>
 
-                <div className="space-y-4 py-8 px-4 text-center">
-                  <h2 className="mb-8 text-gradient text-2xl font-bold">
+                <div className="space-y-4 p-4 text-center">
+                  <h2 className="mb-4 text-gradient text-2xl font-bold">
                     {singleClass?.className}
                   </h2>
-                  <div className="divider pb-2">Instructor info</div>
+                  <div className="divider">Instructor info</div>
                   <p>
                     <small>
                       Instructor:{" "}
                       <b className="text-xl">{singleClass?.instructorName}</b>
                     </small>
-                  </p>
-                  <p>
+                    <br />
                     <small>
                       Instructor email: <b>{singleClass?.instructorEmail}</b>
                     </small>
                   </p>
-                  <div className="divider pt-8 pb-2">Sports class info</div>
-                  <p>
+                  <div className="divider pt-4">Sports class info</div>
+                  <div>
                     <small className="mt-4 mb-2 text-gradient">
                       Price: BDTK <b>{singleClass?.price}</b>
                     </small>
-                  </p>
-                  <div className="flex justify-between">
-                    <small className="text-center">
-                      Total students enrolled: <b>{singleClass?.enrolledStudents}</b>
-                    </small>
-                    <small className="text-center text-gradient">
-                      Available Seats: <b>{singleClass?.availableSeats}</b>
-                    </small>
+                    <div className="flex justify-between">
+                      <small className="text-center">
+                        Total students enrolled:{" "}
+                        <b>{singleClass?.enrolledStudents}</b>
+                      </small>
+                      <small className="text-center text-gradient">
+                        Available Seats: <b>{singleClass?.availableSeats}</b>
+                      </small>
+                    </div>
                   </div>
                 </div>
               </div>

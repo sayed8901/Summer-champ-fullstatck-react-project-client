@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Experience & believe Coaching",
+    "logo": "/assets/coach-football.png",
+    "description": "Our experienced coaches provide personalized training to help students improve their skills while instilling confidence and self-belief in their abilities. Through focused guidance and positive reinforcement, students will excel both on and off the field."
+  },
+  {
+    "id": 2,
+    "title": "Mental Stability",
+    "logo": "/assets/heart.png",
+    "description": "In our sports programs, we emphasize the importance of mental stability. Students learn techniques to manage stress, stay focused under pressure, and develop a strong mindset. Mental resilience is a key factor in achieving peak performance and reaching new heights in sports."
+  },
+  {
+    "id": 3,
+    "title": "Controlled Recovery",
+    "logo": "/assets/cross-shield-1.png",
+    "description": "Recovery is essential for growth and preventing injuries. Our controlled recovery approach includes proper rest, nutrition, and targeted exercises to aid muscle recovery and overall well-being. Students will learn how to listen to their bodies and optimize their performance through effective recovery strategies."
+  },
+  {
+    "id": 4,
+    "title": "Cultural & Educational Activities",
+    "logo": "/assets/target.png",
+    "description": "We believe in a holistic approach to development. Beyond sports training, we offer a range of cultural and educational activities that enrich the students' experience. These activities promote teamwork, creativity, and exposure to diverse perspectives, contributing to well-rounded personal growth."
+  }
+]
