@@ -2,9 +2,21 @@ import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
 
 const ThemeToggler = ({ toggleMode, isDarkMode }) => {
   return (
-    <button className="btn btn-sm glass capitalize" onClick={toggleMode}>
-      {isDarkMode ? <MdDarkMode size={24} /> : <MdOutlineDarkMode size={24} />}
-    </button>
+    <div className="hover:cursor-pointer" onClick={toggleMode}>
+      {isDarkMode ? (
+        <MdDarkMode
+          className="text-blue-500"
+          size={40}
+          title="Click to turn on light mode"
+        />
+      ) : (
+        <MdOutlineDarkMode
+          className="text-red-500"
+          size={40}
+          title="Click to turn on dark mode"
+       />
+      )}
+    </div>
   );
 };
 

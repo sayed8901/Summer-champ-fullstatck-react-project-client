@@ -11,7 +11,7 @@ const PopularClasses = () => {
       setClasses(data);
     });
   }, []);
-  const topClasses = classes.slice(0, 6);
+  const topClasses = classes.slice(0, 12);
   //   console.log(topClasses);
 
   return (
@@ -27,14 +27,14 @@ const PopularClasses = () => {
         </p>
       </Slide>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {topClasses.map((singleClass) => (
           <LazyLoad key={singleClass._id}>
             <AnimatedSection>
-              <div className="card glass">
+              <div className="card glass group hover:scale-110 hover:duration-500 hover:shadow-xl">
                 <figure>
                   <img
-                    className="max-h-64 w-full lg:h-64 xl:h-72 rounded-2xl"
+                    className="max-h-64 w-full lg:h-64 xl:h-72 rounded-2xl hover:animate-pulse"
                     src={singleClass?.classImage}
                   />
                 </figure>

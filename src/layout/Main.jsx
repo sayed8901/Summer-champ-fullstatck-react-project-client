@@ -10,13 +10,6 @@ const Main = () => {
   return (
     <div data-theme={themeClassName} className={`min-h-screen my-container`}>
       <Navbar></Navbar>
-
-      {/* dark/light toggle btn */}
-      {/* <ThemeToggler
-        toggleMode={toggleMode}
-        isDarkMode={isDarkMode}
-      ></ThemeToggler> */}
-
       <Outlet></Outlet>
       <Footer></Footer>
     </div>

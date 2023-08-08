@@ -14,6 +14,7 @@ import {
   FaUserCheck,
   FaVolleyballBall,
 } from "react-icons/fa";
+import { ThemeContext } from "../authProviders/ThemeContextProvider";
 
 
 const Dashboard = () => {
@@ -22,12 +23,7 @@ const Dashboard = () => {
   getRole(user?.email).then((data) => setRole(data));
   // console.log(role);
 
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const themeClassName = isDarkMode ? 'dark' : 'light';
-
-  const toggleMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+  const {themeClassName, toggleMode, isDarkMode} = useContext(ThemeContext)
 
 
   return (

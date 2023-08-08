@@ -11,7 +11,7 @@ const PopularInstructors = () => {
       setInstructors(data);
     });
   }, []);
-  const topInstructors = instructors.slice(0, 6);
+  const topInstructors = instructors.slice(0, 9);
   //   console.log(topInstructors);
 
   return (
@@ -21,8 +21,8 @@ const PopularInstructors = () => {
           Popular <span className="text-gradient">Instructors</span>
         </h2>
         <p className="py-12 text-center">
-          Meet our top instructors who are always ready to excite your
-          sports experience.
+          Meet our top instructors who are always ready to excite your sports
+          experience.
         </p>
       </Slide>
 
@@ -30,7 +30,7 @@ const PopularInstructors = () => {
         {topInstructors.map((instructor) => (
           <div
             key={instructor._id}
-          className={`card glass bg-base-100 shadow-xl flex flex-row`}
+            className={`card glass bg-base-100 shadow-xl flex flex-row hover:animate-bounce duration-500`}
           >
             <figure className="m-4">
               <img
@@ -47,7 +47,7 @@ const PopularInstructors = () => {
               </p>
               <small>
                 classes:{" "}
-                {instructor.classes.map((classNames) => (
+                {instructor.classes?.map((classNames) => (
                   <b key={classNames}>{classNames}, </b>
                 ))}
               </small>

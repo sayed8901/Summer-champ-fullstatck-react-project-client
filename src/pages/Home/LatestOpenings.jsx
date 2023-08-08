@@ -18,7 +18,7 @@ const LatestOpenings = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {/* class 1 */}
         <AnimatedSection>
-          <div className="card glass shadow-xl">
+          <div className="card glass group hover:scale-110 hover:duration-500 hover:shadow-xl">
             <div className="space-y-4 p-4 text-center">
               <h2 className="mb-4 text-gradient text-2xl font-bold">Karate</h2>
               <div className="divider">Instructor info</div>
@@ -55,7 +55,7 @@ const LatestOpenings = () => {
 
         {/* class 2 */}
         <AnimatedSection>
-          <div className="card glass shadow-xl mt-12 sm:mt-0">
+          <div className="card glass mt-12 sm:mt-0 group hover:scale-110 hover:duration-500 hover:shadow-xl">
             <div className="space-y-4 p-4 text-center">
               <h2 className="mb-4 text-gradient text-2xl font-bold">
                 Swimming competition
@@ -94,7 +94,7 @@ const LatestOpenings = () => {
 
         {/* class 3 */}
         <AnimatedSection>
-          <div className="card glass shadow-xl mt-12 sm:mt-0">
+          <div className="card glass mt-12 sm:mt-0 group hover:scale-110 hover:duration-500 hover:shadow-xl">
             <div className="space-y-4 p-4 text-center">
               <h2 className="mb-4 text-gradient text-2xl font-bold">Hiking</h2>
               <div className="divider">Instructor info</div>

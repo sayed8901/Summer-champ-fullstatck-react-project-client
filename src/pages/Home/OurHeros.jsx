@@ -13,7 +13,7 @@ const OurHeros = () => {
         </p>
       </Slide>
 
-      <Marquee speed={100}>
+      <Marquee speed={100} className="hover:animate-pulse">
         <img
           className="mask mask-parallelogram w-96"
           src="https://i.ibb.co/LvLLxbN/Cycling.jpg"
