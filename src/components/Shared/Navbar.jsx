@@ -6,16 +6,18 @@ import LazyLoad from "react-lazy-load";
 import { getRole } from "../../api/userAuth";
 import { Fade } from "react-awesome-reveal";
 import { Link } from "react-scroll";
+import ThemeToggler from "../../authProviders/ThemeToggler";
+import { ThemeContext } from "../../authProviders/ThemeContextProvider";
 
 const Navbar = () => {
-
   const { user, logOut } = useContext(AuthContext);
   const [role, setRole] = useState();
   getRole(user?.email).then((data) => setRole(data));
   // console.log(role);
 
-  
-// for hide/ un-hide navbar on sticky-scroll
+  const { toggleMode, isDarkMode } = useContext(ThemeContext);
+
+  // for hide/ un-hide navbar on sticky-scroll
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
 
@@ -36,16 +38,14 @@ const Navbar = () => {
     };
   }, [prevScrollPos]);
 
-  
   // Creating NavBar Menu Items for further used below
   const navItems = (
     <>
       <li>
         <NavLink
           to="/"
-          className={`my-1 mx-1 font-bold text-blue-600 ${({
-            isActive,
-          }) => (isActive ? "active" : "")}`}
+          className={`my-1 lg:my-0 mx-1 font-bold text-blue-600 ${({ isActive }) =>
+            isActive ? "active" : ""}`}
         >
           Home
         </NavLink>
@@ -56,9 +56,8 @@ const Navbar = () => {
           to="hero"
           smooth
           duration={500}
-          className={`mb-1 mx-1 font-bold text-blue-600 ${({
-            isActive,
-          }) => (isActive ? "active" : "")}`}
+          className={`mb-1 mx-1 font-bold text-blue-600 ${({ isActive }) =>
+            isActive ? "active" : ""}`}
         >
           Heros
         </Link>
@@ -68,9 +67,8 @@ const Navbar = () => {
           to="reviews"
           smooth
           duration={500}
-          className={`mb-1 mx-1 font-bold text-blue-600 ${({
-            isActive,
-          }) => (isActive ? "active" : "")}`}
+          className={`mb-1 mx-1 font-bold text-blue-600 ${({ isActive }) =>
+            isActive ? "active" : ""}`}
         >
           Reviews
         </Link>
@@ -80,20 +78,18 @@ const Navbar = () => {
           to="FAQ"
           smooth
           duration={500}
-          className={`mb-1 mx-1 font-bold text-blue-600 ${({
-            isActive,
-          }) => (isActive ? "active" : "")}`}
+          className={`mb-1 mx-1 font-bold text-blue-600 ${({ isActive }) =>
+            isActive ? "active" : ""}`}
         >
           FAQs
         </Link>
       </li>
-      
+
       <li>
         <NavLink
           to="/instructors"
-          className={`mb-1 mx-1 font-bold text-blue-600 ${({
-            isActive,
-          }) => (isActive ? "active" : "")}`}
+          className={`mb-1 mx-1 font-bold text-blue-600 ${({ isActive }) =>
+            isActive ? "active" : ""}`}
         >
           Instructors
         </NavLink>
@@ -101,9 +97,8 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/classes"
-          className={`mb-1 mx-1 font-bold text-blue-600 ${({
-            isActive,
-          }) => (isActive ? "active" : "")}`}
+          className={`mb-1 mx-1 font-bold text-blue-600 ${({ isActive }) =>
+            isActive ? "active" : ""}`}
         >
           Classes
         </NavLink>
@@ -117,9 +112,8 @@ const Navbar = () => {
               (role === "admin" && "/dashboard/manage-classes") ||
               "/dashboard/selected-classes"
             }
-            className={`mb-1 mx-1 font-bold text-blue-600 ${({
-              isActive,
-            }) => (isActive ? "active" : "")}`}
+            className={`mb-1 mx-1 font-bold text-blue-600 ${({ isActive }) =>
+              isActive ? "active" : ""}`}
           >
             <Fade cascade damping={0.1}>
               Dashboard
@@ -132,7 +126,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`navbar glass bg-opacity-50 h-24 sticky top-0 z-10 rounded 
+      className={`navbar glass bg-opacity-50 h-16 sticky top-0 z-10 rounded 
       ${isNavbarVisible ? "opacity-100" : "opacity-0"}
       transition-opacity duration-300`}
     >
@@ -164,11 +158,11 @@ const Navbar = () => {
         </div>
 
         <Link to={"/"} className="normal-case text-xl">
-          <div className="sm:flex flex-row items-center justify-center gap-1 w-24 sm:w-48">
+          <div className="sm:flex flex-row items-center justify-center gap-1 w-24 sm:w-44">
             <div>
-              <img className="hidden sm:inline" src={logo} alt="" />
+              <img className="hidden sm:inline h-[56px] w-20 rounded-xl" src={logo} alt="" />
             </div>
-            <h2 className="mt-1 sm:mt-4 text-xl sm:text-2xl px-1 font-bold text-gradient">
+            <h2 className="text-xl sm:text-2xl px-1 font-bold text-gradient">
               Summer Champ
             </h2>
           </div>
@@ -177,42 +171,52 @@ const Navbar = () => {
 
       {/* wide navbar for large display */}
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal ml-8 px-1">{navItems}</ul>
+        <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
 
       {/* to dynamically show user photo & name and also to switch button action between "log in" or "log out" */}
       <div className="navbar-end flex gap-4">
-        {user ? (
-          <div className="flex justify-center items-center gap-2 border-4 rounded-full bg-gradient p-1">
-            <div
-              className="tooltip tooltip-left tooltip-primary"
-              data-tip={user.displayName}
-            >
-              <LazyLoad>
-                <img
-                  className="rounded-full w-12 h-12"
-                  src={user.photoURL}
-                  alt=""
-                />
-              </LazyLoad>
-            </div>
-            <button
-              onClick={logOut}
-              className="btn btn-sm btn-outline h-8 w-12 rounded-xl capitalize font-bold text-white"
-            >
-              Log out
-            </button>
+        <div className="flex justify-center items-center gap-2">
+          {/* dark/light toggle btn */}
+          <ThemeToggler
+            toggleMode={toggleMode}
+            isDarkMode={isDarkMode}
+          ></ThemeToggler>
+
+          <div>
+            {user ? (
+              <div className="flex justify-center items-center gap-2 border-4 rounded-full bg-gradient p-1">
+                <div
+                  className="tooltip tooltip-left tooltip-primary"
+                  data-tip={user.displayName}
+                >
+                  <LazyLoad>
+                    <img
+                      className="rounded-full w-12 h-12"
+                      src={user.photoURL}
+                      alt=""
+                    />
+                  </LazyLoad>
+                </div>
+                <button
+                  onClick={logOut}
+                  className="btn btn-sm btn-outline h-10 w-12 rounded-xl capitalize font-bold text-white"
+                >
+                  Log out
+                </button>
+              </div>
+            ) : (
+              <button>
+                <NavLink
+                  to={"/login"}
+                  className="btn btn-info btn-outline font-bold"
+                >
+                  log in
+                </NavLink>
+              </button>
+            )}
           </div>
-        ) : (
-          <button>
-            <NavLink
-              to={"/login"}
-              className="btn btn-info btn-outline font-bold"
-            >
-              log in
-            </NavLink>
-          </button>
-        )}
+        </div>
       </div>
     </div>
   );

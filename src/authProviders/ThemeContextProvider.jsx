@@ -4,15 +4,17 @@ import { createContext, useState } from "react";
 export const ThemeContext = createContext();
 
 const ThemeContextProvider = ({ children }) => {
-    const [darkMode, setDarkMode] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(false);
+    const themeClassName = isDarkMode ? "dark" : "light";
 
-    const toggleTheme = () => {
-      console.log('dark btn clicked');
-      setDarkMode(!darkMode);
+    const toggleMode = () => {
+      setIsDarkMode(!isDarkMode);
     };
 
   return (
-    <ThemeContext.Provider value={{ darkMode, toggleTheme }}>
+    <ThemeContext.Provider
+      value={{ themeClassName, toggleMode, isDarkMode }}
+    >
       {children}
     </ThemeContext.Provider>
   );
