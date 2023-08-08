@@ -8,6 +8,7 @@ import ImprovementStrategy from "./ImprovementStrategy";
 import Testimonials from "./Testimonials";
 import CommonQNA from "./CommonQNA";
 import LatestOpenings from "./LatestOpenings";
+import Contact from "./Contact";
 
 // N.B.: The routes below wrapped with <AnimatedSection> to show AOS effect.
 const Home = () => {
@@ -38,6 +39,9 @@ const Home = () => {
       </AnimatedSection>
       <AnimatedSection>
         <CommonQNA></CommonQNA>
+      </AnimatedSection>
+      <AnimatedSection>
+        <Contact></Contact>
       </AnimatedSection>
     </div>
   );

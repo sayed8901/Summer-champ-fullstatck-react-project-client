@@ -126,7 +126,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`navbar glass bg-opacity-50 h-16 sticky top-0 z-10 rounded 
+      className={`navbar glass bg-opacity-50 h-16 sticky top-0 z-10 rounded-md 
       ${isNavbarVisible ? "opacity-100" : "opacity-0"}
       transition-opacity duration-300`}
     >
@@ -163,7 +163,7 @@ const Navbar = () => {
               <img className="hidden sm:inline h-[56px] w-20 rounded-xl" src={logo} alt="" />
             </div>
             <h2 className="text-xl sm:text-2xl px-1 font-bold text-gradient">
-              Summer Champ
+              Summer Champs
             </h2>
           </div>
         </Link>

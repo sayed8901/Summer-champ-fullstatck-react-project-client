@@ -15,7 +15,7 @@ const LatestOpenings = () => {
         </p>
       </Slide>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
         {/* class 1 */}
         <AnimatedSection>
           <div className="card glass group hover:scale-110 hover:duration-500 hover:shadow-xl">
