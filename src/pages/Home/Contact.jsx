@@ -24,7 +24,9 @@ const Contact = () => {
             <SocialLinks></SocialLinks>
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-center mb-4">Leave your thought..</h1>
+            <h1 className="text-2xl font-bold text-center mb-4">
+              Leave your thought..
+            </h1>
             <div className="card shadow-2xl glass">
               <div className="card-body">
                 <div className="form-control">
@@ -46,14 +48,9 @@ const Contact = () => {
                     placeholder="Your feedback"
                     className="input input-bordered h-28"
                   />
-                  <label className="label">
-                    <a href="#" className="label-text-alt link link-hover">
-                      Forgot password?
-                    </a>
-                  </label>
                 </div>
-                <div className="form-control mt-6">
-                  <button className="btn btn-primary">Login</button>
+                <div className="form-control mt-6 w-1/2 mx-auto">
+                  <button className="btn btn-primary rounded-full bg-gradient">Send</button>
                 </div>
               </div>
             </div>
