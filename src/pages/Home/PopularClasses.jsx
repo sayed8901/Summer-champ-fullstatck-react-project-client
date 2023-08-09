@@ -56,10 +56,10 @@ const PopularClasses = () => {
                   </p>
                   <div className="divider pt-4">Sports class info</div>
                   <div>
-                    <small className="mt-4 mb-2 text-gradient">
+                    <small className="my-4 text-gradient">
                       Price: BDTK <b>{singleClass?.price}</b>
                     </small>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between gap-2">
                       <small className="text-center">
                         Total students enrolled:{" "}
                         <b>{singleClass?.enrolledStudents}</b>
