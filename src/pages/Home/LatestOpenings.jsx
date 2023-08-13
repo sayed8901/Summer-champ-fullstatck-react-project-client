@@ -1,7 +1,11 @@
-import { Slide } from "react-awesome-reveal";
+import { Fade, Slide } from "react-awesome-reveal";
 import AnimatedSection from "../../components/AOS-Animate/AnimatedSection";
+import Countdown from "../../utilities/Countdown";
 
 const LatestOpenings = () => {
+  // for the countdown part
+  const targetDate = new Date("2023-10-31T23:59:59").getTime();
+
   return (
     <div className="my-32">
       <Slide className="sm:w-3/4 mx-auto">
@@ -15,7 +19,22 @@ const LatestOpenings = () => {
         </p>
       </Slide>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+      {/* The countdown part */}
+      <div>
+        <Fade className="mx-auto">
+          <p className="font-bold text-center">
+            Are you ready to take the upcoming challenge?
+          </p>
+          <p className="font-bold text-center text-xl my-2">
+            Lets <span className="text-gradient">Countdown</span> Together..
+          </p>
+        </Fade>
+        <Slide className="flex justify-center items-center mt-8 mb-16">
+          <Countdown targetDate={targetDate} />
+        </Slide>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {/* class 1 */}
         <AnimatedSection>
           <div className="card glass group hover:scale-110 hover:duration-500 hover:shadow-xl">
@@ -134,4 +153,3 @@ const LatestOpenings = () => {
 };
 
 export default LatestOpenings;
-

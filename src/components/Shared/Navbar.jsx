@@ -44,7 +44,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className={`my-1 lg:my-0 mx-1 font-bold text-blue-600 ${({ isActive }) =>
+          className={`my-1 lg:my-0 font-bold text-blue-600 ${({ isActive }) =>
             isActive ? "active" : ""}`}
         >
           Home
@@ -56,7 +56,7 @@ const Navbar = () => {
           to="hero"
           smooth
           duration={500}
-          className={`mb-1 mx-1 font-bold text-blue-600 ${({ isActive }) =>
+          className={`mb-1 font-bold text-blue-600 ${({ isActive }) =>
             isActive ? "active" : ""}`}
         >
           Heros
@@ -67,7 +67,7 @@ const Navbar = () => {
           to="reviews"
           smooth
           duration={500}
-          className={`mb-1 mx-1 font-bold text-blue-600 ${({ isActive }) =>
+          className={`mb-1 font-bold text-blue-600 ${({ isActive }) =>
             isActive ? "active" : ""}`}
         >
           Reviews
@@ -78,7 +78,7 @@ const Navbar = () => {
           to="FAQ"
           smooth
           duration={500}
-          className={`mb-1 mx-1 font-bold text-blue-600 ${({ isActive }) =>
+          className={`mb-1 font-bold text-blue-600 ${({ isActive }) =>
             isActive ? "active" : ""}`}
         >
           FAQs
@@ -88,7 +88,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/instructors"
-          className={`mb-1 mx-1 font-bold text-blue-600 ${({ isActive }) =>
+          className={`mb-1 font-bold text-blue-600 ${({ isActive }) =>
             isActive ? "active" : ""}`}
         >
           Instructors
@@ -97,7 +97,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/classes"
-          className={`mb-1 mx-1 font-bold text-blue-600 ${({ isActive }) =>
+          className={`mb-1 font-bold text-blue-600 ${({ isActive }) =>
             isActive ? "active" : ""}`}
         >
           Classes
@@ -112,7 +112,7 @@ const Navbar = () => {
               (role === "admin" && "/dashboard/manage-classes") ||
               "/dashboard/selected-classes"
             }
-            className={`mb-1 mx-1 font-bold text-blue-600 ${({ isActive }) =>
+            className={`mb-1 font-bold text-blue-600 ${({ isActive }) =>
               isActive ? "active" : ""}`}
           >
             <Fade cascade damping={0.1}>
@@ -175,8 +175,8 @@ const Navbar = () => {
       </div>
 
       {/* to dynamically show user photo & name and also to switch button action between "log in" or "log out" */}
-      <div className="navbar-end flex gap-4">
-        <div className="flex justify-center items-center gap-2">
+      <div className="navbar-end flex gap-2">
+        <div className="flex justify-center items-center gap-1">
           {/* dark/light toggle btn */}
           <ThemeToggler
             toggleMode={toggleMode}
@@ -185,7 +185,7 @@ const Navbar = () => {
 
           <div>
             {user ? (
-              <div className="flex justify-center items-center gap-2 border-4 rounded-full bg-gradient p-1">
+              <div className="flex justify-center items-center gap-1 border-4 rounded-full bg-gradient p-1">
                 <div
                   className="tooltip tooltip-left tooltip-primary"
                   data-tip={user.displayName}
@@ -200,7 +200,7 @@ const Navbar = () => {
                 </div>
                 <button
                   onClick={logOut}
-                  className="btn btn-sm btn-outline h-10 w-12 rounded-xl capitalize font-bold text-white"
+                  className="btn btn-sm btn-outline h-10 w-10 rounded-xl capitalize font-bold text-white"
                 >
                   Log out
                 </button>

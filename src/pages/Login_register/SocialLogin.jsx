@@ -59,7 +59,7 @@ const SocialLogin = () => {
       <div className="flex flex-col w-full md:flex-row">
         <div className="grid flex-grow card rounded-box place-items-center">
           {/* Google log in btn */}
-          <div onClick={handleGoogleLogIn} className="gap-4 btn btn-active">
+          <div onClick={handleGoogleLogIn} className="gap-4 btn btn-active animate-pulse">
             <span>
               <img
                 className="w-6"

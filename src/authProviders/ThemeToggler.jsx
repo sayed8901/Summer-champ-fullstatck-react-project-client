@@ -5,16 +5,16 @@ const ThemeToggler = ({ toggleMode, isDarkMode }) => {
     <div className="hover:cursor-pointer" onClick={toggleMode}>
       {isDarkMode ? (
         <MdDarkMode
-          className="text-blue-500"
+          className="text-blue-500 animate-rotateOnce"
           size={40}
           title="Click to turn on light mode"
         />
       ) : (
         <MdOutlineDarkMode
-          className="text-red-500"
+          className="text-red-500 animate-rotateOnce"
           size={40}
           title="Click to turn on dark mode"
-       />
+        />
       )}
     </div>
   );

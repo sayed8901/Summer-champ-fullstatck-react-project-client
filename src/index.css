@@ -37,6 +37,11 @@
 
 
 
+/* for custom rotate once animation */
+.animate-rotateOnce {
+  animation: rotateOnce 1s ease-in-out;
+}
+
 /* 360 rotating keyframes */
 @keyframes rotateOnce {
   0% {
