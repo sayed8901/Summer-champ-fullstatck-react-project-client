@@ -3,6 +3,7 @@ import { getAllClassesByEnrolledStudents } from "../../api/classes";
 import LazyLoad from "react-lazy-load";
 import AnimatedSection from "../../components/AOS-Animate/AnimatedSection";
 import { Slide } from "react-awesome-reveal";
+import { BsArrowRightCircle } from "react-icons/bs";
 
 const PopularClasses = () => {
   const [classes, setClasses] = useState([]);
@@ -11,8 +12,33 @@ const PopularClasses = () => {
       setClasses(data);
     });
   }, []);
-  const topClasses = classes.slice(0, 12);
-  //   console.log(topClasses);
+
+  const [visibleClasses, setVisibleClasses] = useState([]);
+  const [showMoreButton, setShowMoreButton] = useState(true);
+  const [showLessButton, setShowLessButton] = useState(false);
+
+  useEffect(() => {
+    const topClasses = classes.slice(0, 6);
+    //   console.log(topClasses);
+    setVisibleClasses(topClasses);
+  }, [classes])
+
+  const showMoreClasses = () => {
+    const topClasses = classes.slice(0, 12);
+      // console.log(topClasses);
+      setVisibleClasses(topClasses);
+      setShowMoreButton(false);
+      setShowLessButton(true);
+  }
+
+  const showLessClasses = () => {
+    const topClasses = classes.slice(0, 6);
+      // console.log(topClasses);
+      setVisibleClasses(topClasses);
+      setShowLessButton(false);
+      setShowMoreButton(true);
+  }
+
 
   return (
     <div className="my-32">
@@ -27,14 +53,14 @@ const PopularClasses = () => {
         </p>
       </Slide>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
-        {topClasses.map((singleClass) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-16">
+        {visibleClasses.map((singleClass) => (
           <LazyLoad key={singleClass._id}>
             <AnimatedSection>
               <div className="card glass group hover:scale-110 hover:duration-500 hover:shadow-xl">
                 <figure>
                   <img
-                    className="max-h-64 w-full lg:h-64 xl:h-72 rounded-2xl hover:animate-pulse"
+                    className="max-h-64 w-full lg:h-64 xl:h-72 rounded-2xl"
                     src={singleClass?.classImage}
                   />
                 </figure>
@@ -75,6 +101,29 @@ const PopularClasses = () => {
           </LazyLoad>
         ))}
       </div>
+
+      {showMoreButton && (
+        <div className="absolute right-16 mt-10 mx-auto animate-pulse">
+          <button
+            onClick={() => showMoreClasses(classes)}
+            className="btn btn-primary px-8 rounded-full bg-gradient flex gap-4"
+          >
+            <span>Show more</span>
+            <BsArrowRightCircle className="text-3xl" />
+          </button>
+        </div>
+      )}
+      {showLessButton && (
+        <div className="absolute right-16 mt-10 mx-auto animate-pulse">
+          <button
+            onClick={() => showLessClasses(classes)}
+            className="btn btn-primary px-8 rounded-full bg-gradient flex gap-4"
+          >
+            <span>Show Less</span>
+            <BsArrowRightCircle className="text-3xl" />
+          </button>
+        </div>
+      )}
     </div>
   );
 };

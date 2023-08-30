@@ -39,7 +39,7 @@ const Footer = () => {
     //   </div>
     // </footer>
     <footer
-      className={`grid grid-cols-3 items-center justify-between gap-6 sm:gap-12 text-center glass rounded-md sticky top-[100vh]`}
+      className={`grid grid-cols-3 items-center justify-between gap-6 sm:gap-12 text-center glass rounded-md sticky top-[100vh] my-5`}
     >
       <div className="items-center">
         <p className="mx-auto text-sm">

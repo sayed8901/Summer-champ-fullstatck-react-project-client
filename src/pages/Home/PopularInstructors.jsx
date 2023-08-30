@@ -26,15 +26,15 @@ const PopularInstructors = () => {
         </p>
       </Slide>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-16">
         {topInstructors.map((instructor) => (
           <div
             key={instructor._id}
-            className={`card glass bg-base-100 shadow-xl flex flex-row hover:animate-bounce duration-500`}
+            className={`card glass bg-base-100 shadow-xl flex flex-row hover:scale-110 duration-500`}
           >
             <figure className="m-4">
               <img
-                className="rounded-xl w-28 sm:w-32 md:w-28"
+                className="rounded-xl w-28 sm:w-32 md:w-28 hover:animate-pulse duration-200"
                 src={instructor.image}
               />
             </figure>

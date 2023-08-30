@@ -28,7 +28,7 @@ const ImprovementStrategy = () => {
           {improvementStrategyData.map((instruction) => (
             <div
               key={instruction.id}
-              className="card glass shadow-xl text-left my-4 p-4 sm:p-8 rounded-md space-y-4 group hover:scale-125 hover:duration-500"
+              className="card glass shadow-xl text-left my-4 p-4 sm:p-8 rounded-md space-y-4 group hover:scale-110 hover:duration-500"
             >
               <div className="flex justify-start items-center gap-4">
                 <img
