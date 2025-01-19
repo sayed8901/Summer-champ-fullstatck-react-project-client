@@ -8,7 +8,7 @@ const Main = () => {
   const { themeClassName } = useContext(ThemeContext);
 
   return (
-    <div data-theme={themeClassName} className={`min-h-screen my-container`}>
+    <div data-theme={themeClassName} className="min-h-screen">
       <Navbar></Navbar>
       <Outlet></Outlet>
       <Footer></Footer>

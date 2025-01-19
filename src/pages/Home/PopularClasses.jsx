@@ -103,7 +103,7 @@ const PopularClasses = () => {
       </div>
 
       {showMoreButton && (
-        <div className="absolute right-16 mt-10 mx-auto animate-pulse">
+        <div className="flex justify-end mt-10 mx-auto animate-pulse">
           <button
             onClick={() => showMoreClasses(classes)}
             className="btn btn-primary px-8 rounded-full bg-gradient flex gap-4"
@@ -114,7 +114,7 @@ const PopularClasses = () => {
         </div>
       )}
       {showLessButton && (
-        <div className="absolute right-16 mt-10 mx-auto animate-pulse">
+        <div className="flex justify-end mt-10 mx-auto animate-pulse">
           <button
             onClick={() => showLessClasses(classes)}
             className="btn btn-primary px-8 rounded-full bg-gradient flex gap-4"

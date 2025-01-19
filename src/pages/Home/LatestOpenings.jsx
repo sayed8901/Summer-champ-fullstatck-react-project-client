@@ -4,7 +4,7 @@ import Countdown from "../../utilities/Countdown";
 
 const LatestOpenings = () => {
   // for the countdown part
-  const targetDate = new Date("2023-10-31T23:59:59").getTime();
+  const targetDate = new Date("2025-09-31T23:59:59").getTime();
 
   return (
     <div className="my-32">

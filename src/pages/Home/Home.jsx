@@ -19,30 +19,46 @@ const Home = () => {
       <AnimatedSection>
         <BannerSlider></BannerSlider>
       </AnimatedSection>
-      <AnimatedSection>
-        <PopularClasses></PopularClasses>
-      </AnimatedSection>
-      <AnimatedSection>
-        <LatestOpenings></LatestOpenings>
-      </AnimatedSection>
-      <AnimatedSection>
-        <PopularInstructors></PopularInstructors>
-      </AnimatedSection>
-      <AnimatedSection>
-        <ImprovementStrategy></ImprovementStrategy>
-      </AnimatedSection>
-      <AnimatedSection>
-        <OurHeros></OurHeros>
-      </AnimatedSection>
-      <AnimatedSection>
-        <Testimonials></Testimonials>
-      </AnimatedSection>
-      <AnimatedSection>
-        <CommonQNA></CommonQNA>
-      </AnimatedSection>
-      <AnimatedSection>
-        <Contact></Contact>
-      </AnimatedSection>
+      <div className="my-container">
+        <AnimatedSection>
+          <PopularClasses></PopularClasses>
+        </AnimatedSection>
+      </div>
+      <div className="my-container">
+        <AnimatedSection>
+          <LatestOpenings></LatestOpenings>
+        </AnimatedSection>
+      </div>
+      <div className="my-container">
+        <AnimatedSection>
+          <PopularInstructors></PopularInstructors>
+        </AnimatedSection>
+      </div>
+      <div className="my-container">
+        <AnimatedSection>
+          <ImprovementStrategy></ImprovementStrategy>
+        </AnimatedSection>
+      </div>
+      <div className="my-container">
+        <AnimatedSection>
+          <OurHeros></OurHeros>
+        </AnimatedSection>
+      </div>
+      <div className="my-container">
+        <AnimatedSection>
+          <Testimonials></Testimonials>
+        </AnimatedSection>
+      </div>
+      <div className="my-container">
+        <AnimatedSection>
+          <CommonQNA></CommonQNA>
+        </AnimatedSection>
+      </div>
+      <div className="my-container">
+        <AnimatedSection>
+          <Contact></Contact>
+        </AnimatedSection>
+      </div>
     </div>
   );
 };
