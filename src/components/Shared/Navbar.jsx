@@ -194,7 +194,7 @@ const Navbar = () => {
                 <div className="flex justify-center items-center gap-1 border-4 rounded-full bg-gradient p-1">
                   <div
                     className="tooltip tooltip-left tooltip-primary"
-                    data-tip={user.displayName}
+                    data-tip={`${user.displayName}\n(${role})`}
                   >
                     <LazyLoad>
                       <img
