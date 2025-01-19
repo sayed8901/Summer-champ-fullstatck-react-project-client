@@ -4,10 +4,10 @@ const Footer = () => {
   
   return (
     <footer
-      className={`glass sticky top-[100vh] py-5`}
+      className={`glass sticky top-[100vh] p-4`}
     >
       <div
-        className={`my-container grid grid-cols-3 items-center justify-between gap-6 sm:gap-12 text-center`}
+        className={`grid grid-cols-3 items-center justify-between gap-6 sm:gap-12 text-center`}
       >
         <div className="items-center">
           <p className="mx-auto text-sm">

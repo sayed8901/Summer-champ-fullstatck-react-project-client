@@ -125,10 +125,10 @@ const Navbar = () => {
   );
 
   return (
-    <div className={`sticky top-0 z-10 glass py-4 ${isNavbarVisible ? "opacity-100" : "opacity-0"}
+    <div className={`sticky top-0 z-10 glass p-4 ${isNavbarVisible ? "opacity-100" : "opacity-0"}
       transition-opacity duration-300`}>
       <div
-        className={`my-container navbar bg-opacity-50 h-16 rounded-md`}
+        className={`navbar bg-opacity-50 h-16 rounded-md`}
       >
         <div className="navbar-start">
           {/* dropdown navbar for small display */}
