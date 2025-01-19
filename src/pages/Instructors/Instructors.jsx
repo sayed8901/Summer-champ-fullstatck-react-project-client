@@ -16,7 +16,7 @@ const Instructors = () => {
   //   console.log(instructors);
 
   return (
-    <div>
+    <div className="container mx-auto px-2 lg:px-0">
       <Slide className="sm:w-3/4 mx-auto">
         <h2 className="text-2xl lg:text-4xl font-bold text-center mt-16">
           All <span className="text-gradient">Instructors</span>

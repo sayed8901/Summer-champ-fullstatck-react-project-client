@@ -10,7 +10,7 @@ const Main = () => {
   return (
     <div
       data-theme={themeClassName}
-      className="min-h-screen px-2 lg:px-10"
+      className="min-h-screen"
     >
       <Navbar></Navbar>
       <Outlet></Outlet>

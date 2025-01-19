@@ -42,7 +42,7 @@ const PaymentHistory = () => {
             {myEnrolledClasses.map((singleClass, index) => (
               <tr className="hover" key={singleClass._id}>
                 <td className="text-center">{index + 1}</td>
-                <td className="text-center font-bold flex justify-center items-center gap-2">
+                <td className="text-center font-bold flex justify-start items-center gap-4">
                   <div className="avatar">
                     <div className="mx-auto mask mask-squircle w-12 h-12">
                       <img src={singleClass.classImage} />

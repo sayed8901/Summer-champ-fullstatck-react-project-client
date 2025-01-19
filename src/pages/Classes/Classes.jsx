@@ -68,7 +68,7 @@ const Classes = () => {
   };
 
   return (
-    <div>
+    <div className="container mx-auto px-2 lg:px-0">
       <Slide className="sm:w-3/4 mx-auto">
         <h2 className="text-2xl lg:text-4xl font-bold text-center mt-16">
           All <span className="text-gradient">Classes</span>
@@ -84,10 +84,14 @@ const Classes = () => {
           <LazyLoad key={singleClass._id}>
             <div
               className={`card glass sm:card-side shadow-xl ${
-                singleClass.availableSeats === 0 && "bg-red-400"}`}
+                singleClass.availableSeats === 0 && "bg-red-400"
+              }`}
             >
               <figure className="w-full sm:w-5/12 sm:ms-4">
-                <img className="w-full h-auto rounded-xl" src={singleClass?.classImage} />
+                <img
+                  className="w-full h-auto rounded-xl"
+                  src={singleClass?.classImage}
+                />
               </figure>
               <div className="card-body">
                 <h2 className="card-title text-gradient">
@@ -97,15 +101,25 @@ const Classes = () => {
                   <p>
                     Instructor: <b>{singleClass.instructorName}</b>
                   </p>
-                  <p>Available Seats: <b>{singleClass.availableSeats}</b></p>
-                  <p># of students enrolled: <b>{singleClass.enrolledStudents}</b></p>
                   <p>
-                    Price: <b className="text-gradient">BDTK {singleClass.price}</b>
+                    Available Seats: <b>{singleClass.availableSeats}</b>
+                  </p>
+                  <p>
+                    # of students enrolled:{" "}
+                    <b>{singleClass.enrolledStudents}</b>
+                  </p>
+                  <p>
+                    Price:{" "}
+                    <b className="text-gradient">BDTK {singleClass.price}</b>
                   </p>
                 </div>
                 <div className="card-actions justify-end">
                   <button
-                    disabled={singleClass.availableSeats === 0 || role === "admin" || role === "instructor"}
+                    disabled={
+                      singleClass.availableSeats === 0 ||
+                      role === "admin" ||
+                      role === "instructor"
+                    }
                     onClick={() => {
                       handleSelect(singleClass);
                     }}
